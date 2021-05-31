@@ -1,0 +1,31 @@
+'''
+__all__变量,可以在每个代码模块中定义,类型是元组(推荐),列表
+作用: 影响from 模块名 import * 导入行为,另外两种导入行为不受影响
+1.如果没有定义 __all__ 变量,模块中的所有功能都可以被导入
+2.如果定义 __all__ 变量,只能导入变量中定义的内容
+
+另外两种导入行为不受影响
+
+里面必须写字符串
+__all__ = ["num", "func"]
+'''
+
+__all__ = ["num", "func"]
+
+
+num = 4
+
+
+def func():
+    print("my_module4 func")
+
+
+class Dog(object):
+    def __init__(self, name):
+        self.name = name
+
+    @staticmethod
+    def show_info():
+        print("my_module4 Dog class")
+
+
