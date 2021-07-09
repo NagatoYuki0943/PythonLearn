@@ -1,0 +1,68 @@
+查看帮助
+	conda help
+
+conda代理
+    设置代理
+       	conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+       	conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+    设置启动设置好的国内镜像源
+       	conda config --set show_channel_urls yes
+
+    查看是否添加上了源
+        conda config --show
+        channel默认是defaults,修改之后就不一样了
+
+    删除镜像
+    	conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+        conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+
+环境管理
+	linux初始化
+		conda init
+	进入环境 
+		conda activate 环境名 
+
+	退出环境
+		conda deactivate
+
+	创建虚拟环境:  conda create -n 环境名 python=3.6
+		创建完成后目录文件夹会生成在Anaconda3的安装目录envs下边
+		linux会创建在 home/xxx/.conda/envs/ 目录下
+
+	删除某个环境
+		conda remove -n 环境名 --all
+
+	列出所有可用环境
+		conda env list
+		conda info --envs
+
+	从旧的环境克隆出一个新环境
+		conda create -n 环境名 --clone oldname
+
+	导出环境配置(进入虚拟环境中使用)
+		conda env export > environment.yml
+
+	用导出的配置生成一个新环境 
+		conda env create -f environment.yml
+
+
+包管理
+	conda list 列举当前环境下的所有包
+	conda list -n packagename 列举某个特定名称包
+	conda install packagename 为当前环境安装某包
+	conda install -n envname packagename 为某环境安装某包
+	conda search packagename 搜索某包
+	conda updata packagename 更新当前环境某包
+	conda update -n envname packagename 更新某特定环境某包
+
+	conda remove packagename 删除当前环境某包
+        pip安装的要这样卸载
+            pip uninstall packagename
+
+	conda remove -n envname packagename 删除某环境某包
+	conda本身和anaconda、python本身也算包
+	conda update conda
+
+	conda update anaconda
+	conda update python
+    
