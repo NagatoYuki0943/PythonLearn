@@ -1,5 +1,5 @@
 '''
-                               x指的是一个item, x[0]是key, [1]是value
+x指的是一个item, x[0]是key, [1]是value
 sorted(字典.items(), key=lambda x: (x[0], x[1]))
 
 '''
