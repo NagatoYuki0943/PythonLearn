@@ -33,9 +33,12 @@ def timeSince(since):
 
 if __name__ == '__main__':
 
-    since = time.time() - 10 * 60
+    since = time.time()
+    time.sleep(5)
     period = timeSince(since)
-    print(period)
+    print('peroid', period)
+
+
 
     print('*' * 50)
     print('time部分:')
