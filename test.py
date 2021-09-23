@@ -1,3 +1,6 @@
-import random
+import os
 
-print(random.random())
+res = os.path.join('./name', 'age', 'sex')
+print(res)
+
+# ./name\age\sex

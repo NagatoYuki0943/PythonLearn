@@ -152,6 +152,10 @@ F 		(32-bit floating point pixels)
 
 ### 5.2 通道分离与合并 image.split()  Image.merge()
 
+> merge参数
+
+- mode:  "1", "CMYK", "F", "HSV", "I", "L", "LAB", "P", "RGB", "RGBA", "RGBX", "YCbCr"
+
 ```python
 from PIL import Image
 import matplotlib.pyplot as plt
@@ -159,6 +163,7 @@ image=Image.open('d:/ex.jpg')  	#打开图像
 gray=image.convert('L')   		#转换成灰度
 
 r,g,b=image.split()   			#分离三通道
+#                mode, bands
 pic=Image.merge('RGB',(r,g,b)) 	#合并三通道
 plt.figure(figsize=(10,8))
 plt.subplot(2,3,1), plt.title('origin'), plt.imshow(image),             plt.axis('off')
