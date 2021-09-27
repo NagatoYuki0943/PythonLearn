@@ -18,11 +18,11 @@ def copy_file(file_name, source_dir, dest_dir):
     '''
     # 1 拼接源文件路径和目标文件路径
     source_path = os.path.join(source_dir, file_name)
-    dist_path = os.path.join(dest_dir, file_name)
+    dest_path = os.path.join(dest_dir, file_name)
 
     # 2 打开源文件和目标文件
     with open(source_path, 'rb') as source_file:
-        with open(dist_path, 'wb') as dest_file:
+        with open(dest_path, 'wb') as dest_file:
             # 3 循环读取源文件到目标路径
             while True:
                 data = source_file.read(1024)
