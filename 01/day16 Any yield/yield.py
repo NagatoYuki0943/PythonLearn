@@ -31,6 +31,7 @@ for n in fab(5):
 
 
 f = fab(5) 
+# 迭代器的形式
 print(f.__next__())
 print(f.__next__())
 print(f.__next__())

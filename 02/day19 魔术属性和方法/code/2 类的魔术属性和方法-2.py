@@ -57,6 +57,7 @@ class Goods(object):
     def __setitem__(self, key, value):
         print('key: ', key, ',value: ', value)
 
+
     # 用字典的书写格式操作对象的方法
     def __delitem__(self, key):
         print('key: ', key)
