@@ -65,4 +65,5 @@ conda代理
 
 	conda update anaconda
 	conda update python
+	conda install python=3.8 
     
