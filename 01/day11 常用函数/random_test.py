@@ -34,7 +34,7 @@ print(random.choice(str1))              # o
 print('*' * 50)
 
 
-# 6.random.shuffle(x[, random]) 打乱
+# 6.random.shuffle(x[, random]) 打乱 不需要返回值,直接修改原列表
 p = ['A' , 'B', 'C', 'D', 'E' ]
 random.shuffle(p)  
 print (p)                               # ['D', 'E', 'C', 'A', 'B']
@@ -43,7 +43,7 @@ print('*' * 50)
 
 # 7.random.sample(sequence, k) 取样
 lst = [1, 2, 3, 4, 5]  
-print(random.sample(lst,4))             # [2, 3, 4, 1]
+print(random.sample(lst, 4))             # [2, 3, 4, 1]
 print(lst)                              # [1, 2, 3, 4, 5]
 
 

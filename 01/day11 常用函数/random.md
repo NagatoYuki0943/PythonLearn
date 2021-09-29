@@ -81,7 +81,7 @@ print(random.choice(str1))
 
  
 
-## 6.random.shuffle(x[, random]) 打乱
+## 6.random.shuffle(x[, random]) 打乱 不需要返回值,直接修改原列表
 
 用于将一个列表中的元素打乱,即将列表内的元素随机排列。
 
