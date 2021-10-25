@@ -18,3 +18,7 @@ print(o)
 o['key1'] = 'value4'
 print(o)
 # OrderedDict([('key2', 'value2'), ('key1', 'value4'), ('key3', 'value3')])
+
+o.update({"keyx": "xxxxx"})
+print(o)
+# OrderedDict([('key2', 'value2'), ('key1', 'value4'), ('key3', 'value3'), ('keyx', 'xxxxx')])
