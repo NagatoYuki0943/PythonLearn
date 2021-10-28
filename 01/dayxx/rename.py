@@ -11,7 +11,7 @@ def rename(dir):
     number = 100
     for old_name in old_names:
         #new_name = str(number) + old_name[3:]
-        new_name = "0"+old_name
+        new_name = old_name[1:]
 
         #temp = old_name.split()
         #new_name = " 厨余垃圾 ".join(temp)
@@ -25,5 +25,5 @@ def rename(dir):
 
 
 if __name__ == "__main__":
-    dir = "C:\Ai\Garbage134\data\\valid\\temp"
+    dir = r"C:\Users\Frostbite\Desktop\Garbage50\\train"
     rename(dir)
