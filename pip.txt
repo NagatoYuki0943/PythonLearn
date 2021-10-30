@@ -32,7 +32,7 @@ Windows
     命令：pip list
  
 7.pip检测更新
-    pip list –outdated
+    pip list --outdated
 
 8.pip升级包
     pip install --upgrade packagename
@@ -42,6 +42,9 @@ Windows
 
 10.安装requirements.txt中的包
     pip install -r requirements.txt
+
+11.更新数据
+    python -m pip install --upgrade pip
 
 Linux
 python虚拟环境：允许安装不同版本的套件
