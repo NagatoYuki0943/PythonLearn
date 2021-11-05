@@ -41,7 +41,7 @@ if __name__ == '__main__':
     try:
         os.mkdir(dest_dir)
     except:
-        print("目标文件夹已经存在")    
+        print("目标文件夹已经存在")
 
     # 3.读取源文件夹的文件列表
     file_list = os.listdir(source_dir)
