@@ -56,3 +56,7 @@ python虚拟环境：允许安装不同版本的套件
 退出：deactivate
 创建虚拟环境，指定Python路径： mkvirtualenv -p   /usr/bin/python3.6  xxx
 在虚拟环境中安装套件： pip install 套件名==版本
+
+问题: 
+    Ignoring invalid distribution -ip
+    删除对应目录中以 ~ip 开头的目录即可
