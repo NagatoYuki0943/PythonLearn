@@ -23,7 +23,7 @@ json.dump(
 
 ----
 
-# json.dumps(对象) 常用
+# json.dumps(字符串) 常用
 
 `dumps`函数不需要传文件描述符，其他的参数和`dump`函数的一样。
 
@@ -43,8 +43,6 @@ json.dumps(obj,
           )
 ```
 
-
-
 ## 实例
 
 ```python
@@ -56,8 +54,6 @@ data = [ { 'a' : 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5 } ]
 data2 = json.dumps(data)
 print(data2)
 ```
-
-
 
 以上代码执行结果为：
 
