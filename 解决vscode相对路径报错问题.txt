@@ -1,0 +1,4 @@
+# 解决相对路径报错问题
+import os
+import sys
+os.chdir(sys.path[0])
