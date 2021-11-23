@@ -1,4 +1,4 @@
-# app.py 与 模板的结合使用
+# 01run.py 与 模板的结合使用
 
 from flask import Flask, request, render_template
 
