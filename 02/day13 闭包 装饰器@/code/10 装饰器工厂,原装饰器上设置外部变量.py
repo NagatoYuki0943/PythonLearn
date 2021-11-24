@@ -18,18 +18,14 @@ def test(choice):
     '''
     print(choice)
 
-
     if choice == 0:
         # 装饰器
         def func_out(func):
             def func_in():
                 print("----开始验证----")
                 func()
-
             return func_in
-
         return func_out
-
 
     elif choice == 1:
         # 装饰器
@@ -37,9 +33,7 @@ def test(choice):
             def func_in():
                 print("----开始注册----")
                 func()
-
             return func_in
-
         return func_out
 
 
@@ -59,7 +53,7 @@ login()
 # ----开始登陆----
 
 
-@ test(1)  
+@ test(1)
 def register():
     print("----开始登陆----")
 register()

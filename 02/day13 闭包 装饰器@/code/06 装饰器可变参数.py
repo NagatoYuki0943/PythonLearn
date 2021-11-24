@@ -15,7 +15,7 @@ def function_out(func):
         print("开始验证")
         # 要传递给调用的函数,传递函数也要使用 * **
         func(*args, **kwargs)
-        
+
     return function_in
 
 
@@ -31,6 +31,6 @@ def login(*args, **kwargs):
 
 login(1, 1000, password=999)
 # 开始验证
-# 开始登陆        
+# 开始登陆
 # args:  (1, 1000)
 # kwargs:  {'password': 999}

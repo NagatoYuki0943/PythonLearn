@@ -12,7 +12,7 @@ def function_out(func):
 
         # 要传递给调用的函数
         func(id, password)
-        
+
     return function_in
 
 
