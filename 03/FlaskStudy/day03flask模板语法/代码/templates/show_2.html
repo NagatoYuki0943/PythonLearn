@@ -5,45 +5,59 @@
     <title>过滤器的使用</title>
 </head>
 <body>
+<h1>字符串过滤器</h1>
 当前用户共:{{ girls | length }}人
-<br>
-{# 转译 #}
-{{ msg | safe }}
-<br>
-{{ n1 | capitalize }}
-<br>
-{{ n1 | upper }}
-<br>
-{{ n1 | reverse }}
-<br>
-{{ '%s is %d years old' | format('lily',18) }}
-<br>
-{{ 'hello world' | truncate(5) }}
-<br>
-{# 列表过滤器的使用 #}
-{{ girls | first }}<br>
-{{ girls | last }}<br>
-{{ girls | length }}<br>
-{#{{ girls | sum }} 整型的计算 #}
-{{ [1,3,5,7,9] | sum }}<br>
-{{ [1,8,5,7,3] | sort }}<br>
-
-<p>
-    {{ users.0 }}
-    <br>
-    {% for v in users.0.values() %}
-        <p>{{ v }}</p>
-    {% endfor %}
 <hr>
-{% for k in users.0.keys() %}
+[safe: 禁用转译] {{ msg | safe }}
+<hr>
+[capitalize: 单词的首字母大写] {{ n1 | capitalize }}
+<hr>
+[lower和upper: 大小写的转换] {{ n1 | upper }} --- {{ n1 | lower }}
+<hr>
+[title首字母大写] {{ 'She is a beautiful girl'| title }}
+<hr>
+[reverse: 顺序反转] {{ n1 | reverse }}
+<hr>
+[truncate(n): 字符串截断,多余的用"."表示]{{ 'hello world' | truncate(5) }} {# 显示为 he... #}
+<hr>
+[format: 格式化字符串 ] {{ '%s is %d years old' | format('lily',15) }}
+<br>
+
+
+<h1>列表过滤器</h1>
+[length: 列表长度] {{ girls | length }}<br>
+[first: 第一个值] {{ girls | first }}<br>
+[last: 最后一个值] {{ girls | last }}<br>
+<hr>
+
+{#{{ girls | sum }} 整型的计算 #}
+[sum: 求和] {{ [1,3,5,7,9] | sum }}<br>
+[sort: 排序(默认升序)] {{ [1,8,5,7,3] | sort }}<br>
+<hr>
+
+<h1>字典的操作</h1>
+{{ user }}
+<br>
+
+<h3>dict.keys()</h3>
+{% for k in user.keys() %}
     <p>{{ k }}</p>
 {% endfor %}
 <hr>
-{% for k,v in users.0.items() %}
+
+<h3>dict.values()</h3>
+{% for v in user.values() %}
+    <p>{{ v }}</p>
+{% endfor %}
+
+<hr>
+
+<h3>dict.items()</h3>
+{% for k,v in user.items() %}
     <p>{{ k }}---{{ v }}</p>
 {% endfor %}
 
 
-</p>
+
 </body>
 </html>

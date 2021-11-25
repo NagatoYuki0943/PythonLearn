@@ -16,19 +16,21 @@
 <!--
   <button> 按钮 </button>
 -->
-{# {{ girls }} #}
+{{ girls }}
+<hr>
 <ul>
     {% for girl in girls %}
-        <li> {{ girl }} </li>
+    <li>{{ girl }}</li>
     {% endfor %}
 </ul>
 
 <hr>
-
+{# for循环 #}
 <ul>
     {% for girl in girls %}
-        {% if girl|length >= 3 %}
-            <li class="a"> {{ girl }}</li>
+        {# | 过滤器 #}
+        {% if girl|length >=3 %}
+            <li class="a">{{ girl }}</li>
         {% else %}
             <li>{{ girl }}</li>
         {% endif %}
@@ -36,7 +38,7 @@
 </ul>
 
 <hr>
-
+{# for循环 #}
 <table border="1" cellpadding="0" cellspacing="0" width="50%">
     {% for user in users %}
         <tr>
@@ -46,15 +48,20 @@
             <td>{{ user.phone }}</td>
         </tr>
     {% endfor %}
-
 </table>
 
 <hr>
-
+{# loop的使用 #}
 <table border="1" cellpadding="0" cellspacing="0" width="50%">
     {% for user in users %}
-        <tr {% if loop.index == 3 %} style="background-color: deeppink" {% endif %}>
-            <td> {{ loop.index }}</td>
+        <tr {% if loop.first %} style="background-color: #00ff80" {% elif loop.last %} style="background-color: #0080ff" {% endif %}>
+            <td>{{ loop.length }}</td>    {# 循环长度 #}
+            <td>{{ loop.index }}</td>     {# index 序号从1开始 #}
+            <td>{{ loop.index0 }}</td>    {# index0 序号从0开始 #}
+            <td>{{ loop.revindex }}</td>  {# revindex 序号倒叙从1开始 #}
+            <td>{{ loop.revindex0 }}</td> {# revindex 序号倒叙从0开始 #}
+            <td>{{ loop.first }}</td>     {# 布尔类型 是否是第一行 #}
+            <td>{{ loop.last }}</td>      {# 布尔类型 是否是最后一行 #}
             <td>{{ user.username }}</td>
             <td>{{ user.password }}</td>
             <td>{{ user.addr }}</td>

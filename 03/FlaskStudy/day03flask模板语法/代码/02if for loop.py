@@ -1,4 +1,25 @@
-from flask import Flask, request, render_template
+"""
+if使用
+    {% if i %}
+    {% else %}
+    {% endif %}
+for循环和循环
+{% for i in girls %}
+    {{ i }}
+{% endfor %}
+
+loop使用  {{}} {%%} 都可以使用
+    {% for i in girls %}
+    loop.length
+    loop.index
+    loop.index0
+    loop.revindex
+    loop.revindex
+    loop.first
+    loop.last
+{% endfor %}
+"""
+from flask import Flask, render_template
 
 import settings
 
@@ -7,7 +28,7 @@ app = Flask(__name__)
 app.config.from_object(settings)
 
 
-@app.route('/show1')
+@app.route('/')
 def show1():
     girls = ['如花', '凤姐', '宋宋', '孙艺珍', '建玲', '林允儿']
     users = [
@@ -17,7 +38,6 @@ def show1():
         {'username': 'zhangsan4', 'password': '123333', 'addr': '西安', 'phone': '13900008810'},
         {'username': 'zhangsan5', 'password': '123444', 'addr': '成都', 'phone': '13977771010'},
         {'username': 'zhangsan6', 'password': '123555', 'addr': '深圳', 'phone': '13900121010'},
-
     ]
     return render_template('show_1.html', girls=girls, users=users)
 

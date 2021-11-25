@@ -6,21 +6,26 @@
 </head>
 <body>
 <div>用户信息展示</div>
-<p>
-    用户名是：{{ name }} -- {{ age }} ---{{ gender }}
-    <br>
-    {# 列表 #}
-    {{ friends.0 }} --- {{ friends[1] }} --- {{ friends[4] }}   {# friends[4] 不存在,但是不会报错 #}
-    <br>
-    {# 字典 #}
-    {{ dict1.gift1 }} --- {{ dict1.get('gift0') }}
-    {{ dict1.gift1 }} --- {{ dict1.get('gift0') }}
-    <br>
-    {# 对象 #}
-    {{ girl.name }} -- {{ girl.gender }} -- {{ girl.addr }}
-    <br>
-    <span style="color: #2dc26b">列表,字典,对象都可以通过 . 来获取值</span>
-</p>
+
+用户名是：{{ name }} -- {{ age }} ---{{ gender }}
+<hr>
+{# 列表 #}
+显示列表所有值: {{ friends }}
+<br>
+{{ friends.0 }} --- {{ friends[1] }} --- {{ friends[4] }}   {# friends[4] 不存在,但是不会报错 #}
+<hr>
+{# 字典 #}
+显示字典所有值: {{ dict1 }}
+<br>
+{{ dict1.gift1 }} --- {{ dict1.get('gift0') }} --- {{ dict1['gift2'] }}
+<hr>
+{# 对象 #}
+显示对象所有值(只显示一个): {{ girl }}
+<br>
+{{ girl.name }} -- {{ girl.gender }} -- {{ girl.addr }}
+<hr>
+<span style="color: #2dc26b">列表,字典,对象都可以通过 . 来获取值</span>
+
 
 </body>
 </html>
