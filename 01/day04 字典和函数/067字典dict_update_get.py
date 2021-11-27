@@ -27,15 +27,20 @@ print("*" * 50)
 dict3 = {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'sticks', 'stocking']}
 print(dict3)  # {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'sticks', 'stocking']}
 
+# 3.添加新数据,数据要写成字典格式
+dict3.update({'length':100})
+print(dict3)  # {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'sticks', 'stocking'], 'length': 100}
+
+
 # 访问value值,字典中没有下标概念,使用key值访问value值
 print(dict3['name'])  # Tom
-print(dict3['hobby'][0])  # pantyhose
-# print(dict3['a'])          # key值不存在,会报错
+print(dict3['hobby'][0])    # pantyhose
+# print(dict3['a'])         # key值不存在,会报错
 
 # get方式获取不会报错,没有返回None
 # get(key)
-print(dict3.get('name'))  # Tom
-print(dict3.get('a'))  # None
+print(dict3.get('name'))    # Tom
+print(dict3.get('a'))       # None
 
 # get(value,default)
 print(dict3.get('a', 'HHHH'))  # HHHH
@@ -43,4 +48,4 @@ print("*" * 50)
 
 
 # 3.使用len获取长度,获取键值对的数量
-print(len(dict3))  # 3
+print(len(dict3))  # 4
