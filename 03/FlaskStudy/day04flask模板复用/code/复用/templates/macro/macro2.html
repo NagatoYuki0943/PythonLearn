@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宏的使用2</title>
+</head>
+<body>
+{# 路径是基于templates来找,不是自己的文件夹 #}
+{% import 'macro/macro.html' as f %}
+{# 调用传递过来的方法 #}
+{{ f.form('/welcome',value='注册') }}
+
+{# 声明变量 #}
+{% set username ='zhangsan' %}
+
+{{ username }}
+
+{% with num=1000  %}
+   {{ num }}
+{% endwith %}
+
+{{ num }}
+
+</body>
+</html>

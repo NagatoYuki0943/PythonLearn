@@ -1,0 +1,45 @@
+{# 继承父模板,路径是基于templates #}
+{% extends 'base.html' %}
+
+{# 在模板中设置值 #}
+{% block title %}
+    子模板的title
+{% endblock %}
+
+{% block mycss %}
+    <style>
+        #middle{
+            background-color: deeppink;
+            color: white;
+            font-weight: bold;
+        }
+        .div1{
+            width: 33%;
+            height: 500px;
+            float: left;
+            border: 1px solid red;
+        }
+    </style>
+    {# 引入静态文件  /static/<filename> #}
+    {# url_for('static', filename='') static是Flask预定义好的路由,filename是static目录下的文件名 #}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+{% endblock %}
+
+{% block myjs %}
+    <script>
+            btn = document.getElementById('btn')
+            btn.onclick=function(){
+                alert('别点我啊！')
+            }
+    </script>
+{% endblock %}
+
+{% block middle %}
+    <div class="div1" id="d1"> </div>
+    <div class="div1"> </div>
+    <div class="div1"> </div>
+    {# url_for('static', filename='') static是Flask预定义好的路由,filename是static目录下的文件名 #}
+    <img src="{{ url_for('static',filename='images/a1.png') }}" alt="">
+{% endblock %}
+
+

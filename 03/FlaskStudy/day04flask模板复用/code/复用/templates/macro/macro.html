@@ -1,0 +1,11 @@
+{# form是函数名 #}
+{% macro form(action, value='登录', method='post') %}
+    {#  {{ action }} 是使用上面的变量名   #}
+    <form action="{{ action }}" method="{{ method }}">
+        <input type="text" placeholder="用户名" name="username">
+        <br>
+        <input type="password" placeholder="密码" name="password">
+        <br>
+        <input type="submit" value="{{ value }}">
+    </form>
+{% endmacro %}
