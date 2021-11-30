@@ -13,7 +13,7 @@ manager = Manager(app=app)
 migrate = Migrate(app=app, db=db)
 manager.add_command('db', MigrateCommand)
 
-
+# 自定义添加命令
 @manager.command
 def init():
     print('初始化')

@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-
+{% extends 'base.html' %} {# extends 路径是相对于templates根目录来说的,所以直接写即可 #}
 
 {% block title %}
     用户注册
@@ -7,7 +6,7 @@
 
 {% block middle %}
     <p style="color: red">{{ msg }}</p>
-    <form action="/register" method="post">
+    <form action="{{ url_for('user.register') }}" method="post">
         <p><input type="text" name="username" placeholder="用户名"></p>
         <p><input type="password" name="password" placeholder="密码"></p>
         <p><input type="password" name="repassword" placeholder="确认密码"></p>

@@ -3,9 +3,10 @@
 路由不用加蓝图前缀,和普通使用相同
 """
 
-from flask import Blueprint, request, render_template, redirect
+import enum
+from flask import Blueprint, request, render_template, redirect, url_for
 from apps.user.model import User
-import json
+
 
 # 创建蓝图,就是一个逻辑中枢
 user_bp = Blueprint('user', __name__)
@@ -17,6 +18,9 @@ users = []
 # http://127.0.0.1:5000/
 @user_bp.route('/')
 def center():
+    # url_for在使用蓝图的时候前面要加上 蓝图名字.
+    # print(url_for('user.register')) # /register
+
     return render_template('user/show.html', users=users)     # 路径在 templates/user/show
 
 
@@ -34,11 +38,11 @@ def register():
             for user in users:
                 if user.username == username:
                     return render_template('user/register.html', msg="用户名已存在")
-
             user = User(username, password, phone)
             users.append(user)
             return redirect('/')
-
+        else:
+            return render_template('user/register.html', msg="两次密码不一样")
     return render_template('user/register.html')
 
 
@@ -55,7 +59,29 @@ def logout():
     return "用户退出"
 
 
-# http://127.0.0.1:5000/delete
+# http://127.0.0.1:5000/update
+@user_bp.route('/update', methods=['GET', 'POST'])
+def update():
+    if request.method == "GET":
+        username = request.args.get('username')
+        # 找到用户并返回
+        for user in users:
+            if user.username == username:
+                return render_template('user/update.html', user=user)
+
+    else:
+        # 获取数据
+        username = request.form.get('username')
+        password = request.form.get('password')
+        phone = request.form.get('phone')
+        for user in users:
+            if user.username == username:
+                user.password = password
+                user.phone = phone
+                return '更改成功'
+
+
+# http://127.0.0.1:5000/delete?username=???
 @user_bp.route('/delete')
 def delete():
     username = request.args.get('username')

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {# extends 路径是相对于templates根目录来说的,所以直接写即可 #}
 
 {% block middle %}
     <h1>用户信息</h1>
@@ -11,7 +11,10 @@
                 <td>{{ user.username }}</td>
                 <td>{{ user.password }}</td>
                 <td>{{ user.phone }}</td>
-                <td><a href="#">修改</a><a href="javascript:;" onclick="del('{{ user.username }}')">删除</a></td>
+                <td>
+                    <a href="javascript:;" onclick="update('{{ user.username }}')">修改</a>
+                    <a href="javascript:;" onclick="del('{{ user.username }}')">删除</a>
+                </td>
             </tr>
         {% endfor %}
     </table>
@@ -19,10 +22,14 @@
 
 {% block myjs %}
     <script>
-        function del(username){
+        del = (username)=>{
             // console.log(username)
             // location 地址栏对象
             location.href = '/delete?username='+username
+        }
+
+        update = (username)=>{
+            location.href = '/update?username='+username
         }
     </script>
 {% endblock %}
