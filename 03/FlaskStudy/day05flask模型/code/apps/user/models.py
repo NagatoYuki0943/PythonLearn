@@ -25,7 +25,7 @@ class User(db.Model):
     '''
     id        = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username  = db.Column(db.String(15), nullable=False)
-    password  = db.Column(db.String(12), nullable=False)
+    password  = db.Column(db.String(256), nullable=False)
     phone     = db.Column(db.String(11), unique=True)
     email     = db.Column(db.String(20))
     realname  = db.Column(db.String(20), comment="真实姓名") # comment是字段说明,自己试出来的

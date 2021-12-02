@@ -11,6 +11,7 @@
     <div>
         <h1>所有用户信息如下：</h1>
         搜索： <input type="text" name="search" placeholder="输入用户名或者手机号码"> <input type="button" value="搜索" id="search">
+        <hr>
         {% if users %}
             <table border="1" cellspacing="0" width="50%">
                 <tr>
@@ -26,8 +27,10 @@
                         <th>{{ user.username }}</th>
                         <th>{{ user.phone }}</th>
                         <th>{{ user.rdatetime }}</th>
-                        <th><a href="{{ url_for('user.update') }}?id={{ user.id }}">更新</a>
-                            <a href="{{ url_for('user.delete') }}?id={{ user.id }}">删除</a></th>
+                        <th>
+                            <a href="{{ url_for('user.update') }}?id={{ user.id }}">更新</a>
+                            <a href="{{ url_for('user.delete') }}?id={{ user.id }}">删除</a>
+                        </th>
                     </tr>
                 {% endfor %}
 
