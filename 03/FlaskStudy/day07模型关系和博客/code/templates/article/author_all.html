@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>所有文章</title>
+    <style>
+        #container{
+            border: 1px slateblue solid;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+                    <!-- 这样是因为 UserModel中的 articles = db.relationship('Article', backref='user') -->
+    {% for article in user.articles %}
+        <div id="container">
+            <h1>{{ article.title }}</h1>
+            <p>作者: {{ article.user.username }}</p>    <!-- User表中: articles = db.relationship('Article', backref='user') 根据文章找作者 -->
+            <p>时间: {{ article.pdatetime }}</p>
+            <p>{{ article.content }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

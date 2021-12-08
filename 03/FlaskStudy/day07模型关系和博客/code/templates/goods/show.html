@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>买商品</title>
+</head>
+<body>
+    <form action="">
+        <p>
+            <select name="user_id" id="">
+                <option value="0">请选择用户</option>
+                {% for user in users %}
+                <option value="{{ user.id }}">{{ user.username }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <p>
+            <table border="1" cellspacing="0" width="50%">
+                <tr>
+                    <th>序号</th>
+                    <th>商品名</th>
+                    <th>价格</th>
+                    <th>操作</th>
+                </tr>
+            {% for goods in goodses %}
+                <tr>
+                    <th>{{goods.id}}</th>
+                    <th>{{goods.gname}}</th>
+                    <th>{{goods.price}}</th>
+                    <th>
+                        <input type="button" class="btnbuy" tag="{{ goods.id }}" value="购买">
+                    </th>
+                </tr>
+            {% endfor %}
+            </table>
+        </p>
+    </form>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $('.btnbuy').click(function(){
+            goods_id = $(this).attr('tag');
+            // 通过属性获取
+            user_id = $('select[name="user_id"]').val();
+            // 发送请求
+            location.href = "/buy?user_id=" + user_id + '&goods_id=' + goods_id
+        })
+    </script>
+</body>
+</html>

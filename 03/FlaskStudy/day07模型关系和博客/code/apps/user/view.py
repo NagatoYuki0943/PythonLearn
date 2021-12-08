@@ -1,3 +1,7 @@
+'''
+用户控制器
+'''
+
 from operator import or_
 import re
 from flask import Blueprint, url_for, request
@@ -156,19 +160,12 @@ def test():
     '''
     并且： and_    或者： or_   非： not_
 
-    # and_可以省略,or_不行
-    User.query.filter(User.username.contains('i'), User.rdatetime.__gt__('2020-05-25 10:30:00')).all()
     User.query.filter(and_(User.username.contains('i'), User.rdatetime.__gt__('2020-05-25 10:30:00'))).all()
-
     User.query.filter(and_(User.username.contains('i'), User.rdatetime >'2020-05-25 10:30:00')).all()
     # select * from user where username like '%i%' and rdatetime < 'xxxx'
 
     User.query.filter(or_(User.username.like('z%'), User.username.contains('i'))).all()
     # 类似： select * from user where username like 'z%' or username like '%i%';
-
-    User.query.filter(not_(User.username.contains('i'))).all()
-    # 可以这样写
-    User.query.filter(not_(User.username.contains('i')), User.phone.startwith(1)).all()
 
     __gt__,__lt__,__ge__(gt equal),__le__ (le equal)  也可以直接使用 >  <  >=  <=  !=
     '''

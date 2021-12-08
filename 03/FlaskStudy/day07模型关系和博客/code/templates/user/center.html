@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>用户中心</title>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
     <div><a href="{{ url_for('user.register') }}">注册</a> <a href="{{ url_for('user.login') }}">登录</a> <a href="">退出</a>
@@ -39,6 +38,7 @@
             <p style="color: red; font-size: 20px;">当前还没有任何的用户，抓紧时间注册吧！！！</p>
         {% endif %}
     </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
         //获取search
         $('#search').click(function () {
