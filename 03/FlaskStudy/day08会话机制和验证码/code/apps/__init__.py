@@ -4,7 +4,7 @@ import settings
 from apps.user.view import user_bp
 from apps.article.view import article_bp
 from apps.goods.view import goods_bp
-from exts import db  # 导入映射的db
+from exts import db,bootstrap  # 导入映射的db,bootstrap
 
 
 def create_app():
@@ -17,4 +17,5 @@ def create_app():
     app.register_blueprint(article_bp)
     app.register_blueprint(goods_bp)
     db.init_app(app)                        # 将db对象与app进行了关联
+    bootstrap.init_app(app)                 # 初始化bootstrap
     return app
