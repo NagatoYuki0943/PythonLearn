@@ -14,10 +14,11 @@
     </style>
 </head>
 <body>
-    {% for article in articles %}
+                    <!-- 这样是因为 UserModel中的 articles = db.relationship('Article', backref='user') -->
+    {% for article in user.articles %}
         <div id="container">
             <h1>{{ article.title }}</h1>
-            <p>作者: {{ article.user.username }}</p>    <!-- User表中: articles = db.relationship('Article', backref='user') backref='user' 根据文章找作者 -->
+            <p>作者: {{ article.user.username }}</p>    <!-- User表中: articles = db.relationship('Article', backref='user') 根据文章找作者 -->
             <p>时间: {{ article.pdatetime }}</p>
             <p>{{ article.content }}</p>
         </div>
