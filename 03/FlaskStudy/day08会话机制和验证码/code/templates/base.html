@@ -3,6 +3,25 @@
 {% block styles %}
     {{ super() }}
     <style>
+        body {
+            background-image: url("{{ url_for('static',filename='image/bg.jpg') }}");
+        }
+
+        .navbar {
+            height: 70px;
+            padding-top: 10px;
+        }
+
+        #bs-example-navbar-collapse-1 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
         #myfoot {
             border-top: 1px solid darkgray;
             font-size: 14px;
@@ -27,10 +46,10 @@
                     <li><a href="#">关于我</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">文章分类 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                            aria-expanded="false">文章分类 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">  <!--下拉菜单-->
                             <li><a href="#">程序人生</a></li>
-                            <li role="separator" class="divider"></li>
+                            <li role="separator" class="divider"></li> <!--分隔符-->
                             <li><a href="#">随笔</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">慢生活</a></li>
@@ -41,13 +60,26 @@
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Search">   <!--搜索框-->
                     </div>
-                    <button type="submit" class="btn btn-default">搜索</button>
+                    <button type="submit" class="btn btn-default">搜索</button>         <!--搜索按钮-->
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">登录</a></li>
-                    <li><a href="#">注册</a></li>
+                    <!--判断用户是否登录-->
+                    {% if user %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">欢迎!{{ user.username }}<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">用户中心</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{ url_for('user.logout') }}">退出</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                        <li><a href="{{ url_for('user.login') }}">登录</a></li>
+                        <li><a href="{{ url_for('user.register') }}">注册</a></li>
+                    {% endif %}
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -59,7 +91,7 @@
         <h1>Hello, Bootstrap</h1>
     {% endblock %}
     {% block footer %}
-        <p id="myfoot">京ICP备11008000号-6京公网安备11010802020853</p>
+        <p id="myfoot">foooooooooooooooooooooooo</p>
     {% endblock %}
 {% endblock %}
 

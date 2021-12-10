@@ -19,7 +19,7 @@ class User(db.Model):
     用户表
     不用在__init__中写,在类全局写
     列: db.Column(类型，约束)  映射表中的列
-    类型：
+    类型:
     db.Integer      int
     db.String(15)   varchar(15)
     db.Datetime     datetime
@@ -27,7 +27,7 @@ class User(db.Model):
     '''
     id        = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username  = db.Column(db.String(256), nullable=False, comment="用户名")
-    password  = db.Column(db.String(256), nullable=False, comment="密码")
+    password  = db.Column(db.String(1024), nullable=False, comment="密码")
     phone     = db.Column(db.String(20), unique=True, nullable=True,comment="手机")
     email     = db.Column(db.String(50), comment="email")
     icon      = db.Column(db.String(256), comment="头像")

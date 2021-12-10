@@ -13,7 +13,7 @@ import hashlib
 from sqlalchemy import or_, and_, not_
 import json
 
-user_bp = Blueprint('user', __name__)
+user_bp = Blueprint(name='user', import_name=__name__)
 
 
 @user_bp.route('/')
@@ -158,14 +158,14 @@ def test():
     '''
 
     '''
-    并且： and_    或者： or_   非： not_
+    并且: and_    或者: or_   非: not_
 
     User.query.filter(and_(User.username.contains('i'), User.rdatetime.__gt__('2020-05-25 10:30:00'))).all()
     User.query.filter(and_(User.username.contains('i'), User.rdatetime >'2020-05-25 10:30:00')).all()
     # select * from user where username like '%i%' and rdatetime < 'xxxx'
 
     User.query.filter(or_(User.username.like('z%'), User.username.contains('i'))).all()
-    # 类似： select * from user where username like 'z%' or username like '%i%';
+    # 类似: select * from user where username like 'z%' or username like '%i%';
 
     __gt__,__lt__,__ge__(gt equal),__le__ (le equal)  也可以直接使用 >  <  >=  <=  !=
     '''

@@ -5,7 +5,6 @@ from apps import create_app
 from exts import db  # 导入映射的db
 from apps.user.models import User # 必须导入模型
 from apps.article.models import *
-from apps.goods.models import Goods, UserGoods
 
 app = create_app()
 

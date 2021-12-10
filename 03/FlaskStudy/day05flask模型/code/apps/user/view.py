@@ -3,7 +3,7 @@ from flask.templating import render_template
 from apps.user.models import User
 from exts import db
 
-user_bp = Blueprint('user', __name__)
+user_bp = Blueprint(name='user', import_name=__name__)
 
 
 @user_bp.route('/register', methods=['GET', 'POST'])

@@ -8,8 +8,8 @@ from apps.user.models import User
 from apps.article.models import Article
 from exts import db
 
-
-article_bp = Blueprint('article', __name__)
+# url_prefix前面必须有 '/'
+article_bp = Blueprint('article', __name__, url_prefix='/article')
 
 # 发布文章
 @article_bp.route('/publish', methods=["GET", "POST"])

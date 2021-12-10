@@ -57,7 +57,7 @@ class ArticleType(db.Model):
     '''
     文章分类表
 
-    数据库中的名字是： article_type
+    数据库中的名字是: article_type
     '''
     id       = db.Column(db.Integer, primary_key=True, autoincrement=True)
     typename = db.Column(db.String(50), nullable=False, comment="分类名")

@@ -18,14 +18,14 @@ class User(db.Model):
     '''
     不用在__init__中写,在类全局写
     列: db.Column(类型，约束)  映射表中的列
-    类型：
+    类型:
     db.Integer      int
     db.String(15)   varchar(15)
     db.Datetime     datetime
     '''
     id        = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username  = db.Column(db.String(15), nullable=False)
-    password  = db.Column(db.String(256), nullable=False)
+    password  = db.Column(db.String(1024), nullable=False)
     phone     = db.Column(db.String(11), unique=True)
     email     = db.Column(db.String(20))
     realname  = db.Column(db.String(20), comment="真实姓名") # comment是字段说明,自己试出来的
