@@ -10,7 +10,7 @@ class Goods(db.Model):
     id    = db.Column(db.Integer, primary_key=True, autoincrement=True)
     gname = db.Column(db.String(100), nullable=False, comment='商品名')
     price = db.Column(db.Float, nullable=False, comment='价格')
-    isdelete    = db.Column(db.Boolean, default=False, comment="软删除")
+    isdelete = db.Column(db.Boolean, default=False, comment="软删除")
 
     # 这个写在主表和辅表都可以,不过只能写一个
     # 参数1:关联模型;

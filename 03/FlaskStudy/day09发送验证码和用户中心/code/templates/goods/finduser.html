@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>根据商品找买了的用户</title>
+</head>
+<body>
+    商品名:{{ goods.gname }}
+    <hr>
+    购买此商品的用户有:
+    <br>
+    <!-- Goods表中 users = db.relationship('User', backref='goodses', secondary='user_goods') -->
+    <!-- 用户表中的多对多关联,secondary指的是中间表,才能这样取 users -->
+    {% for user in goods.users %}
+        <p><a href="{{ url_for('goods.findgoods') }}?user_id={{ user.id }}">{{ user.username }}</a></p>
+    {% endfor %}
+</body>
+</html>

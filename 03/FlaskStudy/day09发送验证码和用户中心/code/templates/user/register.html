@@ -1,0 +1,112 @@
+{%extends 'base.html' %} <!--路径相对于templates-->
+
+{% block title %}
+    用户注册
+{% endblock %}
+
+{% block styles %}
+{{ super() }} <!--继承之前的style-->
+    <style>
+        #container{
+            padding-top: 30px;
+            width: 1000px;
+            height: 800px;
+            margin: 0 auto;
+        }
+
+        #container h1 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        #container form {
+            margin: 0 auto;
+        }
+
+        .tips{
+            text-align: center;
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block newcontent %}
+    <div id="container">
+        <h1>用户注册</h1>
+        <p class="tips">{{ msg }}</p>
+        <form class="form-horizontal" method="post" action="{{ url_for('user.register') }}">
+            <div class="form-group">
+                <label for="inputUsername" class="col-md-2 control-label col-md-offset-1">用户名</label>
+                <div class="col-md-6"> <!-- 宽度为6 -->
+                    <input type="text" class="form-control" id="inputUsername" placeholder="username" name="username" value="{{ user.username }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="col-md-2 control-label col-md-offset-1">密码</label>
+                <div class="col-md-6">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="password" name="password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputConfirm" class="col-md-2 control-label col-md-offset-1 ">确认密码</label>
+                <div class="col-md-6">
+                    <input type="password" class="form-control" id="inputConfirm" placeholder="confirm password" name="repassword">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPhone" class="col-md-2 control-label col-md-offset-1">手机号码</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="inputPhone" placeholder="phone number" name="phone" value="{{ user.phone }}"><span></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="col-md-2 control-label col-md-offset-1">邮箱</label>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="{{ user.email }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-10">
+                    <button type="submit" class="btn btn-primary col-md-3">注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册
+                    </button>
+                    <button type="reset" class="btn btn-primary col-md-3 col-md-offset-1">重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        //手机号失去焦点发送ajax请求
+        $('#inputPhone').blur(function(){
+            //this指的是这个function,因此不能使用 ()=>{}
+            let phone = $(this).val()
+            //找到input下一个span
+            let span_element = $(this).next('span')
+            span_element.css({color:'red', 'font-size':15})
+
+            if(phone.length > 0){
+                // url 参数 返回处理方法
+                $.get(
+                    "{{ url_for('user.checkphone') }}",
+                    {phone: phone}
+                // 用字典获取
+                ).then(({code, msg})=>{
+                    console.log(code);
+                    console.log(msg);
+                    if(code == 1){
+                        span_element.text('手机号已经被注册')
+                    }else{
+                        span_element.css({color:'green', 'font-size':15})
+                        span_element.text('手机号可以使用')
+                    }
+                })
+            }else{
+                span_element.text('请输入手机号')
+            }
+        })
+    </script>
+{% endblock %}
