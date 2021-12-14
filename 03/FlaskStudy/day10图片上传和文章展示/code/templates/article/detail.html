@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    文章详情
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <style>
+        #container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        #detail{
+            background-color: rgba(232, 243, 242, 0.5);
+            width: 90%;
+            margin-top: 50px;
+        }
+        #detail h2{
+            text-align: center;
+        }
+        #detail p {
+            overflow: auto;
+        }
+
+        #left {
+            float: left;
+        }
+
+        #right {
+            float: right;
+            margin-right: 30px;
+        }
+
+        #content {
+            margin-top: 30px;
+        }
+    </style>
+{% endblock %}
+
+{% block newcontent %}
+    <div id='container'>
+        <div id="detail">
+            <h2>{{ article.title }}</h2>
+            <p>作者:{{ article.user.username }}&nbsp;&nbsp;&nbsp;&nbsp;发布时间:{{ article.pdatetime }}</p>
+            {# 右侧浮动显示按钮 #}
+            <div id="right">                                                                        {# tag表示状态, 0代表未收藏, 1代表已收藏 #}
+                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp;&nbsp;<span tag="0">{{ article.collect_number }}</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>&nbsp;&nbsp;<span tag="0">{{ article.fav_number }}</span>
+            </div>
+            </p>
+            {# 文章内容 #}
+            <div id="content">
+                {{ article.content|cdecode|safe }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        $(function(){
+            //收藏
+            $('.glyphicon-heart').click(function(){
+                let span = $(this).next('span')
+                //切换标签,默认为0,代表没收藏,点击改变
+                let tag = span.attr('tag');
+
+                $.get("{{ url_for('article.collect') }}",
+                {
+                    'aid': {{ article.id }},
+                    'tag': tag,     //传递给后台,1说明收藏过了,要取消收藏
+                }).then(({code, number})=>{
+                    span.text(number)
+                })
+
+                // 1代表已经收藏,再点击就取消
+                if (tag == 1) {
+                    $(this).css({'color':'black'});
+                    span.attr('tag',"0");
+                } else {
+                    $(this).css({'color':'red'});
+                    span.attr('tag',"1");
+                }
+            });
+
+            //点赞
+            $('.glyphicon-thumbs-up').click(function(){
+                let span = $(this).next('span')
+                //切换标签
+                let tag = span.attr('tag');
+
+                $.get("{{ url_for('article.fav') }}",
+                {
+                    'aid': {{ article.id }},
+                    'tag': tag,     //传递给后台,1说明收藏过了,要取消收藏
+                }).then(({code, number})=>{
+                    span.text(number)
+                })
+
+                // 1代表已经点赞,再点击就取消
+                if (tag == 1) {
+                    $(this).css({'color':'black'});
+                    span.attr('tag',"0");
+                } else {
+                    $(this).css({'color':'red'});
+                    span.attr('tag',"1");
+                }
+            });
+        })
+    </script>
+{% endblock %}
