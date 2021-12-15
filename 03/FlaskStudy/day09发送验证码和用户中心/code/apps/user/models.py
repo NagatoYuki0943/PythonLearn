@@ -28,7 +28,7 @@ class User(db.Model):
     id        = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username  = db.Column(db.String(256), nullable=False, comment="用户名")
     password  = db.Column(db.String(1024), nullable=False, comment="密码")
-    phone     = db.Column(db.String(20), unique=True, nullable=True,comment="手机")
+    phone     = db.Column(db.String(20), unique=True, nullable=True, comment="手机")
     email     = db.Column(db.String(50), comment="email")
     icon      = db.Column(db.String(256), comment="头像")
     realname  = db.Column(db.String(50), comment="真实姓名") # comment是字段说明,自己试出来的

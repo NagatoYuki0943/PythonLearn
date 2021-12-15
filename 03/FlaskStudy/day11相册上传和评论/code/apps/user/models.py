@@ -10,7 +10,7 @@ python app.py db downgrade  降级(回到上一个数据表)
     manager.add_command('db', MigrateCommand)   # 参数是名字和命令
 '''
 from exts import db
-from datetime import datetime
+from datetime import date, datetime
 
 
 # create table user(id int primarykey auto_increment,username varchar(20) not null,..)
@@ -46,3 +46,14 @@ class User(db.Model):
 
     def __str__(self):
         return self.username
+
+
+class Photo(db.Model):
+    id        = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name      = db.Column(db.String(1024), nullable=False, comment="图片名字,实际存放的是本地路径")
+    user_id   = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False, comment="用户id")
+    isdelete  = db.Column(db.Boolean, default=False, comment="软删除")
+    pdatetime = db.Column(db.DateTime, default=datetime.now, comment="上传时间")
+
+    def __str__(self) -> str:
+        return self.name
