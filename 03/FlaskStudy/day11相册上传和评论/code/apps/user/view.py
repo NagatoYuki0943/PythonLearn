@@ -31,7 +31,14 @@ user_bp = Blueprint(name='user', import_name=__name__, url_prefix='/user')
 
 
 # 需要登录的path列表,注意有 /user
-required_login_list = ['/user/center', '/user/update', '/article/publish', '/user/upphoto', '/user/delphoto']
+required_login_list = [
+                    '/user/center',
+                    '/user/update',
+                    '/user/upphoto',
+                    '/user/delphoto',
+                    '/article/publish',
+                    '/article/comment',
+                        ]
 
 
 # 钩子函数

@@ -43,6 +43,8 @@ class User(db.Model):
     # user.articles 可以获取相关文章列表
     # backref='user' 可以使用 article.user 反向获取用户
     articles = db.relationship('Article', backref='user')
+    # 这个人发表的评论有哪些
+    comments = db.relationship('Comment', backref='user')
 
     def __str__(self):
         return self.username

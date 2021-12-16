@@ -46,7 +46,8 @@
         <!-- 从pagination中驱除文章 -->
         {% for article in pagination.items %}
             <div class="article">
-                <h4><a href="{{ url_for('article.detail') }}?aid={{ article.id }}">{{ article.title }}</a></h4>
+                            {# http://127.0.0.1:5000/article/detail/20 20就是article_id #}
+                <h4><a href="{{ url_for('article.detail', article_id=article.id) }}">{{ article.title }}</a></h4>
                 <p>
                     <!-- 反向引用 -->
                     <span>作者:{{ article.user.username }}</span>
@@ -70,7 +71,6 @@
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                
                 {# pagination.pages显示总页数 #}
                 {% for page_num in range(1,pagination.pages + 1) %}
                     {# 是当前页才激活 #}

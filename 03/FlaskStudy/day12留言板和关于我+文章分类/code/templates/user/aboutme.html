@@ -1,33 +1,36 @@
 {% extends 'base.html' %}
 {% block title %}
-    关于我
+    关于我的
 {% endblock %}
-
 {% block styles %}
     {{ super() }}
     <style>
+
         #container {
-            width: 1200px;
+            padding-top: 30px;
+            width: 1000px;
+            height: 600px;
             margin: 0 auto;
+            margin-bottom: 50px;
         }
 
-        #container p {
+        #container p{
             width: 80%;
             background-color: #83cae3;
         }
+
+
     </style>
 {% endblock %}
-
 {% block newcontent %}
     <div id="container">
         <p>
-            {% if not user.about %}
-                用户中心设置更多关于我的信息～～～～
+            {% if user.aboutme %}
+                {# aboutme是一个列表,所以使用[0]获取第一个 #}
+                {{ user.aboutme[0].content | cdecode | safe }}
             {% else %}
-                {{ user.about[0].content | cdecode1 | safe }}
+                去用户中心设置自己的信息
             {% endif %}
-
-            {#            {{ user.about.content | cdecode1 | safe }}#}
         </p>
     </div>
 {% endblock %}

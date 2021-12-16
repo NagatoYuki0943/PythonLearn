@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户更新</title>
+</head>
+<body>
+    <h1>用户更新</h1>
+    <p style="color: red">{{ msg }}</p>
+    <form action="{{ url_for('user.update') }}" method="post">
+        <!-- 用隐藏id表示用户 -->
+        <p><input type="hidden" name="id" value="{{ user.id }}"></p>
+        <p><input type="text" name="username" placeholder="用户名" value="{{ user.username }}"></p>
+        <p><input type="password" name="password" placeholder="密码"></p>
+        <p><input type="password" name="repassword" placeholder="确认密码"></p>
+        <p><input type="text" name="phone" placeholder="手机号码" value="{{ user.phone }}"></p>
+        <p><input type="submit" value="用户更新"></p>
+    </form>
+</body>
+</html>

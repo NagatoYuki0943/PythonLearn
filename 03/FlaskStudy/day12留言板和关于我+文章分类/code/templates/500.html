@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>错误提示</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>错误</title>
+    <style>
+        h1{
+            color: red;
+        }
+    </style>
 </head>
 <body>
-<p> {{ err_msg }} </p>
-<a href="{% if referer %} {{ referer }} {% else %} {{ url_for('user.index') }}{% endif %}">返回上一页</a>
+    <h1>{{ error_msg }}</h1>
+    {# 有上一页就回到上一页, 否则就回到首页 #}
+    <a href="{% if referer %} {{ referer }} {% else %} /user/ {% endif %}">返回上一页</a>
 </body>
 </html>

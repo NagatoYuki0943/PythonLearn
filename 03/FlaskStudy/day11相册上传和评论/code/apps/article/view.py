@@ -2,10 +2,11 @@
 文章控制器
 '''
 
-from flask import Blueprint, request, redirect, url_for, session
+import re
+from flask import Blueprint, request, redirect, url_for, session, g
 from flask.templating import render_template
 from apps.user.models import User
-from apps.article.models import Article, ArticleType
+from apps.article.models import Article, ArticleType, Comment
 from exts import db
 
 # url_prefix前面必须有 '/'
@@ -44,19 +45,21 @@ def publish():
         return redirect(url_for('user.index')) # 页面中可以使用文章找用户
 
 
-# 文章详情
-@article_bp.route('/detail')
-def detail():
-    article_id = request.args.get('aid')
+# 文章详情,不一定需要登录 http://127.0.0.1:5000/article/detail/20?page=1  20就是article_id  url_for('article.detail', article_id=article.id)
+@article_bp.route('/detail/<article_id>')
+def detail(article_id):
     article = Article.query.get(article_id)
     types = ArticleType.query.all()
 
     user = None
-    user_id = session.get('uid')
+    user_id = session.get('uid', None)
     if user_id:
         user = User.query.get(user_id)
+    # 单独查询评论
+    page = int(request.args.get('page', 1))
+    comment_pagination = Comment.query.filter(Comment.article_id==article_id, Comment.isdelete==False).order_by(-Comment.cdatetime).paginate(page=page, per_page=2)
 
-    return render_template('article/detail.html', article=article, types=types, user=user)
+    return render_template('article/detail.html', article=article, types=types, user=user, comment_pagination=comment_pagination)
 
 
 # 喜欢
@@ -86,9 +89,21 @@ def collect():
     else:
         article.collect_number +=1
     db.session.commit()
-    return {'code':200, 'number':article.collect_number}
+    return {'code': 200, 'number': article.collect_number}
 
 
+# 发表评论,需要登录
 @article_bp.route('comment', methods=['GET', 'POST'])
 def comment():
-    return 'comment'
+    if request.method == 'POST':
+        article_id = request.form.get('aid')
+        comment_content = request.form.get('comment')
+        user_id = g.user.id # 必须登录才能发表评论,必须通过user.view中的before_request
+        comment = Comment()
+        comment.comment = comment_content
+        comment.article_id = article_id
+        comment.user_id = user_id
+        db.session.add(comment)
+        db.session.commit()
+        # 跳转需要id
+        return redirect(url_for('article.detail') + '?aid=' + article_id)

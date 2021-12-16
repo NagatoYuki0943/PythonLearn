@@ -4,10 +4,73 @@
 {% endblock %}
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/center.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static',filename='css/center.css') }}"> -->
+    <style>
+
+        #container {
+            padding-top: 30px;
+            width: 1000px;
+            height: 600px;
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+
+        #container div {
+            float: left;
+        }
+
+        #left {
+            width: 25%;
+            height: 600px;
+            background-color: #83cae3;
+        }
+
+        #left p {
+            width: 85%;
+            margin: 40px auto;
+            border: 1px solid lightskyblue;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+            padding: 7px;
+            cursor: default;
+            background-color: rgba(30, 150, 196, 0.94);
+            box-shadow: 5px 5px 5px deepskyblue;
+        }
+
+        #left p:hover {
+            background-color: skyblue;
+            box-shadow: 5px 5px 5px deepskyblue;
+        }
+        #right {
+            width: 74%;
+            height: 600px;
+            background-color: #83cae3;
+            margin-left: 5px;
+        }
+
+        .right1 {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            padding-left: 120px;
+            padding-top: 100px;
+        }
+
+        .image {
+            width: 100px;
+            height: 100px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+
+    </style>
 {% endblock %}
 {% block newcontent %}
     <div id="container">
+        <!-- 左侧提示框 -->
         <div id="left">
             <p>用户信息修改</p>
             <p>发表文章</p>
@@ -15,49 +78,46 @@
             <p>管理留言</p>
             <p>关于我设置</p>
         </div>
+        <!-- 右侧内容 -->
         <div id="right">
+            {# 用户信息修改 #}
             <div class="right1">
                 <h2> 用户信息修改</h2>
-                <form action="{{ url_for('user.user_change') }}" method="post" enctype="multipart/form-data">
-                    <p><input type="text" class="form-control" id="InputUsername" name="username"
-                              value="{{ g.user.username }}">
+                <form action="{{ url_for('user.update') }}" method="post" enctype="multipart/form-data">
+                    <p><input type="text" class="form-control" id="InputUsername" name="username" value="{{ user.username }}">
                     </p>
-                    <p><input type="text" class="form-control" id="InputPhone" name="phone"
-                              value="{{ g.user.phone }}"><span></span>
+                    <p><input type="text" class="form-control" id="InputPhone" name="phone" value="{{ user.phone }}"><span></span>
                     </p>
-                    <p><input type="email" class="form-control" id="InputEmail1" name="email"
-                              value="{{ g.user.email }}">
+                    <p><input type="email" class="form-control" id="InputEmail1" name="email" value="{{ user.email }}">
                     </p>
-                    <p><input type="file" id="exampleInputFile" name="icon"></p>
+                    <p><input type="file" id="exampleInputFile" name="icon" value=""></p>
                     <p>
-                        <img src="{% if g.user.icon %} {{ url_for('static',filename=user.icon) }} {% else %}{{ url_for('static',filename='images/touxiang.jpg') }}{% endif %}"
-                             alt="" width="90"
-                             height="100">
+                        <img src="{% if user.icon %} {{ url_for('static',filename=user.icon) }} {% else %}{{ url_for('static',filename='images/touxiang.jpg') }}{% endif %}"
+                            alt="" width="90"
+                            height="100">
                     </p>
                     <p>
                         <button type="submit" class="btn btn-primary">用户信息修改</button>
                     </p>
-
                 </form>
             </div>
+
+            {# 文章 #}
             <div class="right1" style="padding-top: 20px">
-                <form action="{{ url_for('article.publish_article') }}" method="post">
-                    <p><input type="text" class="form-control" id="InputTitle" name="title"
-                              placeholder="请输入文章标题">
+                <form action="{{ url_for('article.publish') }}" method="post">
+                    <p><input type="text" class="form-control" id="InputTitle" name="title" placeholder="请输入文章标题">
                     </p>
                     <p>
-                        <select name="type" class="form-control">
+                        <select name="type_id" class="form-control">
                             <option value="0">请选择文章分类</option>
                             {% for type in types %}
-                                <option value="{{ type.id }}">{{ type.type_name }}</option>
+                                <option value="{{ type.id }}">{{ type.typename }}</option>
                             {% endfor %}
 
                         </select>
                     </p>
                     <p>
-                        <textarea name="content" class="mytextarea">
-
-                        </textarea>
+                        <textarea name="content" class="mytextarea"></textarea>
                     </p>
                     <p></p>
                     <p style="text-align: right;">
@@ -66,9 +126,10 @@
 
                 </form>
             </div>
+
+            {# 相册 #}
             <div class="right1">
-                <form action="{{ url_for('user.upload_photo') }}" method="post" enctype="multipart/form-data"
-                      class="form-inline">
+                <form action="{{ url_for('user.upphoto') }}" method="post" enctype="multipart/form-data" class="form-inline">
                     <input type="file" name="photo" class="form-control">
                     <input type="submit" value="上传相册" class="btn btn-default">
                 </form>
@@ -78,20 +139,18 @@
                         <div class="row">
                             {% for photo in photos %}
                                 <div class="col-xs-8 col-sm-4">
-                                    <img src="http://qb894qzgn.bkt.clouddn.com/{{ photo.photo_name }}"
-                                         alt="..." class="img-rounded image">
-                                    <button class="btn btn-info btn-xs photo-del" tag="{{ photo.id }}">删除</button>
+                                    <img id="{{ photo.id }}" src="{{ url_for('static', filename=photo.name) }}" alt="..." class="img-rounded image">
+                                    <button class="btn btn-info btn-xs photo-del" tag="#">删除</button>
                                 </div>
                             {% endfor %}
-
-
                         </div>
                     </div>
                 </div>
+            </div>>
 
-            </div>
+            {# 留言板块,看到自己的留言 #}
             <div class="right1" style="padding-top: 30px;width: 90%">
-                {% if user.messages %}
+                {% if messages %}
                     <table class="table table-hover">
                         <tr>
                             <th>序号</th>
@@ -99,33 +158,31 @@
                             <th>时间</th>
                             <th>操作</th>
                         </tr>
-                        {% for message in user.messages %}
+                        {% for message in messages %}
                             <tr {% if loop.index%2==0 %}class="warning" {% endif %}>
                                 <td>{{ loop.index }}</td>
-                                <td>{{ message.content }}</td>
+                                <td>{{ message.message }}</td>
                                 <td>{{ message.mdatetime }}</td>
-                                <td><a href="{{ url_for('user.delete_board') }}?bid={{ message.id }}">删除留言</a></td>
+                                <td><button id="{{ message.id }}" class="message-del">删除留言</button></td>
                             </tr>
                         {% endfor %}
-
-
                     </table>
                 {% else %}
                     <p>还没有任何内容，可以去留言板去发言...</p>
                 {% endif %}
-            </div>
-            <div class="right1" style="padding-top: 30px">
-                <form action="{{ url_for('user.about_me') }}" method="post" enctype="multipart/form-data">
-                    <p>
-                        <textarea name="about" class="mytextarea">
+            </div>>
 
+            {# 详细信息 #}
+            <div class="right1" style="padding-top: 30px">
+                <form action="{{ url_for('user.addaboutme') }}" method="post" enctype="multipart/form-data">
+                    <p>
+                        <textarea name="aboutme-content" class="mytextarea">
                         </textarea>
                     </p>
                     <p></p>
                     <p style="text-align: right;">
                         <button type="submit" class="btn btn-primary">更改我的</button>
                     </p>
-
                 </form>
             </div>
         </div>
@@ -135,5 +192,94 @@
 {% block scripts %}
     {{ super() }}
     <script src="{{ url_for('static',filename='tinymce/tinymce.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/center.js') }}"></script>
+    <!-- <script src="{{ url_for('static',filename='js/center.js') }}"></script> -->
+    <script>
+        $(function () {
+            // 点击左侧切换右侧
+            $('.right1').hide();
+            $('.right1').eq(0).show();
+            $("#left p").first().css({'background-color': 'rgba(30, 150, 196, 0.94)'});
+            //切换右侧div
+            $("#left p").each(function (i) {
+                $(this).click(function () {
+                    $("#left p").css({'background-color': 'rgba(30, 150, 196, 0.94)'});
+                    $(this).css({'background-color': 'skyblue', 'box-shadow': '5px 5px 5px deepskyblue'});
+                    $('.right1').hide();
+                    $('.right1').eq(i).show();
+                });
+            });
+
+            //设置富文本
+            tinymce.init({
+                selector: '.mytextarea',
+                height: 400,
+                plugins: "quickbars emoticons",
+                inline: false,
+                toolbar: true,
+                menubar: true,
+                quickbars_selection_toolbar: 'bold italic | link h2 h3 blockquote',
+                quickbars_insert_toolbar: 'quickimage quicktable',
+            });
+
+            //验证手机号码
+            $('#InputPhone').blur(function () {
+                let phone = $(this).val();
+                let span_ele = $(this).next('span');
+                if (phone.length == 11) {
+                    span_ele.text('');
+                    $.get('/user/checkphone', {phone: phone}).then(({code, msg})=>{
+                        // {#console.log(data);#}
+                        if (code != 200) {
+                            span_ele.css({"color": "#ff0011", "font-size": "12px"});
+                            span_ele.text(msg);
+                        }
+                    })
+                } else {
+                    span_ele.css({"color": "#ff0011", "font-size": "12px"});
+                    span_ele.text('手机格式错误');
+                }
+            });
+
+            //删除图片
+            $('.photo-del').click(function(){
+                //确认是否删除
+                flag = confirm('确定删除图片吗')
+                if(flag){
+                    //找到图片id
+                    let id = $(this).prev('img').attr('id')
+                    $.get(
+                        "{{ url_for('user.delphoto') }}",
+                        {id: id}
+                    ).then(({code, msg})=>{
+                        console.log(code);
+                        if(code=200){
+                            //去除父级的div
+                            $(this).parent('div').remove()
+                        }
+                    })
+                }
+            })
+
+
+            //删除留言
+            $('.message-del').click(function(){
+                //确认是否删除
+                flag = confirm('确定删除留言吗')
+                if(flag){
+                    //找到图片id
+                    let id = $(this).attr('id')
+                    $.get(
+                        "{{ url_for('user.delete_message') }}",
+                        {id: id}
+                    ).then(({code, msg})=>{
+                        console.log(code);
+                        if(code=200){
+                            //去除祖父级的tr
+                            $(this).parents('tr').remove()
+                        }
+                    })
+                }
+            })
+        })
+    </script>
 {% endblock %}
