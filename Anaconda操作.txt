@@ -45,6 +45,8 @@ conda代理
 	用导出的配置生成一个新环境 
 		conda env create -f environment.yml
 
+    删除缓存
+        conda clean -a
 
 包管理
 	conda list 列举当前环境下的所有包
