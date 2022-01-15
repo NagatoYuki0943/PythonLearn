@@ -34,4 +34,5 @@ print('*'*50)
 
 print(sorted(d1.items()))                       # [(-1, 'd'), (1, 'a'), (2, 'b'), (4, 'c'), (9, 'e')]
 print(sorted(d1.items(), key=lambda x:x[0]))    # [(-1, 'd'), (1, 'a'), (2, 'b'), (4, 'c'), (9, 'e')]
+print(sorted(d1.items(), key=lambda x:x[1]))    # [(1, 'a'), (2, 'b'), (4, 'c'), (-1, 'd'), (9, 'e')]
 

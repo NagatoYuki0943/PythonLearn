@@ -14,18 +14,18 @@ def upInsertSort(arr: list):
 
         flag = False    # 判断有无交换的条件
 
-        l = [t for t in range(-1, i)]   # j从i-1开始,往左找到第0个
-        l.reverse()  # 倒序
-
+        j = i - 1
         # 从右往左比较,直到最左侧
-        for j in l:
+        while j >= 0:
             if arr[j] > temp:   # 升序降序只要改这里的大于号就可以
-                arr[j+1] = arr[j]
+                arr[j+1] = arr[j]   # 向后移动数据
                 flag = True
             else:
-                break   # 说明当前在对的位置,前面的都比temp小
+                break
+            j -= 1
+
         if flag:
-            arr[j+1] = temp #j运行完之后会-1,到要交换的前一个位置, 所以要+1
+            arr[j+1] = temp     # j运行完之后会-1,到要交换的前一个位置, 所以要+1
 
 
 if __name__ == "__main__":
