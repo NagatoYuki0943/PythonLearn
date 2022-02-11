@@ -3,7 +3,7 @@
 和用户表是一对多关系,文章表中有用户表的外键
 '''
 
-from sqlalchemy.orm import backref
+# from sqlalchemy.orm import backref
 from exts import db
 from datetime import datetime
 

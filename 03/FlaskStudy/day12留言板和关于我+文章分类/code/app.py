@@ -2,8 +2,8 @@ from flask import Flask
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand   # 2.7版本才有MigrateCommand
 from apps import create_app
-from exts import db  # 导入映射的db
-from apps.user.models import * # 必须导入模型
+from exts import db                 # 导入映射的db
+from apps.user.models import *      # 必须导入模型
 from apps.article.models import *
 
 app = create_app()

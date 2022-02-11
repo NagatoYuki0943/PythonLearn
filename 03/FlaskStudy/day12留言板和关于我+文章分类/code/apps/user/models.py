@@ -9,7 +9,7 @@ python app.py db downgrade  降级(回到上一个数据表)
     # 将migrate命令添加到migrate
     manager.add_command('db', MigrateCommand)   # 参数是名字和命令
 '''
-from sqlalchemy.orm import backref
+# from sqlalchemy.orm import backref
 from exts import db
 from datetime import date, datetime
 

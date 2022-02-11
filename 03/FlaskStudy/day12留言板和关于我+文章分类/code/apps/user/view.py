@@ -440,7 +440,6 @@ def delete_message():
     db.session.commit()
     return {'code':200, 'msg': '删除成功'}
 
-
 # 错误页面
 @user_bp.route('error')
 def error():
