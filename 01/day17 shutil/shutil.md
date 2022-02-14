@@ -1,11 +1,11 @@
 # 文件夹与文件操作 shutil.XXX
 
-### 1 复制文件内容 copyfile(src, dst) 
+### 1 复制文件内容 copyfile(src, dst) 若存在将会被覆盖
 
 将src文件内容复制至dst文件
 
 - src： 源文件路径
-- dst： 复制至dst文件，若dst文件不存在，将会生成一个dst文件；若存在将会被覆盖
+- dst： 复制至dst文件，若dst文件不存在，将会生成一个dst文件；**若存在将会被覆盖**
 - follow_symlinks：设置为True时，若src为软连接，则当成文件复制；如果设置为False，复制软连接。默认为True。Python3新增参数
 
 ```python
@@ -99,9 +99,9 @@ shutil.move(origin, dest)
 
 
 
-### 4 复制文件 copy(src, dst) 
+### 4 复制文件 copy(src, dst)  copyfile + copymode
 
-将文件src复制至dst。dst可以是个目录，会在该目录下创建与src同名的文件，若该目录下存在同名文件，将会报错提示已经存在同名文件。权限会被一并复制。本质是先后调用了copyfile与copymode而已
+将文件src复制至dst。dst可以是个目录，会在该目录下创建与src同名的文件，**若该目录下存在同名文件，将会报错提示已经存在同名文件**。权限会被一并复制。本质是先后调用了copyfile与copymode
 
 - src：源文件路径
 - dst：**复制至dst文件夹或文件**
@@ -151,9 +151,9 @@ shutil.copy(origin, dest)
 
 
 
-### 5 复制文件 copy2(src, dst) 
+### 5 复制文件 copy2(src, dst) copyfile + copystat
 
-将文件src复制至dst。dst可以是个目录，会在该目录下创建与src同名的文件，若该目录下存在同名文件，将会报错提示已经存在同名文件。权限、上次访问时间、上次修改时间和src的标志会一并复制至dst。本质是先后调用了copyfile与copystat方法而已
+将文件src复制至dst。dst可以是个目录，会在该目录下创建与src同名的文件，**若该目录下存在同名文件，将会报错提示已经存在同名文件**。权限、上次访问时间、上次修改时间和src的标志会一并复制至dst。本质是先后调用了copyfile与copystat方法
 
 - src：源文件路径
 - dst：**复制至dst文件夹或文件**
