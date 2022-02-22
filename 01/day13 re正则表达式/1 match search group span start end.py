@@ -7,7 +7,7 @@ import re
 # - flags: 标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。
 
 # 找到使用 .span() 返回位置
-print(re.match('www', 'www.baidu.com'))   
+print(re.match('www', 'www.baidu.com'))
 # <_sre.SRE_Match object; span=(0, 3), match='www'>
 
 # group()/group(0) 返回字符串位置索引
@@ -36,10 +36,10 @@ line = "Cats are smarter than dogs"
 # 开始的r是为了让正则更明显
 # .* 表示任意匹配除换行符（\n、\r）之外的任何单个或多个字符
 # (.*?) 表示"非贪婪"模式，只保存第一个匹配到的子串
-# re.M: 多行匹配，影响 ^ 和 $   
+# re.M: 多行匹配，影响 ^ 和 $
 # re.I: 使匹配对大小写不敏感
 matchObj = re.match( r'(.*) are (.*?) .*', line, re.M|re.I)
- 
+
 if matchObj:
    print("matchObj.group() : ", matchObj.group())      # 返回全部匹配
    print("matchObj.group(1) : ", matchObj.group(1))    # 返回上面第一个 () 的匹配
@@ -47,7 +47,7 @@ if matchObj:
 else:
    print("No match!!")
 
-# matchObj.group() :  Cats are smarter than dogs    
+# matchObj.group() :  Cats are smarter than dogs
 # matchObj.group(1) :  Cats
 # matchObj.group(2) :  smarter
 
