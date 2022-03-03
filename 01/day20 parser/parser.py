@@ -26,12 +26,12 @@ if __name__ == "__main__":
     parser.add_argument("--compute_map",            default=False,          help="if True computes mAP every tenth batch")
     parser.add_argument("--multiscale_training",    default=True,           help="allow for multi-scale training")
     opt = parser.parse_args()
-    
-    # 所有参数 
+
+    # 所有参数
     print(opt)
-    # Namespace(batch_size=4, checkpoint_interval=1, compute_map=False, 
-    # data_config='config/coco.data', epochs=100, evaluation_interval=1, 
-    # gradient_accumulations=2, img_size=416, model_def='config/yolov3.cfg', 
+    # Namespace(batch_size=4, checkpoint_interval=1, compute_map=False,
+    # data_config='config/coco.data', epochs=100, evaluation_interval=1,
+    # gradient_accumulations=2, img_size=416, model_def='config/yolov3.cfg',
     # multiscale_training=True, n_cpu=0, pretrained_weights=None)
 
     print('*' * 50)
