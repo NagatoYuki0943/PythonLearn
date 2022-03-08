@@ -1,10 +1,14 @@
 '''
 运行文件时的参数
 `D:\Anaconda3\envs\ai\python.exe C:/Ai/YOLO/PyTorch-YOLOv3/train.py --data_config config/coco.data --pretrained_weights weights/darknet53.conv.74`
+指定参数 用空格或者等于号都可以
+    --data_config config/coco.data					# coco数据集
+    --pretrained_weights weights/darknet53.conv.74	# 载入预训练权重
 
-指定参数
---data_config config/coco.data					# coco数据集
---pretrained_weights weights/darknet53.conv.74	# 载入预训练权重
+可以指定没有 -- 的参数
+    例如：
+        parser.add_argument("--epochs")
+        在写的时候不用 epoch 100 ,直接写100, 写了 epoch 会报错
 '''
 
 

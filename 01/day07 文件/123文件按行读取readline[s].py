@@ -24,4 +24,8 @@ res = [i.strip() for i in res]
 
 print(res)          # ['333', '444', '555']
 
+
 f.close()
+
+
+
