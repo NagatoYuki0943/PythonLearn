@@ -27,12 +27,14 @@ Windows
 
     pip install reqiure.txt
 
+    pip install 本地whl文件
+
 5.pip查看已安装的包
     pip show packagename
 
 6.列出所有的安装包
     命令：pip list
- 
+
 7.pip检测更新
     pip list --outdated
 
@@ -45,20 +47,16 @@ Windows
 10.安装requirements.txt中的包
     pip install -r requirements.txt
 
-11.更新数据
+11.更新pip
     python -m pip install --upgrade pip
 
 Linux
 python虚拟环境：允许安装不同版本的套件
 
-创建：mkvirtualenv  虚拟环境名称                 
+创建：mkvirtualenv  虚拟环境名称
 进入：workon  虚拟环境名称
 查看所虚拟环境: workon  + 回车
 删除：1)先退出虚拟环境   2） rmvirtualenv 虚拟环境名称
 退出：deactivate
 创建虚拟环境，指定Python路径： mkvirtualenv -p   /usr/bin/python3.6  xxx
 在虚拟环境中安装套件： pip install 套件名==版本
-
-问题: 
-    Ignoring invalid distribution -ip
-    删除对应目录中以 ~ip 开头的目录即可
