@@ -69,3 +69,7 @@ conda代理
 	conda update python
 	conda install python=3.8 
     
+
+powershell使用
+set-ExecutionPolicy RemoteSigned 选择 Y
+conda init powershell
