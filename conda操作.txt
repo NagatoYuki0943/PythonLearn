@@ -2,9 +2,9 @@
 	conda help
 
 conda代理
-    设置代理
-       	conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+    设置代理 先设置free在设置main，这样main在上面
        	conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+       	conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
     设置启动设置好的国内镜像源
        	conda config --set show_channel_urls yes
 
@@ -49,17 +49,18 @@ conda代理
         conda clean -a
 
 包管理
-	conda list 列举当前环境下的所有包
-	conda list -n packagename 列举某个特定名称包
-	conda install packagename 为当前环境安装某包
+	conda list 					列举当前环境下的所有包
+	conda list -n packagename 	列举某个特定名称包
+	conda install packagename 	为当前环境安装某包
+	conda install packagename=11.3 指定版本 pip是两个等号
 	conda install -n envname packagename 为某环境安装某包
-	conda search packagename 搜索某包
-	conda updata packagename 更新当前环境某包
+	conda search packagename 	搜索某包
+	conda updata packagename 	更新当前环境某包
 	conda update -n envname packagename 更新某特定环境某包
 
 	conda remove packagename 删除当前环境某包
-        pip安装的要这样卸载
-            pip uninstall packagename
+	pip安装的要这样卸载
+		pip uninstall packagename
 
 	conda remove -n envname packagename 删除某环境某包
 	conda本身和anaconda、python本身也算包
