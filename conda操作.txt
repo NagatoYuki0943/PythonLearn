@@ -19,8 +19,8 @@ conda代理
 环境管理
 	linux初始化
 		conda init
-	进入环境 
-		conda activate 环境名 
+	进入环境
+		conda activate 环境名
 
 	退出环境
 		conda deactivate
@@ -42,7 +42,7 @@ conda代理
 	导出环境配置(进入虚拟环境中使用)
 		conda env export > environment.yml
 
-	用导出的配置生成一个新环境 
+	用导出的配置生成一个新环境
 		conda env create -f environment.yml
 
     删除缓存
@@ -63,14 +63,22 @@ conda代理
 		pip uninstall packagename
 
 	conda remove -n envname packagename 删除某环境某包
+
 	conda本身和anaconda、python本身也算包
+	conda update -n base conda	主环境conda
 	conda update conda
 
 	conda update anaconda
 	conda update python
-	conda install python=3.8 
-    
+	conda install python=3.8
+
 
 powershell使用
 set-ExecutionPolicy RemoteSigned 选择 Y
 conda init powershell
+# 配置文件位置
+C:\Users\Frostbite\Documents\WindowsPowerShell\profile.ps1
+	#region conda initialize
+	# !! Contents within this block are managed by 'conda init' !!
+	(& "D:\Anaconda3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Invoke-Expression
+	#endregion
