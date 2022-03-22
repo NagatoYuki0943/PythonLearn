@@ -16,6 +16,9 @@ conda代理
     	conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
         conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 
+# 关闭自动进入base环境
+conda config --set auto_activate_base false
+
 环境管理
 	linux初始化
 		conda init
@@ -74,17 +77,23 @@ conda代理
 
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------#
-# 不建议给powershell添加conda路径
-#	问题1(小问题)：
+# 给powershell添加conda路径问题
+#	问题1(已解决)：
 #		pycharm默认的终端是powershell，进入的就是你的环境，即使没有提示，不过添加conda路径之后默认进入base，要手动进入你的环境中
+#		解决办法：设置conda不自动激活base环境	conda config --set auto_activate_base false
+#
 #		右键运行代码执行的是 `D:\Anaconda3\envs\ai\python.exe E:/ai/test.py`，没有任何问题
-#	问题2(大问题):
+#
+#	问题2(已解决):
 #		vscode右键运行默认是powershell，在没有添加conda路径之前，进入的是base环境，右键命令是 `& conda run -n ai --no-capture-output --live-stream python e:/ai/test.py`
 #		可以正常运行，而在添加conda环境之后，这个命令会报错，因为 `run -n ai` 不能在 ai 环境中运行，要在base中运行，所以要回到base才能用(cmd也要这样)，所以不建议添加conda到powershell
+#
+#		更新解决办法： 在vscode设置中搜索python.terminal.activate Environment，取消勾选就不会自动进入虚拟环境了(PS:上面的命令在linux上即使进入虚拟环境也不报错)
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 powershell使用
 set-ExecutionPolicy RemoteSigned 选择 Y
 conda init powershell
+conda config --set auto_activate_base false
 # 配置文件位置
 C:\Users\Frostbite\Documents\WindowsPowerShell\profile.ps1
 	#region conda initialize
