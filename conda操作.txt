@@ -88,7 +88,7 @@ conda config --set auto_activate_base false
 #		vscode右键运行默认是powershell，在没有添加conda路径之前，进入的是base环境，右键命令是 `& conda run -n ai --no-capture-output --live-stream python e:/ai/test.py`
 #		可以正常运行，而在进入conda环境之后，这个命令会报错，因为 `run -n ai` 不能在 ai 环境中运行，要在base中运行，所以要回到base才能用(cmd也要这样)，所以不建议添加conda到powershell
 #
-#		解决办法： 在vscode设置中搜索python.terminal.activate Environment，取消勾选就不会自动进入虚拟环境了(PS:上面的命令在linux上即使进入虚拟环境也不报错)
+#		解决办法： 在vscode设置中搜索python.terminal.activateEnvironment，取消勾选就不会自动进入虚拟环境了(PS:上面的命令在linux上即使进入虚拟环境也不报错)
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 powershell使用
 set-ExecutionPolicy RemoteSigned 选择 Y
