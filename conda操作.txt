@@ -1,5 +1,26 @@
+配置文件
+	~/.condarc 保存 代理,是否进入base环境等
+		channels:
+		- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+		- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+		- defaults
+		show_channel_urls: true
+		auto_activate_base: false
+
+	~/.conda/environments.txt  存放虚拟环境
+		D:\Anaconda3\envs\ai
+		D:\Anaconda3\envs\mm
+		D:\Anaconda3
+		D:\Anaconda3\envs\test
+
+
 查看帮助
 	conda help
+
+
+# 关闭自动进入base环境
+conda config --set auto_activate_base false
+
 
 conda代理
     设置代理 先设置free在设置main，这样main在上面
@@ -16,8 +37,6 @@ conda代理
     	conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
         conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 
-# 关闭自动进入base环境
-conda config --set auto_activate_base false
 
 环境管理
 	linux初始化
@@ -50,6 +69,7 @@ conda config --set auto_activate_base false
 
     删除缓存
         conda clean -a
+
 
 包管理
 	conda list 					列举当前环境下的所有包
