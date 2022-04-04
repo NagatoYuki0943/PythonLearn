@@ -23,9 +23,7 @@ res = f.read(3)     # 换行和22
 print(res)
 print('*' * 20)
 
-# 读取全部,按行分隔
-res = f.read().splitlines()
-print(res)          # ['1', '222', '333', '444', '555', '666', '777', '888', '999', '']
+
 
 f.close()
 
