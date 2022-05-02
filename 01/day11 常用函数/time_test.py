@@ -42,7 +42,7 @@ if __name__ == '__main__':
 
     print('*' * 50)
     print('time部分:')
-    print(time.time())      
+    print(time.time())
     # 1631862683.6589797
     print('*' * 50)
 
@@ -59,10 +59,10 @@ if __name__ == '__main__':
 
     # 格式化成2021-09-17 15:14:16形式
     print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-    
+
     # 格式化成Fri Sep 17 15:14:16 2021形式
-    print(time.strftime("%a %b %d %H:%M:%S %Y", time.localtime())) 
-    
+    print(time.strftime("%a %b %d %H:%M:%S %Y", time.localtime()))
+
     # 将格式字符串转换为时间戳
     a = "Sat Mar 28 22:24:24 2016"
     print(time.mktime(time.strptime(a,"%a %b %d %H:%M:%S %Y")))
@@ -73,7 +73,7 @@ if __name__ == '__main__':
     print('*' * 50)
     print('datetime部分:')
     x = datetime.datetime.now()
-    print(x)  
+    print(x)
     # 2021-09-17 15:22:25.193045
     print(x.strftime('%a'))         # Fri
     print(x.strftime('%A'))         # Friday

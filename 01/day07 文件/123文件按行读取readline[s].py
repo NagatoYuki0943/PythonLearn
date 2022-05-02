@@ -24,8 +24,8 @@ f = open('文件/1.txt', 'r', encoding='utf-8')
 res = f.readlines()
 print(res)           # ['000\n', '111\n', '222\n', '333\n', '444\n', '555\n', '666\n', '777\n', '888\n', '999\n', '\n']
 
-# 去除换行符
-res = [i.strip() for i in res]
+# 去除前后换行符和空格,去掉空行
+res = [i.strip() for i in res if len(i.strip()) > 0]
 
 print(res)          # ['000', '111', '222', '333', '444', '555', '666', '777', '888', '999', '']
 f.close()
