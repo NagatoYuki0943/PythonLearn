@@ -1,12 +1,15 @@
 #------------------------------------------#
-#   getattr() 函数用于返回一个对象属性值。
+#   getattr() 函数用于返回一个对象属性值
 #   getattr 语法：
 #       getattr(object, name[, default])
 #   参数
-#       object  -- 对象。
-#       name    -- 字符串，对象属性。
-#       default -- 默认返回值，如果不提供该参数，在没有对应属性时，将触发 AttributeError。
+#       object  -- 对象
+#       name    -- 字符串，对象属性
+#       default -- 默认返回值，如果不提供该参数，在没有对应属性时，将触发 AttributeError
+#
+#   getattr可以在类中使用，参数1为self，获取对象参数
 #------------------------------------------#
+
 
 class Person(object):
     inherit = 'DNA'
@@ -19,7 +22,6 @@ print(getattr(person, 'inherit'))       # DNA
 print(getattr(person, 'age'))           # 12
 print(getattr(person, 'name', 'may'))   # may
 print('\n')
-
 
 
 class Calc(object):
@@ -65,3 +67,22 @@ print(add(*a))          # 10
 print(sub(*a))          # -2
 print(mul(*a))          # 0
 print(div(*a))          # 0.6666666666666666
+
+
+#------------------------------------------#
+#   getattr可以在类中使用，参数1为self，获取对象参数
+#------------------------------------------#
+class Coordinate():
+    x = 10
+    y = -5
+    def __init__(self):
+        self.z = 0
+
+    def get(self):
+        x = getattr(self, 'x', -1)
+        z = getattr(self, 'z', -1)
+        a = getattr(self, 'a', -1)
+        print(x, z, a)
+
+point1 = Coordinate()
+point1.get()            # 10 0 -1
