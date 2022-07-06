@@ -1,3 +1,8 @@
+环境变量(anaconda和miniconda)
+	{conda}
+	{conda}\Scripts
+
+
 配置文件
 	~/.condarc 保存 代理,是否进入base环境等
 		channels:
