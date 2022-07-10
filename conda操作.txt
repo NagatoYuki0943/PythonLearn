@@ -1,6 +1,7 @@
 环境变量(anaconda和miniconda)
 	{conda}
 	{conda}\Scripts
+	{conda}\Library\bin
 
 
 配置文件
