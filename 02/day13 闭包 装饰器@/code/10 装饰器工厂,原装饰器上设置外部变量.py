@@ -25,8 +25,6 @@ def test(choice):
                 print("----开始验证----")
                 func()
             return func_in
-        return func_out
-
     elif choice == 1:
         # 装饰器
         def func_out(func):
@@ -34,7 +32,7 @@ def test(choice):
                 print("----开始注册----")
                 func()
             return func_in
-        return func_out
+    return func_out
 
 
 @ test(0)  # 这是传递给test函数的变量,没有参数也要有括号
