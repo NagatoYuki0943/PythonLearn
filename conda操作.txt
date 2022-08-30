@@ -94,8 +94,8 @@ conda代理
 	conda remove -n envname packagename 删除某环境某包
 
 	conda本身和anaconda、python本身也算包
-	conda update -n base conda	主环境conda
 	conda update conda
+	conda update --force conda
 
 	conda update anaconda
 	conda update python
