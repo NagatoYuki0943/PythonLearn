@@ -7,10 +7,20 @@
 配置文件
 	~/.condarc 保存 代理,是否进入base环境等
 		channels:
-		- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
-		- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 		- defaults
 		show_channel_urls: true
+		default_channels:
+			- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+			- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+			- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+		custom_channels:
+			conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+			msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+			bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+			menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+			pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+			pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+			simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 		auto_activate_base: false
 
 	~/.conda/environments.txt  存放虚拟环境
@@ -23,15 +33,25 @@
 查看帮助
 	conda help
 
+查看config
+	conda config --show
 
 # 关闭自动进入base环境
 conda config --set auto_activate_base false
 
 
+# 关闭ssl验证
+conda config --set ssl_verify no
+
+
+https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
 conda代理
     设置代理 先设置free在设置main，这样main在上面
+		conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+		conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
        	conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
        	conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+
     设置启动设置好的国内镜像源
        	conda config --set show_channel_urls yes
 
@@ -78,28 +98,23 @@ conda代理
 
 
 包管理
-	conda list 					列举当前环境下的所有包
-	conda list -n packagename 	列举某个特定名称包
-	conda install packagename 	为当前环境安装某包
-	conda install packagename=11.3 指定版本 pip是两个等号
-	conda install -n envname packagename 为某环境安装某包
-	conda search packagename 	搜索某包
-	conda updata packagename 	更新当前环境某包
-	conda update -n envname packagename 更新某特定环境某包
-
-	conda remove packagename 删除当前环境某包
-	pip安装的要这样卸载
-		pip uninstall packagename
-
-	conda remove -n envname packagename 删除某环境某包
+	conda list 								列举当前环境下的所有包
+	conda list -n packagename 				列举某个特定名称包
+	conda search packagename 				搜索某包
+	conda install packagename 				为当前环境安装某包
+	conda install packagename=11.3 			指定版本 pip是两个等号
+	conda install -n envname packagename 	为某环境安装某包
+	conda install --use-local pkg.tar.bz2 	安装离线包
+	conda update packagename 				更新当前环境某包
+	conda update -n envname packagename 	更新某特定环境某包
+	conda remove packagename 				删除当前环境某包
+	conda remove -n envname packagename 	删除某环境某包
 
 	conda本身和anaconda、python本身也算包
-	conda update conda
-	conda update --force conda
+	conda update -n base -c defaults conda
+	conda upgrade      Alias for conda update.
 
 	conda update anaconda
-	conda update python
-	conda install python=3.8
 
 
 anaconda3/pkg conda的包缓存
