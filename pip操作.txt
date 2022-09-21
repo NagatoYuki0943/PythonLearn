@@ -54,13 +54,5 @@ Windows
 11.更新pip
     python -m pip install --upgrade pip
 
-Linux
-python虚拟环境：允许安装不同版本的套件
-
-创建：mkvirtualenv  虚拟环境名称
-进入：workon  虚拟环境名称
-查看所虚拟环境: workon  + 回车
-删除：1)先退出虚拟环境   2） rmvirtualenv 虚拟环境名称
-退出：deactivate
-创建虚拟环境，指定Python路径： mkvirtualenv -p   /usr/bin/python3.6  xxx
-在虚拟环境中安装套件： pip install 套件名==版本
+12.
+    pywin32 不能更新，否则没法使用conda
