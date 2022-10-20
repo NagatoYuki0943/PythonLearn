@@ -29,6 +29,8 @@ if __name__ == "__main__":
     parser.add_argument("--evaluation_interval",    type=int, default=1,    help="interval evaluations on validation set")
     parser.add_argument("--compute_map",            default=False,          help="if True computes mAP every tenth batch")
     parser.add_argument("--multiscale_training",    default=True,           help="allow for multi-scale training")
+    # 添加为True,不写为False
+    parser.add_argument("--openvino",               default=False, action="store_true", required=False, help="export openvino")
     opt = parser.parse_args()
 
     # 所有参数
