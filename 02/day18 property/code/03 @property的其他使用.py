@@ -33,7 +33,7 @@ class Goods(object):
     @ property
     def price(self):
         return self.org_price * self.discount
-    
+
 
     # @ property 实现了 getter方法,所以不用写
     @ price.getter
@@ -55,7 +55,7 @@ class Goods(object):
         self.org_price = 0.00
 
 
-goods = Goods()             
+goods = Goods()
 
 # 获取
 print(goods.price)      # 700.0

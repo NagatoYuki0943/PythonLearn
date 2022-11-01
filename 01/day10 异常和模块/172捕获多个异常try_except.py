@@ -27,7 +27,7 @@ try:
     res = 10 / int(num)
     print("计算得到的结果是:" + str(res))
 
-except (ZeroDivisionError,ValueError):
+except (ZeroDivisionError, ValueError):
     """多个异常"""
     print("傻逼啊你,除0或者输入的不是数字???")
 

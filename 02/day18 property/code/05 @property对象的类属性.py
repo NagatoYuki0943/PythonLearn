@@ -17,7 +17,7 @@ class Goods(object):
     # 2.获取价格
     def get_price(self):
         return self.org_price * self.discount
-    
+
 
     # 3.设置价格
     def set_price(self, val):
@@ -49,7 +49,7 @@ print(goods.BAR)    # 489.99999999999994
 
 # 删除
 del goods.BAR
-print(goods.BAR)   
+print(goods.BAR)
 # 执行了deleter方法
 # 0.0
 

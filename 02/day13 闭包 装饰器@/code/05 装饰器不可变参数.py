@@ -3,7 +3,6 @@
 '''
 
 
-
 def function_out(func):
 
     #  这个id是login函数的参数
@@ -14,7 +13,6 @@ def function_out(func):
         func(id, password)
 
     return function_in
-
 
 
 # 登录函数

@@ -17,7 +17,7 @@ try:
     res = 10 / int(num)
     print("计算得到的结果是:" + str(res))
 
-except (ZeroDivisionError,ValueError) as error:
+except (ZeroDivisionError, ValueError) as error:
     print(error)
     # division by zero
     # invalid literal for int() with base 10: 'a'

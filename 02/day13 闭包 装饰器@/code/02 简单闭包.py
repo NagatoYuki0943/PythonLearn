@@ -21,11 +21,11 @@ function_in = function_out(0)
 
 # 可以看出闭包可以防止外部函数的变量被释放
 function_in(1)
-# 2 ---- function_in -----num: 0   
+# 2 ---- function_in -----num: 0
 # 3 ---- function_in -----num_in: 1
 
 # 直接调用
 function_out(2)(3)
-# 1 ---- function_out ----num: 2   
-# 2 ---- function_in -----num: 2   
+# 1 ---- function_out ----num: 2
+# 2 ---- function_in -----num: 2
 # 3 ---- function_in -----num_in: 3

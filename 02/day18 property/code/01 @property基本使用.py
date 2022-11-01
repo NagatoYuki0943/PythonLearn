@@ -14,7 +14,7 @@ class Foo(object):
     # 初始化方法
     def __init__(self, number) -> None:
         self.number = number
-    
+
     # 获取对象
     @ property
     def property(self):

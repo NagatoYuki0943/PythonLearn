@@ -12,9 +12,9 @@
         str方法一定要return，而且return 一定字符串内容
 
     用字典的书写格式操作对象的方法
-        `__getitem__ `   对象['属性名']   
+        `__getitem__ `   对象['属性名']
         `__setitem__ `   对象['属性名'] = 值
-        `__delitem__ `   del 对象['属性名']  
+        `__delitem__ `   del 对象['属性名']
 
 
 '''
@@ -61,7 +61,6 @@ class Goods(object):
     # 用字典的书写格式操作对象的方法
     def __delitem__(self, key):
         print('key: ', key)
-        
 
 
 # __call__ 对象当做函数使用时会调用它
@@ -74,13 +73,13 @@ goods()             # __call__
 # __str__ 打印对象时输出的数据
 print(Goods)        # <class '__main__.Goods'>
 
-print(goods)        # 打印类默认打印: <__main__.Goods object at 0x000002C24CE4A400> 
+print(goods)        # 打印类默认打印: <__main__.Goods object at 0x000002C24CE4A400>
                     # 我是goods对象
 
 
 # __dict__ 打印类或对象的属性,返回字典
 print(Goods.__dict__)
-# {'__module__': '__main__', '__doc__': '这是一个商品类', 'goods_color': 'transparent', 'set_price': <function Goods.set_price at 0x000001CEF0750510>, '__call__': <function Goods.__call__ at 0x000001CEF0750598>, '__str__': <function Goods.__str__ at 0x000001CEF0750620>, '__dict__': <attribute '__dict__' of 'Goods' objects>, '__weakref__': <attribute '__weakref__' of 'Goods' objects>}        
+# {'__module__': '__main__', '__doc__': '这是一个商品类', 'goods_color': 'transparent', 'set_price': <function Goods.set_price at 0x000001CEF0750510>, '__call__': <function Goods.__call__ at 0x000001CEF0750598>, '__str__': <function Goods.__str__ at 0x000001CEF0750620>, '__dict__': <attribute '__dict__' of 'Goods' objects>, '__weakref__': <attribute '__weakref__' of 'Goods' objects>}
 
 print(goods.__dict__)
 # {'name': '牛仔裤'}

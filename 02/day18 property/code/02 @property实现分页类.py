@@ -19,11 +19,11 @@ class Page(object):
         # 每页大小
         self.page_size = 10
 
-    
+
     # 2.获取开始位置
     @ property
     def start(self):
-        # limit (当前页 - 1) * 每页大小, 
+        # limit (当前页 - 1) * 每页大小,
         # 1, 10
         # 11,20
         return (self.current_page - 1) * 10 + 1 # 从1开始

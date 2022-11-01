@@ -1,7 +1,7 @@
 '''
 类装饰器
 init函数要接收函数名
-    __init__(self, func): 
+    __init__(self, func):
         self.func = func
 call方法里面执行func函数
     __call__():
