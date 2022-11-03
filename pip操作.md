@@ -157,3 +157,30 @@ C:\Users\Frostbite\AppData\Local\pip\cache
 > 解决方式 `python -m ensurepip`
 >
 > `C:\Users\Frostbite\AppData\Roaming\Python\Python38\site-packages` 中的pip删除即可避免错误
+
+# pipdeptree查看包依赖
+
+> 安装
+
+```shell
+pip install pipdeptree
+```
+
+> 使用 pipdeptree 查看 torch 依赖结构
+
+```shell
+pipdeptree -p torch
+```
+
+> 查看本机python已存在的全部包的依赖结构
+
+```shell
+pipdeptree
+```
+
+> 查看哪些包依赖 torch
+
+```shell
+pipdeptree -p torch -r
+```
+
