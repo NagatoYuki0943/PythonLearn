@@ -3,16 +3,21 @@
 1.文件[夹]重命名   os.rename(原文件路径名,新文件路径名)
     文件不存在会报错
 
-  创建文件使用 open(路径名,'w')  w模式不存在文件就会创建
+
 2.删除文件    os.remove(文件路径名)
     文件不存在会报错
+
 
 3.创建目录    os.mkdir(目录路径名) make directory
     目录存在会报错
     新建多层目录要保证外层目录存在
 
+    os.makedirs 递归创建文件夹
+
+
 4.删除空目录   os.rmdir(目录路径名) remove directory
     目录不为空和不存在都报错
+
 
 5.获取当前所在的目录  os.getcwd()  get current working directory
 
@@ -20,8 +25,9 @@
 6.修改当前的目录     os.chdir(目录名)  change dir
     目录不存在会报错
 
+
 7.获取指定目录中的内容 os.listdir(目录)   默认不写参数获取当前路径名
-  返回值是列表,列表中的每一项是文件名
+    返回值是列表,列表中的每一项是文件名
 
 
 8.判断文件是否存在 os.path.exists(文件路径)
