@@ -64,9 +64,9 @@ def deep():
     copy.deepcopy()
     可变类型浅拷贝产生新的空间,能够保持各自的独立性
     '''
-    
+
     list1 = [1, 2, 3]
-    
+
     # 深拷贝
     list2 = copy.deepcopy(list1)
 
