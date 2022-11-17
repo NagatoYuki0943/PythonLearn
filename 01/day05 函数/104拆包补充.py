@@ -16,8 +16,8 @@ list = [1, 2, 3, 4, 5, 6]
 
 
 def func(*args, **kwargs):
-    print('args', args)
-    print('kwargs', kwargs)
+    print(args)
+    print(kwargs)
     print('*' * 50)
 
 
@@ -28,20 +28,20 @@ dict = {'a': 7, 'c': 8, 'b': 9, 'd': 10}
 # 列表拆包使用 * , 类似于ES6中的 [...array]
 # 将列表中的每一个数据当做位置参数进行传递
 func(*list)
-# args (1, 2, 3, 4, 5, 6)
-# kwargs {}
+# (1, 2, 3, 4, 5, 6)
+# {}
 
 
 # 直接使用字典会报错
-#func(dict1)
+# func(dict1)
 
 # 一个 * 传递的是key
 func(*dict)
-# args ('a', 'c', 'b', 'd')
-# kwargs {}
+# ('a', 'c', 'b', 'd')
+# {}
 
 
 # 两个 * 传递的是键值对
 func(**dict)
-# args ()
-# kwargs {'a': 7, 'c': 8, 'b': 9, 'd': 10}
+# ()
+# {'a': 7, 'c': 8, 'b': 9, 'd': 10}

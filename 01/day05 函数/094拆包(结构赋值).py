@@ -70,6 +70,6 @@ print(name, age)    # name age
 # 交换两个变量的值
 a = 11
 b = 22
-[a, b] = [b, a]
+a, b = b, a
 print(a, b)         # 22 11
 
