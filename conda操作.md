@@ -1,3 +1,11 @@
+# 下载
+
+[miniconda](https://docs.conda.io/en/latest/miniconda.html)
+
+[miniconda](https://repo.anaconda.com/miniconda/)
+
+[anaconda](https://www.anaconda.com/products/distribution)
+
 # 环境变量(anaconda和miniconda)
 
 ```shell
@@ -5,8 +13,6 @@
 {conda}\Scripts
 {conda}\Library\bin
 ```
-
-
 
 # 查看帮助
 
@@ -62,21 +68,22 @@ conda config --show
 
 ```shell
 channels:
-- defaults
+  - defaults
 show_channel_urls: true
 default_channels:
-	- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-	- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
-	- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
 custom_channels:
-	conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-	msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-	bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-	menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-	pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-	pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-	simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 auto_activate_base: false
+ssl_verify: false
 ```
 
 > `~/.conda/environments.txt`  存放虚拟环境
