@@ -83,4 +83,3 @@ if __name__ == "__main__":
             print("taskId = %s" % taskId)
         else:
             print("ERROR: ret.code=%s,msg=%s" % (res['code'], res['msg']))
-

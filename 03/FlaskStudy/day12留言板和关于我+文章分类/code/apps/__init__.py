@@ -4,7 +4,7 @@ import settings
 from apps.user.view import user_bp
 from apps.user.view import user_bp
 from apps.article.view import article_bp
-from exts import db,bootstrap  # 导入映射的db,bootstrap
+from exts import db, bootstrap  # 导入映射的db,bootstrap
 
 
 def create_app():

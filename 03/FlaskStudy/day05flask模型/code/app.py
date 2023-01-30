@@ -7,9 +7,10 @@ from apps.user.models import User # 必须导入模型
 
 app = create_app()
 
-manager = Manager(app=app)
 # 创建migrate,和app进行映射
 migrate = Migrate(app=app, db=db)
+
+manager = Manager(app=app)
 # 将migrate命令添加到migrate
 manager.add_command('db', MigrateCommand)   # 参数是名字和命令,名字是在命令行中使用
 

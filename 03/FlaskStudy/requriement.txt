@@ -1,0 +1,17 @@
+Flask
+Flask-Bootstrap
+Flask-Migrate
+# Flask-Script
+Flask-SQLAlchemy
+requests
+
+Jinja2
+
+SQLAlchemy
+pymysql
+
+pillow
+
+redis
+flask-caching
+
