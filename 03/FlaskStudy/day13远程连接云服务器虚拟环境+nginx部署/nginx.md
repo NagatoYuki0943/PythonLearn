@@ -9,7 +9,7 @@ nginx  [ -c configpath]  默认配置目录：/etc/nginx/nginx.conf
 信息查看
 
 ```
-nginx  -v
+nginx -v
 
 nginx -V
 ```
@@ -23,13 +23,11 @@ ps -ef |grep nginx
 控制Nginx
 
 ```
-nginx -s signal
+nginx -s stop  快速关闭
 
-stop  快速关闭
+nginx -s quit 优雅的关闭
 
-quit 优雅的关闭
-
-reload 重新加载配置
+nginx -s reload 重新加载配置
 ```
 
 通过系统管理
@@ -65,9 +63,10 @@ Nginx配置文件包含指定指令控制的模块。
 ```
 nginx -t 	不运行，仅测试配置文件
 
-nginx -c   	configpath 从指定路径加载配置文件
+nginx -c configpath      从指定路径加载配置文件
+  nginx -c nginx.conf
 
-nginx -t-c  configpath 测试指定配置文件
+nginx -t -c  configpath  测试指定配置文件
 ```
 
 ## Nginx配置文件结构
