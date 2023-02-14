@@ -8,9 +8,7 @@ python中使用不同目录的函数,
 from utils.function import loss_write
 from utils.Train import Train
 from utils.get_train import get_train
-import os
-import sys
-os.chdir(sys.path[0])
+
 
 if __name__ == "__main__":
     # loss_write(1)             # 在外层建立

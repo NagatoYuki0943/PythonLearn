@@ -35,11 +35,7 @@ shutil.copyfileobj(f1, f2, length=1024)
 #### 自己的
 
 ```python
-import os
-import sys
-os.chdir(sys.path[0])
-
-import shutil 
+import shutil
 
 origin = './a.txt'
 f1 = open(origin, 'r')
@@ -53,7 +49,7 @@ shutil.copyfileobj(f1, f2)
 
 
 
-### 3 移动 move(src, dst) 
+### 3 移动 move(src, dst)
 
 将src移动至dst目录下。若dst目录不存在，则效果等同于src改名为dst。若dst目录存在，将会把src文件夹的所有内容移动至该目录下面
 
@@ -82,11 +78,7 @@ shutil.move(file1, file2)
 #### 自己的
 
 ```python
-import os
-import sys
-os.chdir(sys.path[0])
-
-import shutil 
+import shutil
 
 origin = './a.txt'
 dest = './1/a.txt'
@@ -118,11 +110,7 @@ shutil.copy("file.txt",os.path.join(os.getcwd(),"copy"))
 #### 自己的
 
 ```python
-import os
-import sys
-os.chdir(sys.path[0])
-
-import shutil 
+import shutil
 
 origin = './a.txt'
 dest = './1/a.txt'
@@ -134,11 +122,7 @@ shutil.copy(origin, dest)
 #### 放进文件夹里
 
 ```python
-import os
-import sys
-os.chdir(sys.path[0])
-
-import shutil 
+import shutil
 
 origin = './a.txt'
 dest = './2/'   # 放进文件夹里
@@ -194,11 +178,7 @@ shutil.copytree(folder1,folder2,ignore=shutil.ignore_patterns("abc.txt","bcd.txt
 #### 自己的
 
 ```python
-import os
-import sys
-os.chdir(sys.path[0])
-
-import shutil 
+import shutil
 
 # 两个文件夹
 origin = './1'
@@ -227,13 +207,9 @@ shutil.rmtree(folder1)
 #### 自己的
 
 ```python
-import os
-import sys
-os.chdir(sys.path[0])
+import shutil
 
-import shutil 
-
-dest = './2'   
+dest = './2'
 
 shutil.rmtree(dest)
 ```

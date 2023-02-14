@@ -4,9 +4,6 @@ json.loads	将已编码的 JSON 字符串解码为 Python 对象
 '''
 
 from json import dumps,loads
-import os
-import sys
-os.chdir(sys.path[0])
 
 
 json_name = "test.json"

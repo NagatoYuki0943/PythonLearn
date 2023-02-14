@@ -21,11 +21,6 @@ Python 解释器会将其视为一个 generator，调用 fab(5) 不会执行 fab
 下次迭代时，代码从 yield b 的下一条语句继续执行，而函数的本地变量看起来和上次中断执行前是完全一样的，于
 是函数继续执行，直到再次遇到 yield。
 '''
-import os
-import sys
-os.chdir(sys.path[0])
-
-
 from contextlib import contextmanager
 
 

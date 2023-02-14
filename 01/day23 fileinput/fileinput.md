@@ -95,13 +95,6 @@ FileInput可以使用fileinput中的大量方法
 '''
 
 import fileinput
-import os
-
-# 解决相对路径报错问题
-import sys
-os.chdir(sys.path[0])
-
-
 from fileinput import FileInput
 
 path = './fileinput1.txt'

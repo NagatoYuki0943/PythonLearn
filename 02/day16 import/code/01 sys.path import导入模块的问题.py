@@ -1,5 +1,3 @@
-
-import os 
 import sys
 
 # 环境变量
@@ -16,7 +14,6 @@ import sys
     'D:\\Anaconda3\\envs\\ai\\lib\\site-packages\\Pythonwin'
 ]
 
-os.chdir(sys.path[0])
 
 # 添加自己的路径,就能使用 module 了  
 sys.path.append('./module')

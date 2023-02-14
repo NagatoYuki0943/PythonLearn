@@ -1,8 +1,3 @@
-import os
-import sys
-
-os.chdir(sys.path[0])
-
 from apps import create_app
 
 # 调用apps中的create_app

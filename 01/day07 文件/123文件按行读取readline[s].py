@@ -6,8 +6,6 @@
 文件对象.readlines()
 
 '''
-import os, sys
-os.chdir(sys.path[0])
 
 
 f = open('文件/1.txt', 'r', encoding='utf-8')

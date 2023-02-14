@@ -2,3 +2,5 @@
 import os
 import sys
 os.chdir(sys.path[0])
+
+或者在vscode 设置/扩展/Python-Terminal: Execute In File Dir 勾选

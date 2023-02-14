@@ -9,9 +9,6 @@
 with MyFile('hello.txt', 'r') as file
 
 '''
-import os
-import sys
-os.chdir(sys.path[0])
 
 
 class MyFile(object):

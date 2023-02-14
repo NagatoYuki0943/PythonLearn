@@ -1,8 +1,6 @@
 import os
-import sys
 import shutil
 from glob import glob
-os.chdir(sys.path[0])
 
 
 files = os.listdir()

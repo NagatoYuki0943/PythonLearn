@@ -1,11 +1,6 @@
 '''
 无论是在外面直接建立对象,还是在内层建立对象再返回,都是在外面创建txt
 '''
-
-import sys
-import os
-os.chdir(sys.path[0])
-
 from utils.Touch import Touch
 from utils.get_touch import get_touch
 

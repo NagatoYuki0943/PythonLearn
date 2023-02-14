@@ -1,11 +1,6 @@
 '''
 子线程使用C语言函数
 '''
-
-import sys
-import os
-os.chdir(sys.path[0])
-
 from threading import Thread
 
 # 1.导入模块 ctype
