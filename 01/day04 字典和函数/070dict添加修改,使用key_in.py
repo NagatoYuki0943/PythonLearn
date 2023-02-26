@@ -24,6 +24,6 @@ print(dict1)            # {'name': 'Jerry', 'age': 18, 1: 4}
 # in 操作符用于判断键是否存在于字典中，如果键在字典 dict 里返回 true，否则返回 false。
 # not in 操作符刚好相反，如果键在字典 dict 里返回 false，否则返回 true。
 dict2 = {1:"a", 2:"b", 3:"b"}
-print(1 in dict2)       # True
-print(1 not in dict2)   # False
-print(4 in dict2)       # False
+print(1 in dict2)           # True
+print(1 not in dict2)       # False
+print(4 in dict2)           # False
