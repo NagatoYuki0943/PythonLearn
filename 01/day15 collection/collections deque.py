@@ -11,7 +11,7 @@
     - appendleft(x)：添加x到左端
 
     - insert(i, x)：在位置 i 插入 x 。注：如果插入会导致一个限长deque超出长度 maxlen 的话，就升起一个 IndexError 。
-    
+
     - extend(iterable)：在队列右侧添加iterable中的元素
     - extendleft(iterable)：在队列左侧添加iterable中的元素，注：在左侧添加时，iterable参数的顺序将会反过来添加(右->左)
 
@@ -25,7 +25,7 @@
     - count(x)：计算队列中个数等于x的元素
 
     - index(x[,start[,stop]])：返回第 x 个元素（从 start 开始计算，在 stop 之前）。返回第一个匹配，如果没找到的话，升起 ValueError 。
-    
+
     - reverse()：将deque逆序排列。返回 None 。
 
 属性:
@@ -105,9 +105,9 @@ print('~' * 50)
 
 
 # reverse()：将deque逆序排列。返回 None 。
-print(d) 
+print(d)
 d.reverse()
-print(d) 
+print(d)
 # deque(['a', 'i', 'd', 'k', 'm', 'a', 'd', 'a', 'd', 'm'], maxlen=10)
 # deque(['m', 'd', 'a', 'd', 'a', 'm', 'k', 'd', 'i', 'a'], maxlen=10)
 print('~' * 50)

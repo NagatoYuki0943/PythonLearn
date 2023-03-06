@@ -53,7 +53,6 @@ tuple3 = (3,)
 print(tuple3, type(tuple3))     # (3,) <class 'tuple'>
 
 
-
 tulip4 = (1, 2, 3, 4, True, "GeForce")
 # 查询数据,没有find
 print(tulip4.index(4))          # 3

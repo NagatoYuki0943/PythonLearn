@@ -39,9 +39,9 @@ print('-' * 50)
 
 # dict存放的数据类型是int
 fruit = defaultdict(int)
-fruit['apple'] += 2 
+fruit['apple'] += 2
 print(fruit)    # defaultdict(<class 'int'>, {'apple': 2})
-fruit['apple'] += 2 
+fruit['apple'] += 2
 print(fruit)    # defaultdict(<class 'int'>, {'apple': 4})
 
 # 没有对象时，返回0

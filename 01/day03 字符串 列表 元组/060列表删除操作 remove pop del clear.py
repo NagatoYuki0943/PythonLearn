@@ -34,3 +34,7 @@ my_list = [1, 2, 3, 4, 5]
 del my_list[0]
 print(my_list)  # [2, 3, 4, 5]
 # del my_list[10]        要删除的下标不存在就报错
+
+# 清除全部
+my_list.clear()
+print(my_list)  # []
