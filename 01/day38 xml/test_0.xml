@@ -1,0 +1,44 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>000001.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>341012865</flickrid>
+	</source>
+	<owner>
+		<flickrid>Fried Camels</flickrid>
+		<name>Jinky the Fruit Bat</name>
+	</owner>
+	<size>
+		<width>353</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>stu_0_0</name>
+		<pose>Left</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>14.860877940180245</xmin>
+			<ymin>-3.7586029538221966</ymin>
+			<xmax>7.6231615404153334</xmax>
+			<ymax>8.00178765220383</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>stu_0_1</name>
+		<pose>Left</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>16.02661609888373</xmin>
+			<ymin>-2.8661137597596893</ymin>
+			<xmax>11.822194914544196</xmax>
+			<ymax>3.748405527621662</ymax>
+		</bndbox>
+	</object>
+</annotation>
