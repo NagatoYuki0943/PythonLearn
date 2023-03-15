@@ -1,0 +1,26 @@
+{
+  "version": "5.1.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "mian_hua_lao_ye_huang_hua",
+      "points": [
+        [
+          8.875000000000227,
+          122.25000000000001
+        ],
+        [
+          2990.125,
+          3809.75
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "IMG_2313.JPG",
+  "imageData": "",
+  "imageHeight": 4032,
+  "imageWidth": 3024
+}

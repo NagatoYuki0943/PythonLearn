@@ -1,0 +1,74 @@
+{
+  "version": "5.1.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "mian_hua_ye_pian_lao_hua",
+      "points": [
+        [
+          271.3750000000002,
+          1097.25
+        ],
+        [
+          2477.625,
+          3384.75
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "mian_hua_ye_pian_lao_hua",
+      "points": [
+        [
+          2033.8750000000002,
+          1047.25
+        ],
+        [
+          2815.125,
+          2172.25
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "mian_hua_ye_pian_lao_hua",
+      "points": [
+        [
+          984.0,
+          660.0
+        ],
+        [
+          536.0,
+          1184.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "mian_hua_ye_pian_lao_hua",
+      "points": [
+        [
+          1235.5294117647059,
+          5.88235294117647
+        ],
+        [
+          2129.6470588235293,
+          582.3529411764705
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "IMG_0467.JPG",
+  "imageData": "",
+  "imageHeight": 4032,
+  "imageWidth": 3024
+}

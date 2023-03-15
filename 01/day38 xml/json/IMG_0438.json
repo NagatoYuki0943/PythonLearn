@@ -1,0 +1,42 @@
+{
+  "version": "5.1.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "mian_hua_ye_pian_lao_hua",
+      "points": [
+        [
+          851.1627906976744,
+          1564.8372093023256
+        ],
+        [
+          2234.222222222222,
+          3073.4074074074074
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "mian_hua_ye_pian_lao_hua",
+      "points": [
+        [
+          2900.8888888888887,
+          1532.6666666666667
+        ],
+        [
+          2223.1111111111113,
+          703.0370370370372
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "IMG_0438.jpg",
+  "imageData": "",
+  "imageHeight": 4032,
+  "imageWidth": 3024
+}
