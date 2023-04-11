@@ -184,3 +184,19 @@ pipdeptree
 pipdeptree -p torch -r
 ```
 
+# pkginfo 查看本地whl信息(依赖)
+
+> 安装
+
+```shell
+pip install pkginfo
+```
+
+> 使用 pkginfo 查看
+
+```shell
+pkginfo .\tensorflowjs-4.4.0-py3-none-any.whl
+pkginfo --simple .\tensorflowjs-4.4.0-py3-none-any.whl
+pkginfo --json .\tensorflowjs-4.4.0-py3-none-any.whl
+```
+
