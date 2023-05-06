@@ -1,0 +1,155 @@
+# https://zhuanlan.zhihu.com/p/145173920
+
+# 大小写敏感
+One: 1
+one: 2
+
+
+# 缩进只能使用空格，不能用 TAB 字符
+# 缩进的空格数量不重要，但是同一层级的元素左侧必须对齐
+indent:
+  a: 1
+  indent1:
+    b: 2
+    c: 3
+
+
+# mapping
+key1:
+  child-key1: value1
+  child-key2: value2
+# 支持流式风格（ Flow style）的语法（用花括号包裹，用逗号加空格分隔，类似 JSON）
+key2: { child-key1: value1, child-key2: value2 }
+
+
+# 数组（Sequence）
+# 一组以区块格式（Block Format）（即"破折号+空格"）开头的数据组成一个数组
+array1:
+  - 1
+  - 2
+  - 3
+array2: [2, 3, 4]
+
+# 支持多维数组（用缩进表示层级关系）
+array3:
+  -
+    - 1
+    - 2
+    - 3
+  -
+    - 4
+    - 5
+    - 6
+array4: [[2, 3, 4], [5, 6, 7]]
+
+
+# 字符串（String）
+# 字符串一般不需要用引号包裹，但是如果字符串中使用了反斜杠"\"开头的转义字符就必须使用引号包裹
+strings:
+  - Hello without quote         # 不用引号包裹
+  - Hello
+   world                        # 拆成多行后会自动在中间添加空格
+  - 'Hello with single quotes'  # 单引号包裹
+  - "Hello with double quotes"  # 双引号包裹
+  - "I am fine. \u263A"         # 使用双引号包裹时支持 Unicode 编码
+  - "\x0d\x0a is \r\n"          # 使用双引号包裹时还支持 Hex 编码
+  - 'He said: "Hello!"'         # 单双引号支持嵌套"
+
+
+# 对于多行的文字，YAML 提供了两种特殊的语法支持
+# 保留换行(Newlines preserved)
+# 使用竖线符" | "来表示该语法，每行的缩进和行尾空白都会被去掉，而额外的缩进会被保留
+lines: |
+  我是第一行
+  我是第二行
+    我是吴彦祖
+      我是第四行
+  我是第五行
+
+# 折叠换行(Newlines folded)
+lines: >
+  我是第一行
+  我也是第一行
+  我仍是第一行
+  我依旧是第一行
+
+  我是第二行
+  这么巧我也是第二行
+
+
+# 布尔值（Boolean）
+# true, True, TRUE, yes, Yes和YES皆为真
+# false, False, FALSE, no, No和NO皆为假
+boolean:
+  - true
+  - TRUE
+  - yes
+  - YES
+  - false
+  - FALSE
+  - no
+  - NO
+
+
+# 整数（Integer）
+# 支持二进制表示
+int:
+  - 666
+  - 0001_0000 # 二进制表示
+
+
+# 浮点数（Floating Point）
+# 支持科学计数法
+float:
+  - 3.14
+  - 6.8523015e+5 # 使用科学计数法
+
+
+# 空（Null）
+# "null", "Null"和"~"都是空，不指定值默认也是空
+nulls:
+  - null
+  - Null
+  - ~
+  -
+
+
+# 类型转换
+# YAML 支持使用严格类型标签"!!"（双感叹号+目标类型）来强制转换类型
+a: !!float '666'  # 字符串转换为float
+b: '666'          # 其实双引号也算是类型转换符
+c: !!str 666      # 整数转为字符串
+d: !!str 666.66   # 浮点数转为字符串
+e: !!str true     # 布尔值转为字符串
+f: !!str yes      # 布尔值转为字符串
+g: !!str false    # 布尔值转为字符串
+h: !!str no       # 布尔值转为字符串
+
+
+# 时间戳（Timestamp）
+# YAML 也支持 ISO 8601 格式的时间数据
+date1: 2020-05-26
+date2: 2020-05-26T01:00:00+08:00
+dete3: 2020-05-26T02:00:00.10+08:00
+date4: 2020-05-26 03:00:00.10+8
+
+
+# 数据重用与合并
+# 为了保持内容的简洁，避免过多重复的定义，YAML 提供了由锚点标签"&"和引用标签"*"组成的语法，利用这套语法可以快速引用相同的一些数据...
+anchor1: &anchor1
+  one: 1
+  two: 2
+  three: 3
+link1: *anchor1
+
+# 配合合并标签"<<"使用可以与任意数据进行合并，你可以把这套操作想象成面向对象语言中的继承...
+human: &human
+  body: 1
+  hair: 999
+singer:
+  <<: *human    # 引用 human 锚点，实例化时会自动展开
+  skill: sing   # 添加额外的属性
+programmer:
+  <<: *human    # 引用 human 锚点，实例化时会自动展开
+  hair: 6       # 覆写 human 中的属性
+  skill: code   # 添加额外的属性
