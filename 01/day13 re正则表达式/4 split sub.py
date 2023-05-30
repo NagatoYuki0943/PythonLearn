@@ -10,7 +10,7 @@ print(re.split('\W+', ' aa, bb, cc.', 1))   # ['', 'aa, bb, cc.']
 
 
 # 对于一个找不到匹配的字符串而言，split 不会对其作出分割,但是会警告
-print(re.split('a*', 'hello world'))   
+print(re.split('a*', 'hello world'))
 # D:\Anaconda3\envs\ai\lib\re.py:212: FutureWarning: split() requires a non-empty pattern match.
 #   return _compile(pattern, flags).split(string, maxsplit)
 # ['hello world']
@@ -35,16 +35,16 @@ print('*' * 50)
 # - flags : 编译时用的匹配模式，数字形式。
 
 phone = "2004-959-559 # 这是一个电话号码"
- 
+
 # 删除注释
 num = re.sub(r'#.*$', "", phone)
 print ("电话号码 : ", num)
-# 电话号码 :  2004-959-559 
+# 电话号码 :  2004-959-559
 
 # 移除非数字的内容
 num = re.sub(r'\D', "", phone)
 print ("电话号码 : ", num)
-# 电话号码 :  2004-959-559 
+# 电话号码 :  2004-959-559
 
 print('-' * 50)
 
@@ -53,7 +53,7 @@ print('-' * 50)
 def double(matched):
     value = int(matched.group('value'))
     return str(value * 2)
- 
+
 s = 'A23G4HFD567'
 print(re.sub(r'(?P<value>\d+)', double, s))
 # A46G8HFD1134 数字变为2倍
@@ -69,7 +69,3 @@ print('-' * 50)
 pattern = re.compile(r'\D')
 #                 替换内容
 print(pattern.sub('', phone))   # 2004959559
-
-
-
-
