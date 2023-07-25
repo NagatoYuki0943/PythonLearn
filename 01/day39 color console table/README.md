@@ -4,7 +4,7 @@
 
 > 配合`logging`一起使用
 
-## colorma
+## termcolor & colorma
 
 > 打印彩色命令
 
