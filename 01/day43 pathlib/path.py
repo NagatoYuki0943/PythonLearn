@@ -1,17 +1,36 @@
 import os
-import pathlib
+from pathlib import Path
 
+path = Path(__file__)
 
-file = pathlib.Path(__file__)
-print(file)                         # c:\Users\Administrator\Desktop\self\fastapi_learn\path.py
-print(file.name)                    # path.py
-print(file.stem)                    # path
-print(file.suffix)                  # .py
-print(file.parent)                  # c:\Users\Administrator\Desktop\self\fastapi_learn
-print(file.is_absolute())           # True
-print(file.absolute())              # c:\Users\Administrator\Desktop\self\fastapi_learn\path.py
-print(file.resolve())               # C:\Users\Administrator\Desktop\self\fastapi_learn\path.py
-print(file.is_dir())                # False
-print(file.is_file())               # True
+print(path)                 # d:\ml\code\test\path\path.py
+print(path.name)            # path.py
+print(path.stem)            # path
+print(path.suffix)          # .py
+print(path.suffixes)        # ['.py']
+
+print(path.anchor)          # d:\
+print(path.drive)           # d:
+
+print(path.parts)           # ('d:\\', 'ml', 'code', 'test', 'path', 'path.py')
+print(path.parent)          # d:\ml\code\test\path
+print()
+for p in path.parents:
+    print(p)
+print()
+# d:\ml\code\test\path
+# d:\ml\code\test
+# d:\ml\code
+# d:\ml
+# d:\
+
+print(path.is_absolute())   # True
+print(path.absolute())      # d:\ml\code\test\path\path.py
+print(path.resolve())       # D:\ml\code\test\path\path.py
+print(path.is_file())       # True
+print(path.is_dir())        # False
+print(path.exists())        # True
+
+print(path.root)            # \
 
 print(os.path.basename(__file__))   # path.py
