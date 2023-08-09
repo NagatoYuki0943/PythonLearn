@@ -8,11 +8,11 @@ class Config:
     rec_model: str                              # Path of Recognization model of PPOCR.
     rec_label_file: str                         # Path of Recognization label of PPOCR.
     device: str                                 # Type of inference device, support 'cpu' or 'gpu'.
-    device_id: int                              # Define which GPU card used to run model.
     cls_bs: int                                 # Classification model inference batch size.
     rec_bs: int                                 # Recognition model inference batch size
-    backend: str  = field(default="default")    # Type of inference backend, support ort/trt/paddle/openvino, default 'openvino' for cpu, 'tensorrt' for gpu
     # default 必须放在最后面
+    device_id: int | None = None                # Define which GPU card used to run model.
+    backend: str  = field(default="default")    # Type of inference backend, support ort/trt/paddle/openvino, default 'openvino' for cpu, 'tensorrt' for gpu
 
 
 def parse_arguments():
@@ -22,10 +22,10 @@ def parse_arguments():
         rec_model = r"ch_PP-OCRv3_rec_infer",
         rec_label_file = r"ppocr_keys_v1.txt",
         device = "cpu",
-        device_id = 0,
         cls_bs = 1,
         rec_bs = 6,
-        backend = "default",
+        # device_id = 0,
+        # backend = "default",
     )
     return config
 
@@ -63,8 +63,7 @@ def test_frozen():
 
 if __name__ == "__main__":
     print(parse_arguments())
-    # Config(det_model='ch_PP-OCRv3_det_infer', cls_model='ch_ppocr_mobile_v2.0_cls_infer', rec_model='ch_PP-OCRv3_rec_infer', rec_label_file='ppocr_keys_v1.txt', device='cpu', device_id=0, cls_bs=1, rec_bs=6, backend='default')
+    # Config(det_model='ch_PP-OCRv3_det_infer', cls_model='ch_ppocr_mobile_v2.0_cls_infer', rec_model='ch_PP-OCRv3_rec_infer', rec_label_file='ppocr_keys_v1.txt', device='cpu', cls_bs=1, rec_bs=6, device_id=None, backend='default')
 
     test_post_init()
     test_frozen()
-
