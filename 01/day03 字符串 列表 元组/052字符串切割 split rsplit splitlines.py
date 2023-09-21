@@ -28,3 +28,10 @@ print(res)  # ['hello world ', ' and ', 'cpp']
 # 有 rsplit 方法,从右到左
 res = my_str.rsplit('itcast', 1)
 print(res)  # ['hello world itcast and ', 'cpp']
+
+# splitlines 按照行分隔，返回一个包含各行作为元素的列表
+my_str= 'Hello\nWorld\n'            # splitlines可以去除单个空行
+print(my_str.splitlines())          # ['Hello', 'World']
+
+my_str= 'Hello\nWorld\n\n'          # 多个空行无法去除
+print(my_str.splitlines())          # ['Hello', 'World', '']
