@@ -62,8 +62,11 @@ print(my_str.rpartition('name'))    # ('My ', 'name', ' is Cook')
 
 
 # splitlines 按照行分隔，返回一个包含各行作为元素的列表
-my_str= 'Hello\nWorld'
+my_str= 'Hello\nWorld\n'            # splitlines可以去除单个空行
 print(my_str.splitlines())          # ['Hello', 'World']
+
+my_str= 'Hello\nWorld\n\n'          # 多个空行无法去除
+print(my_str.splitlines())          # ['Hello', 'World', '']
 
 
 # isalpha   如果 mystr 所有字符都是字母 则返回 True,否则返回 False  有空格也为假
