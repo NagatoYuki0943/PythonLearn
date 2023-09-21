@@ -35,3 +35,6 @@ print(my_str.splitlines())          # ['Hello', 'World']
 
 my_str= 'Hello\nWorld\n\n'          # 多个空行无法去除
 print(my_str.splitlines())          # ['Hello', 'World', '']
+
+# split可以除去多个空行
+print(my_str.split())               # ['Hello', 'World']
