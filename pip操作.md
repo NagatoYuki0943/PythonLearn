@@ -1,3 +1,28 @@
+# python启用pip
+
+## `ensurepip`
+
+Python comes with an [`ensurepip`](https://docs.python.org/3/library/ensurepip.html#module-ensurepip) module, which can install pip in a Python environment.
+
+```sh
+python -m ensurepip --upgrade   # linux
+python -m ensurepip --upgrade   # mac
+py -m ensurepip --upgrade       # windows
+```
+
+##`get-pip.py`
+
+This is a Python script that uses some bootstrapping logic to install pip.
+
+- Download the script, from https://bootstrap.pypa.io/get-pip.py.
+- Open a terminal/command prompt, `cd` to the folder containing the `get-pip.py` file and run:
+
+```sh
+python get-pip.py   # linux
+python get-pip.py   # mac
+py get-pip.py       # windows
+```
+
 # 配置文件位置
 
 ```shell
@@ -21,7 +46,7 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 # pip命令
 
-## help
+## `pip --help`
 
 ```shell
 > pip --help
@@ -82,12 +107,17 @@ General Options:
   --use-deprecated <feature>  Enable deprecated functionality, that will be removed in the future.
 ```
 
+## `pip --version`
 
+```sh
+> pip --version
+pip 23.2.1 from D:\miniconda3\lib\site-packages\pip (python 3.10)
+```
 
 ## 安装
 
 ```shell
-pip install  numpy
+pip install numpy
 
 pip install -r requirements.txt # 按照requirements.txt中全部文件
 
@@ -141,14 +171,6 @@ python -m pip install --upgrade pip
 ```shell
 C:\Users\Frostbite\AppData\Local\pip\cache
 ```
-
-
-
-
-
-# 注意
-
-## pywin32 不能更新，否则没法使用conda
 
 # 错误
 
