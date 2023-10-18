@@ -1,0 +1,5 @@
+fileinput2 a
+fileinput2 b
+fileinput2 c
+fileinput2 d
+fileinput2 e

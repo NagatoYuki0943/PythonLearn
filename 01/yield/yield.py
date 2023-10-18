@@ -11,17 +11,17 @@ Python 解释器会将其视为一个 generator，调用 fab(5) 不会执行 fab
 是函数继续执行，直到再次遇到 yield。
 '''
 
-def fab(max): 
-    n, a, b = 0, 0, 1 
-    while n < max: 
+def fab(max):
+    n, a, b = 0, 0, 1
+    while n < max:
         yield b      # 使用 yield
-        # print b 
-        a, b = b, a + b 
-        
-        n += 1
- 
+        # print b
+        a, b = b, a + b
 
-for n in fab(5): 
+        n += 1
+
+
+for n in fab(5):
     print(n)
 # 1
 # 1
@@ -30,7 +30,7 @@ for n in fab(5):
 # 5
 
 
-f = fab(5) 
+f = fab(5)
 # 迭代器的形式
 print(f.__next__())
 print(f.__next__())

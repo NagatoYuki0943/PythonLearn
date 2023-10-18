@@ -1,18 +1,20 @@
-#-------------------------------------------------------------#
-#   setattr() 函数对应函数 getattr()，用于设置属性值，该属性不一定是存在的
-#   语法
-#       setattr(object, name, value)
-#   参数
-#       object -- 对象
-#       name -- 字符串，对象属性
-#       value -- 属性值
-#
-#   setattr可以在类中使用，参数1为self，设置对象参数
-#-------------------------------------------------------------#
+"""
+setattr() 函数对应函数 getattr()，用于设置属性值，该属性不一定是存在的
+语法
+    setattr(object, name, value)
+参数
+    object -- 对象
+    name -- 字符串，对象属性
+    value -- 属性值
+
+setattr可以在类中使用，参数1为self，设置对象参数
+"""
+
 
 class Letter():
     def __init__(self):
         self.a = 1
+
 
 letter = Letter()
 print(hasattr(letter, 'a'))     # True

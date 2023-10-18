@@ -1,14 +1,14 @@
-#------------------------------------------#
-#   getattr() 函数用于返回一个对象属性值
-#   getattr 语法：
-#       getattr(object, name[, default])
-#   参数
-#       object  -- 对象
-#       name    -- 字符串，对象属性
-#       default -- 默认返回值，如果不提供该参数，在没有对应属性时，将触发 AttributeError
-#
-#   getattr可以在类中使用，参数1为self，获取对象参数
-#------------------------------------------#
+"""
+getattr() 函数用于返回一个对象属性值
+getattr 语法：
+    getattr(object, name[, default])
+参数
+    object  -- 对象
+    name    -- 字符串，对象属性
+    default -- 默认返回值，如果不提供该参数，在没有对应属性时，将触发 AttributeError
+
+getattr可以在类中使用，参数1为self，获取对象参数
+"""
 
 
 class Person(object):
