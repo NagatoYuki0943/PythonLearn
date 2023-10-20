@@ -1,4 +1,6 @@
 """
+https://github.com/google/python-fire
+
 https://zhuanlan.zhihu.com/p/100459723
 
 fire 可以根据任何 Python 对象自动生成命令行接口。它有如下特性：
