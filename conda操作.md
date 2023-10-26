@@ -167,10 +167,10 @@ conda deactivate
 
 
 
-## 创建虚拟环境
+## 创建虚拟环境 **conda create -n 环境名 python=3.9**
 
 ```shell
-conda create -n 环境名 python=3.9
+conda create -n/--name=env_name python=3.10
 ```
 
 > 建完成后目录文件夹会生成在Anaconda3/Miniconda3的安装目录envs下边
@@ -179,13 +179,13 @@ conda create -n 环境名 python=3.9
 
 
 
-## 删除虚拟环境
+## 删除虚拟环境 **conda remove -n 环境名 --all**
 
 ```shell
-conda remove -n 环境名 --all
+conda remove -n/--name=env_name --all
 ```
 
-## 列出所有可用环境
+## 列出所有可用环境 **conda env list**
 
 ```shell
 conda env list
@@ -283,9 +283,9 @@ conda config --set auto_activate_base false
 
 > 配置文件位置
 >
-> `C:\Users\Frostbite\Documents\WindowsPowerShell\profile.ps1`
+> `%userprofile%\Documents\WindowsPowerShell\profile.ps1`
 >
-> `C:\Users\Frostbite\Documents\PowerShell\profile.ps1`
+> `%userprofile%\Documents\PowerShell\profile.ps1`
 
 ## 给powershell添加conda路径问题
 

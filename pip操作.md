@@ -10,7 +10,7 @@ python -m ensurepip --upgrade   # mac
 py -m ensurepip --upgrade       # windows
 ```
 
-##`get-pip.py`
+## `get-pip.py`
 
 This is a Python script that uses some bootstrapping logic to install pip.
 
@@ -26,7 +26,7 @@ py get-pip.py       # windows
 # 配置文件位置
 
 ```shell
-C:\Users\Frostbite\AppData\Roaming\pip\pip.ini
+%userprofile%\AppData\Roaming\pip\pip.ini
 ```
 
 # pypi 镜像使用帮助
@@ -169,16 +169,8 @@ python -m pip install --upgrade pip
 # 缓存位置
 
 ```shell
-C:\Users\Frostbite\AppData\Local\pip\cache
+%userprofile%\AppData\Local\pip\cache
 ```
-
-# 错误
-
-## No module named 'pip'错误
-
-> 解决方式 `python -m ensurepip`
->
-> `C:\Users\Frostbite\AppData\Roaming\Python\Python38\site-packages` 中的pip删除即可避免错误
 
 # pipdeptree查看包依赖
 
