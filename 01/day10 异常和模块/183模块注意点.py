@@ -7,7 +7,6 @@
 查看模块查找顺序
 import sys
 print(sys.path)
-
 '''
 
 import random

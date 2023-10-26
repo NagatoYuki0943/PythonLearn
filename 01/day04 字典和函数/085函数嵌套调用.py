@@ -8,7 +8,7 @@ def calc(a, b):
     return s1, s2
 
 
-def add(a, b):  
+def add(a, b):
     return a + b
 
 

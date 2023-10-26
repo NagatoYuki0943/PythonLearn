@@ -1,7 +1,3 @@
-'''
-
-'''
-
 def func(name, age, num1 = 0, num2 = 0):
     print(f"My name is {name},age is {age}")
     return num1 + num2

@@ -24,14 +24,12 @@ class Potato(object):
         else:
             self.status = '糊了'
 
-
     def add(self, *args):
         '''
         添加调料
         '''
         for i in args:
             self.seasoning.append(i)
-
 
     def __str__(self):
         if self.seasoning:

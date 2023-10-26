@@ -14,4 +14,5 @@ def func2():
     a = 10
     return
 
+
 print(func2())  # None

@@ -20,7 +20,6 @@ float2 = float2 + 1
 print(float1, float2)   # 10.2 11.2
 
 
-
 # list可变类型
 list1 = [1, 2, 3]
 list2 = list1

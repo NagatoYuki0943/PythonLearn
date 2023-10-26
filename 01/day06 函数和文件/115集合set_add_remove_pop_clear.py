@@ -48,7 +48,6 @@ print(set1)                         # set()
 print('*' * 50)
 
 
-
 list1 = [1, 3, 4, 5, 1, 4, 3, 0]
 list2 = list(set(list1))
 print(list2)                        # [0, 1, 3, 4, 5]

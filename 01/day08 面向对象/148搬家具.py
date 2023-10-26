@@ -6,11 +6,9 @@ class Furniture(object):
     name = ''
     area = 0
 
-
     def __init__(self, name, area):
         self.name = name
         self.area = area
-
 
     def __str__(self):
         # 家具类型和占地面积
@@ -19,8 +17,6 @@ class Furniture(object):
 
 # 别墅
 class Villa(object):
-
-
     def __init__(self, address, area):
         self.address = address
         self.area = area
@@ -41,7 +37,6 @@ class Villa(object):
                 print(f"添加{i.name}成功")
             else:
                 print(f"添加{i.name}失败")
-
 
     def __str__(self):
         if self.furniture:

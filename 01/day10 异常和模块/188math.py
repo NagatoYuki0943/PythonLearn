@@ -1,6 +1,5 @@
 '''
 math数据模块
-
 '''
 
 import math

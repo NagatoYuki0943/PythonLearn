@@ -11,7 +11,6 @@ php 在函数引用上，self与static的区别是：对于静态成员函数，
 
 
 class Animal(object):
-
     def __init__(self):
         self.name = 'Animal'
 
@@ -20,7 +19,6 @@ class Animal(object):
 
 
 class Dog(Animal):
-
     def __init__(self):
         super().__init__()
         self.name = 'dog'

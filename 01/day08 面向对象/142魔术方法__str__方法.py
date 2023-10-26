@@ -12,12 +12,9 @@
 '''
 
 class Dog(object):
-
-
     def __init__(self, name, age):
-       self.name = name
-       self.age = age
-
+        self.name = name
+        self.age = age
 
     # print(对象) 和 str(对象) 会调用,对象转换为字符串
     # 参数只能由 self, 必须返回字符串

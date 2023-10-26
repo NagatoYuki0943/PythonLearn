@@ -1,10 +1,10 @@
 class Student(object):
+
     def __init__(self, id, name, age, gender):
         self.stu_id = id
         self.name = name
         self.age = age
         self.gender = gender
-
 
     def __str__(self):
         return f"{self.stu_id},{self.name},{self.age},{self.gender}"

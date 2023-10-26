@@ -10,7 +10,6 @@ def __init__(self, name, color):
     super().__init__(name)
     self.color = color
 
-
 /**
  * C++子类继承不能继承父类的构造函数,
  * C#子类继承不能继承父类的构造函数
@@ -41,27 +40,21 @@ public:
 
 
 class Dog(object):
-
-
     def __init__(self, name):
         self.name = name
         self.age = 0
-
 
     def __str__(self):
         return f"名字为:{self.name},年龄为:{self.age}"
 
 
 class XTQ(Dog):
-
-
     def __init__(self, name, color):
         # 子类要调用父类构造函数
         #Dog.__init__(self, name)
         #super(XTQ, self).__init__(name)
         super().__init__(name)
         self.color = color
-
 
     def __str__(self):
         return f"名字为:{self.name},年龄为:{self.age},毛色为:{self.color}"

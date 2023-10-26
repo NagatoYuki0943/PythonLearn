@@ -27,6 +27,7 @@ print("*" * 50)
 dict3 = {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'sticks', 'stocking']}
 print(dict3)  # {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'sticks', 'stocking']}
 
+
 # 3.添加新数据,数据要写成字典格式
 dict3.update({'length':100})
 print(dict3)  # {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'sticks', 'stocking'], 'length': 100}
@@ -47,5 +48,5 @@ print(dict3.get('a', 'HHHH'))  # HHHH
 print("*" * 50)
 
 
-# 3.使用len获取长度,获取键值对的数量
+# 4.使用len获取长度,获取键值对的数量
 print(len(dict3))  # 4

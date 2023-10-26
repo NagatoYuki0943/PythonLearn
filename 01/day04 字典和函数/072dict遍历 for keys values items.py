@@ -33,7 +33,6 @@ print("*" * 50)
 # ['pantyhose', 'sticks', 'stocking']
 
 
-
 # .keys() 获取所有key, 返回类型是dict_keys
 # 1.可以使用list()类型转换转换为列表类型
 # 2.可以使用for循环进行遍历

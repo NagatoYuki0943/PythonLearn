@@ -4,7 +4,6 @@ class XTQ(God, Dog)
 
 两个父类出现同名方法,子类对象调用的是第一个继承父类中的方法
 
-
 /**
  * C++允许一个类继承多个类
  * 语法 class 子类 : 继承方式 父类1 , 继承方式,父类2...
@@ -16,10 +15,8 @@ class XTQ(God, Dog)
 
 class God(object):
 
-
     def play(self):
         print('在云中飘...')
-
 
     def eat(self):
         print('吃仙桃')
@@ -27,10 +24,8 @@ class God(object):
 
 class Dog(object):
 
-
     def bark(self):
         print('汪汪叫')
-
 
     def eat(self):
         print('吃骨头')

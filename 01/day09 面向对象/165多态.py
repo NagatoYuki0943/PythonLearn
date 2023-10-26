@@ -5,16 +5,12 @@
 3.通过对象调用这个方法
 
 python中多态可以没有继承,叫鸭子类型,
-
 '''
 
 
 class Dog(object):
-
-
     def __init__(self, name):
         self.name = name
-
 
     def play(self):
         print(f"{self.name}正在玩耍")
@@ -22,22 +18,17 @@ class Dog(object):
 
 class XTQ(Dog):
 
-
     # 重写父类方法
     def play(self):
         print(f"{self.name}在天上追云彩")
 
 
 class Cat(object):
-
-
     def __init__(self, name):
         self.name = name
 
-
     def play(self):
         print(f"{self.name}在玩毛线")
-
 
 
 # 参数是父类,可以传入父类或子类,分别调用不同方法

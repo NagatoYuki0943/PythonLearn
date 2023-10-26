@@ -3,7 +3,6 @@
 为什么重写: 父类中的方法,不能满足子类对象的需求,所以要重写.
 重写之后的特点: 子类对象调用子类自己的方法,不再调用的方法,父类对象调用父类自己的方法.
 
-
 /**
  * php注意事项
  *
@@ -23,24 +22,17 @@
 
 
 class Dog(object):
-
-
     def __init__(self):
         self.name = 'Dog'
-
 
     def bark(self):
         print("汪汪汪")
 
 
-
 class Xiao_tian_quan(Dog):
-
-
     def __init__(self):
         super().__init__()
         self.name = "哮天犬"
-
 
     def bark(self):
         print("吼吼吼")

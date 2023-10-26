@@ -38,7 +38,7 @@
  *                   前一个::是通过类名Son方式访问,第二个::是访问Sase作用域下的m_A
  */
 
- /**
+/**
   * php使用 parent::父类方法() 调用父类方法,无论静态,动态都使用parent::
   *
 '''
@@ -48,27 +48,21 @@ class Dog(object):
     def __init__(self):
         self.name = 'Dog'
 
-
     def bark(self):
         print("汪汪汪")
 
 
 class Xiao_tian_quan(Dog):
-
-
     def __init__(self):
         super().__init__()
         self.name = "哮天犬"
 
-
     def bark(self):
         print("吼吼吼")
-
 
     def see_host(self):
         # 调用子类自己的方法
         self.bark()
-
 
     # 子类调用父类方法
     def see_hosts(self):

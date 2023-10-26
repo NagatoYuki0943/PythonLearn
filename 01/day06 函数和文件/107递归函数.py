@@ -5,7 +5,6 @@
 '''
 
 
-
 def calc(a):
     if a >= 100:
         return a

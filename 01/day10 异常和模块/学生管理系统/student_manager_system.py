@@ -1,11 +1,11 @@
 import student
 import os
 
+
 class StudentManagerSystem(object):
     def __init__(self):
         # 这里使用字典保存,
         self.__stu_dicts = {}
-
 
     # 显示菜单
     @staticmethod
@@ -20,7 +20,6 @@ class StudentManagerSystem(object):
         print('5.查询所有信息')
         print('6.删除全部信息')
         print('7.退出')
-
 
     # 开始界面
     def start(self):
@@ -54,7 +53,6 @@ class StudentManagerSystem(object):
 
             input('*****请按回车键继续*****')
 
-
     # 添加学生信息
     def __insert_student(self):
         # 使用input获取学生信息
@@ -75,7 +73,6 @@ class StudentManagerSystem(object):
         # 3.将学生对象添加到字典
         self.__stu_dicts[id] = stu
 
-
     # 删除学生信息
     def __remove_student(self):
         # 删除学生信息
@@ -86,7 +83,6 @@ class StudentManagerSystem(object):
             print("学生已经删除")
         else:
             print("学生信息不存在")
-
 
     # 修改学生信息
     def __modify_student(self):
@@ -102,7 +98,6 @@ class StudentManagerSystem(object):
         else:
             print("学生信息不存在")
 
-
     # 查找学生信息
     def __search_student(self):
         # 查找学生信息
@@ -112,7 +107,6 @@ class StudentManagerSystem(object):
         else:
             print("学生信息不存在")
 
-
     # 显示所有学生信息
     def __show_all_info(self):
         if self.__stu_dicts:
@@ -121,14 +115,12 @@ class StudentManagerSystem(object):
         else:
             print("没学生")
 
-
     # 删除全部信息
     def __del_all(self):
         flag = input("确认删除请输入yes:")
         if flag == "yes":
             self.__stu_dicts.clear()
             print("全部信息删除成功")
-
 
     # __stu_dicts 存放的是对象地址,所以要存储具体的对象信息,通过遍历存储
     def __save(self):
@@ -138,7 +130,6 @@ class StudentManagerSystem(object):
         # 保存学生的信息,要写上 values()
         for stu in self.__stu_dicts.values():
             f.write(str(stu) + "\n")   # str(stu)会调用 student类中的 __str()__ 方法
-
 
     # 读取学生信息
     def __open_file(self):

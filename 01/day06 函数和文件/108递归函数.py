@@ -1,8 +1,3 @@
-'''
-
-'''
-
-
 def factorial1(n):
     res = 1
     # range参数2,要+1,不然数字小1

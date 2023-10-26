@@ -9,17 +9,14 @@ print(d1)
 # {'a': 4, 'b': 2, 'c': 1, 'd': 5, 'e': 6, 'f': 0, 'g': -8}
 
 
-
 res = sorted(d1.keys())
 print(res)
 # ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 
 
-
 res = sorted(d1.values())
 print(res)
 # [-8, 0, 1, 2, 4, 5, 6]
-
 
 
 # 通过key排序
@@ -28,12 +25,10 @@ print(res)
 # [('a', 4), ('b', 2), ('c', 1), ('d', 5), ('e', 6), ('f', 0), ('g', -8)]
 
 
-
 # 通过value排序
 res = sorted(d1.items(), key=lambda x: x[1], reverse=True)
 print(res)
 # [('e', 6), ('d', 5), ('a', 4), ('b', 2), ('c', 1), ('f', 0), ('g', -8)]
-
 
 
 l1 = [{"name": "Taobao", "age": 100},

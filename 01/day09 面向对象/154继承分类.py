@@ -5,13 +5,9 @@
 '''
 
 
-
 class Animal(object):
-
-
     def __init__(self):
         self.name ='Animal'
-
 
     def speak(self):
         print(self.name)
@@ -19,12 +15,9 @@ class Animal(object):
 
 # 单继承
 class Dog(Animal):
-
-
     def __init__(self):
         super().__init__()
         self.name = 'Dog'
-
 
     def bark(self):
         print("汪汪叫")
@@ -32,8 +25,6 @@ class Dog(Animal):
 
 # 多次继承
 class Xiao_tian_quan(Dog):
-
-
     def __init__(self):
         super().__init__()
         self.name = '哮天犬'

@@ -14,16 +14,12 @@ print(list1)    # ['hello', 'python', 'cpp']    直接输出值,而不是地址
 
 
 class Dog(object):
-
-
     def __init__(self, name, age):
         self.name = name
         self.age = age
 
-
     def __str__(self):
         return f"{self.name},{self.age}岁"
-
 
     # repr方法和str方法非常类似,也是必须返回一个字符串,然后在打印容器时就能正确输出值了
     def __repr__(self):

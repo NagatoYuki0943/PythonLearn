@@ -16,7 +16,7 @@
 2. 变量 = {key规则:value规则 for 临时变量 in xxx if xxx }
 
 3. 变量 = [key规则:value规则 for 临时变量 in xxx for j in xxx]
-   dict3 = {i: j for i in range(3) for j in range(3)}   生成数量是3,因为key值相同就修改数据了
+    dict3 = {i: j for i in range(3) for j in range(3)}   生成数量是3,因为key值相同就修改数据了
 '''
 
 
@@ -48,7 +48,6 @@ print('*' * 50)
 list5 = [(i,j) for i in range(3) for j in range(2)]
 print(list5)        # [(0, 0), (0, 1), (1, 0), (1, 1), (2, 0), (2, 1)]
 print('*' * 50)
-
 
 
 # 字典推导式

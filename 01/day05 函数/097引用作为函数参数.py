@@ -54,7 +54,6 @@ print(list2)
 print("*" * 50) #不加global [15, 9, 10]   加了global [0, 0, 0]
 
 
-
 #  += 对于列表来说,类似于列表的extend方法,不会改变变量的引用地址,字典没有 +=
 def func4(a):
     a += a

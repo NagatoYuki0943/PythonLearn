@@ -17,12 +17,9 @@ C++ 析构函数 ~类名(){}  析构函数不能有参数
 '''
 
 class Dog(object):
-
-
     def __init__(self, name, age):
         self.name = name
         self.age = age
-
 
     def __del__(self):
         print('删除了')

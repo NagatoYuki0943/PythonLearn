@@ -4,7 +4,6 @@ print(xw.__dict__)  # {'_People__ICBC_money': 0}
 
 类.__dict__  查看类具有的属性,类型是字典,key是属性名,value是属性值
 
-
 就是其他语言的 private
 python中的私有本质是修改属性/方法的名字,在属性/方法前面添加 _类名 前缀,如 _People__ICBC_money
 
@@ -18,15 +17,11 @@ python中的私有本质是修改属性/方法的名字,在属性/方法前面�
 
 # 定义People类,定义属性 money ,不能随意被修改,要用合法方法修改
 class People(object):
-
-
     def __init__(self):
         self.__ICBC_money = 0
 
-
     def setMoney(self, money):
         self.__ICBC_money = money
-
 
     def get_money(self):
         print(f"钱:{self.__ICBC_money}")

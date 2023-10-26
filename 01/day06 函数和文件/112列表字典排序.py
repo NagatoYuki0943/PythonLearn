@@ -13,10 +13,10 @@ print(list)
 
 # 列表中是字典类型
 list = [{'name': 'd', 'age': 19},
-         {'name': 'b', 'age': 16},
-         {'name': 'a', 'age': 16},
-         {'name': 'c', 'age': 20}
-        ]
+        {'name': 'b', 'age': 16},
+        {'name': 'a', 'age': 16},
+        {'name': 'c', 'age': 20}]
+
 
 # sort参数有key:key形参,传递函数,指定规则;  reverse:翻转排序
 # x是形参,是列表中的每一个数据

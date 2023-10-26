@@ -5,7 +5,6 @@ try:
 excerpt (异常的类型1,异常的类型2...):
     发生异常执行的代码
 
-
 写法2
 try:
     可能发生异常的代码
@@ -16,7 +15,6 @@ excerpt 异常的类型1:
 excerpt 异常的类型2:
     发生异常2执行的代码
 ...
-
 '''
 
 # 写法1
@@ -30,7 +28,6 @@ try:
 except (ZeroDivisionError, ValueError):
     """多个异常"""
     print("傻逼啊你,除0或者输入的不是数字???")
-
 
 
 print("==================")
@@ -48,4 +45,3 @@ except ZeroDivisionError:
 
 except ValueError:
     print("傻逼啊你,不输入正确的数字???")
-
