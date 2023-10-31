@@ -30,13 +30,13 @@ if __name__ == '__main__':
     s1.start()
     d1.start()
 
-    # Nagato跳舞。。。
-    # Yuki在唱歌。。。
-    # Yuki在唱歌。。。
-    # Nagato跳舞。。。
-    # Yuki在唱歌。。。
-    # Nagato跳舞。。。
-    # Nagato跳舞。。。
-
     s1.join()
     d1.join()
+
+    # Nagato跳舞。。。
+    # Yuki在唱歌。。。
+    # Yuki在唱歌。。。
+    # Nagato跳舞。。。
+    # Yuki在唱歌。。。
+    # Nagato跳舞。。。
+    # Nagato跳舞。。。

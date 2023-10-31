@@ -21,7 +21,6 @@ if __name__ == '__main__':
     # 写法2
     # work_process.daemon = True
 
-
     work_process.start()
 
     time.sleep(1)
