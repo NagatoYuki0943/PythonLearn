@@ -19,7 +19,7 @@ if __name__ == '__main__':
         sub_thread.start()
 
 # 执行顺序不同
-#  类型    名字       状态    
+#  类型    名字       状态
 # <Thread(Thread-4, started 22180)>
 # <Thread(Thread-3, started 4284)>
 # <Thread(Thread-1, started 3164)>

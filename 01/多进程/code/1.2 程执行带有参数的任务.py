@@ -3,35 +3,32 @@
     args:   以元组的方式给执行任务传参
         注意: (1,) 元组一个数据也要加逗号
     kwargs: 以字典方式给执行任务传参
-
 '''
 
-# 进程包
-import threading
+import multiprocessing
 import time
 
 
-def sing(name, num):
+def sing(name: str, num: int):
     for i in range(num):
         print(f"{name}在唱歌。。。")
         time.sleep(0.5)
 
 
-def dance(name, num):
+def dance(name: str, num: int):
     for i in range(num):
         print(f"{name}跳舞。。。")
         time.sleep(0.5)
-        
+
 
 if __name__ == '__main__':
     # 以元组形式传参                                  (1,) 元组一个数据也要加逗号
-    s1 = threading.Thread(target=sing, args=('Yuki', 3))
+    s1 = multiprocessing.Process(target=sing, args=('Yuki', 3))
 
     # 以字典形式传参
-    d1 = threading.Thread(target=dance, kwargs={'name': 'Nagato', 'num': 4})
+    d1 = multiprocessing.Process(target=dance, kwargs={'name': 'Nagato', 'num': 4})
     s1.start()
     d1.start()
-    
     # Nagato跳舞。。。
     # Yuki在唱歌。。。
     # Yuki在唱歌。。。
@@ -39,3 +36,6 @@ if __name__ == '__main__':
     # Yuki在唱歌。。。
     # Nagato跳舞。。。
     # Nagato跳舞。。。
+
+    s1.join()
+    d1.join()

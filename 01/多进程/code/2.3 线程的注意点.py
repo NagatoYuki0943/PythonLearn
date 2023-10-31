@@ -4,14 +4,15 @@
 daemon=True
 '''
 
-
 import time
 import threading
+
 
 def work():
     for i in range(10):
         print("工作中。。。。")
         time.sleep(0.2)
+
 
 if __name__ == '__main__':
     # 设置守护进程,主线程结束后会停止所有子进程

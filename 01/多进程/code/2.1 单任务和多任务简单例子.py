@@ -1,16 +1,15 @@
 '''
-# 创建多任务                            函数名
-sing1 = multiprocessing.Process(target=sing)
+# 创建多任务               函数名
+t1 = threading.Thread(target=sing)
 
-# 启动多进程
-sing1.start()
+# 启动多线程
+t1.start()
 
-# 等待子进程执行完毕
-sing1.join()
+# 等待子线程执行完毕
+t1.join()
 '''
 
-# 进程包
-import multiprocessing
+import threading
 import time
 
 
@@ -29,26 +28,26 @@ def dance():
 if __name__ == '__main__':
     start = time.time()
 
-    # 创建多任务                            函数名
-    sing1 = multiprocessing.Process(target=sing)
-    dance1 =  multiprocessing.Process(target=dance)
+    # 创建多任务                  函数名
+    t1 = threading.Thread(target=sing)
+    t2 = threading.Thread(target=dance)
 
-    # 多进程下run方法启动相当于直接调用函数，并没有真正意义上使用多进程，这一点我们可以通过pid看的出来。而start启动却是真正意义上调用了多进程，同样我们可以通过pid看的出来
+    # 多线程下run方法启动相当于直接调用函数，并没有真正意义上使用多线程，这一点我们可以通过pid看的出来。而start启动却是真正意义上调用了多线程，同样我们可以通过pid看的出来
+    # t1.run()
 
-    # 启动多进程
-    sing1.start()
-    dance1.start()
+    # 启动多线程
+    t1.start()
+    t2.start()
 
-    # 等待子进程执行完毕
-    sing1.join()
-    dance1.join()
+    # 等待子线程执行完毕
+    t1.join()
+    t2.join()
 
-    print('Interval:', time.time() - start)    
+    print('Interval:', time.time() - start)
     # 唱歌。。。
     # 跳舞。。。
     # 唱歌。。。
     # 跳舞。。。
     # 唱歌。。。
     # 跳舞。。。
-    # Interval: 1.6125640869140625
-        
+    # Interval: 1.5247292518615723
