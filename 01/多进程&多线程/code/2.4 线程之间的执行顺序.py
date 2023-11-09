@@ -2,20 +2,20 @@
 无序，由CPU调度决定某个线程先执行
 '''
 
-import threading
+from threading import Thread, current_thread
 import time
 
 
 def task():
     '''打印当前线程对象'''
     time.sleep(1)
-    print(threading.current_thread())
+    print(current_thread())
 
 
 if __name__ == '__main__':
 
     for i in range(5):
-        sub_thread = threading.Thread(target=task)
+        sub_thread = Thread(target=task)
         sub_thread.start()
 
 # 执行顺序不同

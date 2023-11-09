@@ -9,7 +9,7 @@ t1.start()
 t1.join()
 '''
 
-import threading
+from threading import Thread
 import time
 
 
@@ -29,8 +29,8 @@ if __name__ == '__main__':
     start = time.time()
 
     # 创建多任务                  函数名
-    t1 = threading.Thread(target=sing)
-    t2 = threading.Thread(target=dance)
+    t1 = Thread(target=sing)
+    t2 = Thread(target=dance)
 
     # 多线程下run方法启动相当于直接调用函数，并没有真正意义上使用多线程，这一点我们可以通过pid看的出来。而start启动却是真正意义上调用了多线程，同样我们可以通过pid看的出来
     # t1.run()

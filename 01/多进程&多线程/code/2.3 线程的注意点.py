@@ -5,7 +5,7 @@ daemon=True
 '''
 
 import time
-import threading
+from threading import Thread
 
 
 def work():
@@ -16,7 +16,7 @@ def work():
 
 if __name__ == '__main__':
     # 设置守护进程,主线程结束后会停止所有子进程
-    work_process = threading.Thread(target=work, daemon=True)
+    work_process = Thread(target=work, daemon=True)
     # 两种写法相同
     # work_process.daemon = True
 

@@ -16,7 +16,7 @@ p1.kill()        # Terminate process; sends SIGKILL signal or uses TerminateProc
 p1.close()
 '''
 
-import multiprocessing
+from multiprocessing import Process
 import time
 
 
@@ -36,8 +36,8 @@ if __name__ == '__main__':
     start = time.time()
 
     # 创建多任务                         函数名
-    p1 = multiprocessing.Process(target=sing)
-    p2 = multiprocessing.Process(target=dance)
+    p1 = Process(target=sing)
+    p2 = Process(target=dance)
 
     # 多进程下run方法启动相当于直接调用函数，并没有真正意义上使用多进程，这一点我们可以通过pid看的出来。而start启动却是真正意义上调用了多进程，同样我们可以通过pid看的出来
     # p1.run()

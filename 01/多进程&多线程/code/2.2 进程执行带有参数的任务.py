@@ -5,7 +5,7 @@
     kwargs: 以字典方式给执行任务传参
 '''
 
-import threading
+from threading import Thread
 import time
 
 
@@ -23,10 +23,10 @@ def dance(name: str, num: int):
 
 if __name__ == '__main__':
     # 以元组形式传参                                  (1,) 元组一个数据也要加逗号
-    s1 = threading.Thread(target=sing, args=('Yuki', 3))
+    s1 = Thread(target=sing, args=('Yuki', 3))
 
     # 以字典形式传参
-    d1 = threading.Thread(target=dance, kwargs={'name': 'Nagato', 'num': 4})
+    d1 = Thread(target=dance, kwargs={'name': 'Nagato', 'num': 4})
     s1.start()
     d1.start()
 

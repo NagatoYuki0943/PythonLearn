@@ -5,7 +5,7 @@ daemon=True
 '''
 
 import time
-import multiprocessing
+from multiprocessing import Process
 
 
 def work():
@@ -17,7 +17,7 @@ def work():
 if __name__ == '__main__':
     # 设置守护主进程  daemon=True
     # 主进程结束后不会再继续执行子进程中剩余的工作
-    work_process = multiprocessing.Process(target=work, daemon=True)
+    work_process = Process(target=work, daemon=True)
     # 写法2
     # work_process.daemon = True
 

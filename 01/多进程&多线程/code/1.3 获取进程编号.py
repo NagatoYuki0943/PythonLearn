@@ -6,7 +6,7 @@
     os.getppid()
 '''
 
-import multiprocessing
+from multiprocessing import Process
 import time
 import os
 
@@ -31,11 +31,11 @@ def dance(name: str, num: int):
 if __name__ == '__main__':
     print("主进程的编号： ", os.getpid())   # 主进程的编号：  7620
 
-    # 以元组形式传参                                  (1,) 元组一个数据也要加逗号
-    s1 = multiprocessing.Process(target=sing, args=('Yuki', 3))
+    # 以元组形式传参                 (1,) 元组一个数据也要加逗号
+    s1 = Process(target=sing, args=('Yuki', 3))
 
     # 以字典形式传参
-    d1 = multiprocessing.Process(target=dance, kwargs={'name': 'Nagato', 'num': 4})
+    d1 = Process(target=dance, kwargs={'name': 'Nagato', 'num': 4})
     s1.start()
     d1.start()
 
