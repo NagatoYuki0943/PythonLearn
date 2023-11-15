@@ -37,17 +37,32 @@ print("-" * 10)
 
 ## 常规用法
 # defaultdict接受一个类型对象或函数对象，在取值时，如果不存在对应的key则返回对应的函数返回值或默认构造函数的实例对象：
+# 不支持使用 1, True 等数字
 dic_1 = defaultdict(int)
-dic_2 = defaultdict(tuple)
-dic_3 = defaultdict(list)
-dic_4 = defaultdict(str)
-dic_5 = defaultdict(set)
+dic_2 = defaultdict(lambda: int())
+dic_3 = defaultdict(str)
+dic_4 = defaultdict(lambda: str())
+dic_5 = defaultdict(tuple)
+dic_6 = defaultdict(lambda: ())     # == tuple()
+dic_7 = defaultdict(list)
+dic_8 = defaultdict(lambda: [])     # == list()
+dic_9 = defaultdict(dict)
+dic_10 = defaultdict(lambda: {})    # == dict()
+dic_11 = defaultdict(set)
+dic_12 = defaultdict(lambda: set())
 
 print(dic_1['a'])   # 0
-print(dic_2['a'])   # ()
-print(dic_3['a'])   # []
-print(dic_4['a'])   #
-print(dic_5['a'])   # set()
+print(dic_2['a'])   # 0
+print(dic_3['a'])   # 
+print(dic_4['a'])   # 
+print(dic_5['a'])   # ()
+print(dic_6['a'])   # ()
+print(dic_7['a'])   # []
+print(dic_8['a'])   # []
+print(dic_9['a'])   # {}
+print(dic_10['a'])  # {}
+print(dic_11['a'])  # set()
+print(dic_12['a'])  # set()
 print("-" * 10)
 
 
@@ -84,7 +99,6 @@ print("-" * 10)
 # 创建了默认值
 # ------            可以看到，同一个key只会调用了一次取默认值函数。
 # 创建了默认值
-
 
 
 ## 返回的默认值是同一个对象吗？
