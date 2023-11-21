@@ -1,26 +1,27 @@
 '''
 命名元组,像对象一样
-
 '''
 
 from collections import namedtuple
 
+
 # 三种定义命名元组的方法：第一个参数是命名元组的构造器（如下的：Person，Human） 效果完全一样
 Person = namedtuple('Person', ['age', 'height', 'name'])
 Human  = namedtuple('Human', 'age, height, name')
-Human2 = namedtuple('Human2', 'age height name')
+Pet    = namedtuple('Pet', 'category age name')
+
 
 # 实例化命令元组
-tom = Person(30, 188, 'Tom')
-print(tom)
-# Person(age=30, height=188, name='Tom')
+tom = Person(10, 188, 'Tom')
+print(tom)          # Person(age=10, height=188, name='Tom')
+print(tom.age)      # 10
 
 
-jack = Human(20,179,'Jack')
-print(jack)
-# Human(age=20, height=179, name='Jack')
+jerry = Human(8, 179, 'Jerry')
+print(jerry)        # Human(age=8, height=179, name='Jerry')
+print(jerry.height) # 179
 
 
-# 获取数据
-print(tom.age)      # 30
-print(jack.height)  # 179
+duck = Pet('duck', 2, 'Duck')
+print(duck)         # Pet(category='duck', age=2, name='Duck')
+print(duck.age)     # 2
