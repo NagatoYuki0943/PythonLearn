@@ -14,6 +14,7 @@ def parse_opt():
         '--include',
         nargs='+',
         default=['torchscript'],
+        choices=["torchscript", "onnx", "openvino", "engine", "coreml", "saved_model", "pb", "tflite", "edgetpu", "tfjs", "paddle"],
         help='torchscript, onnx, openvino, engine, coreml, saved_model, pb, tflite, edgetpu, tfjs, paddle')
     opt = parser.parse_args()
     return opt
