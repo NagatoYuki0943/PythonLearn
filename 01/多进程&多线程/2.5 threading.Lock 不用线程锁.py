@@ -1,5 +1,8 @@
 from threading import Thread, Lock
 
+
+A = 0
+
 def job1():
     global A
     for i in range(10):
@@ -14,8 +17,7 @@ def job2():
         print('job2',A)
 
 
-if __name__== '__main__':
-    A = 0
+def run_threads():
     t1 = Thread(target=job1)
     t2 = Thread(target=job2)
     t1.start()
@@ -44,3 +46,7 @@ if __name__== '__main__':
     # job1 90
     # job2 100
     # job2 110
+
+
+if __name__ == '__main__':
+    run_threads()

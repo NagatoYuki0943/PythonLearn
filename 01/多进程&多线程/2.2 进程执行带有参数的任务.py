@@ -5,7 +5,7 @@
     kwargs: 以字典方式给执行任务传参
 '''
 
-from multiprocessing import Process
+from threading import Thread
 import time
 
 
@@ -21,12 +21,12 @@ def dance(name: str, num: int):
         time.sleep(0.5)
 
 
-if __name__ == '__main__':
-    # 以元组形式传参                 (1,) 元组一个数据也要加逗号
-    s1 = Process(target=sing, args=('Yuki', 3))
+def run_threads():
+    # 以元组形式传参                (1,) 元组一个数据也要加逗号
+    s1 = Thread(target=sing, args=('Yuki', 3))
 
     # 以字典形式传参
-    d1 = Process(target=dance, kwargs={'name': 'Nagato', 'num': 4})
+    d1 = Thread(target=dance, kwargs={'name': 'Nagato', 'num': 4})
     s1.start()
     d1.start()
 
@@ -40,3 +40,7 @@ if __name__ == '__main__':
     # Yuki在唱歌。。。
     # Nagato跳舞。。。
     # Nagato跳舞。。。
+
+
+if __name__ == '__main__':
+    run_threads()

@@ -11,10 +11,18 @@ pool.apply_async(func=sing, args=('Yuki', 3))
 pool.apply_async(func=dance, kwds={'name': 'Nagato', 'num': 4})
 
 # 将多组参数传递给一个函数,生成多个进程,使进程阻塞直到结果返回
+# 每一组参数只能有1个参数
 pool.map(func=sing, iterable=argss)
 
 # 将多组参数传递给一个函数,生成多个进程,非阻塞
+# 每一组参数只能有1个参数
 pool.map_async(func=sing, iterable=argss)
+
+# startmap 和 map 的差别是每一组参数可以传入多个参数
+pool.startmap(func=sing, iterable=argss)
+
+# startmap_async 和 map_async 的差别是每一组参数可以传入多个参数
+pool.starmap_async(func=sing, iterable=argss)
 
 # 关闭进程池,要在 join 之前
 pool.close()
@@ -26,7 +34,13 @@ pool.join()
 pool.terminate()
 '''
 
-from multiprocessing import Pool
+dummy = False
+if dummy:
+    # 线程
+    from multiprocessing.dummy import Process, Pool, Queue, Pipe, Lock
+else:
+    # 进程
+    from multiprocessing import Process, Pool, Queue, Pipe, Lock
 import time
 
 
@@ -39,22 +53,22 @@ def sing(args):
         time.sleep(0.5)
 
 
-if __name__ == '__main__':
+def run_process():
     start = time.time()
 
     argss = [('Yuki', 3), ('Nagato', 4)]
 
-    pool = Pool(processes=2)
+    with Pool(processes=2) as pool:
+        # 将多组参数传递给一个函数,生成多个进程,使进程阻塞直到结果返回
+        # context 要配合 map 使用,否则也需要使用 close 和 join 方法
+        pool.map(func=sing, iterable=argss)
 
-    # 将多组参数传递给一个函数,生成多个进程,使进程阻塞直到结果返回
-    # pool.map(func=sing, iterable=argss)
-
-    # 将多组参数传递给一个函数,生成多个进程,非阻塞
-    pool.map_async(func=sing, iterable=argss)
+        # 将多组参数传递给一个函数,生成多个进程,非阻塞
+        # pool.map_async(func=sing, iterable=argss)
 
     # join之前有close
-    pool.close()
-    pool.join()
+    # pool.close()
+    # pool.join()
 
     print('Interval:', time.time() - start)
     # Yuki在唱歌。。。
@@ -65,3 +79,7 @@ if __name__ == '__main__':
     # Nagato在唱歌。。。
     # Nagato在唱歌。。。
     # Interval: 2.116753578186035
+
+
+if __name__ == '__main__':
+    run_process()

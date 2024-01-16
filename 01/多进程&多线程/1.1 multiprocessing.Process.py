@@ -1,5 +1,5 @@
 '''
-# 创建多任务                            函数名
+# 创建多任务                  函数名
 p1 = multiprocessing.Process(target=sing)
 
 # 启动多进程
@@ -16,7 +16,13 @@ p1.kill()        # Terminate process; sends SIGKILL signal or uses TerminateProc
 p1.close()
 '''
 
-from multiprocessing import Process
+dummy = False
+if dummy:
+    # 线程
+    from multiprocessing.dummy import Process, Pool, Queue, Pipe, Lock
+else:
+    # 进程
+    from multiprocessing import Process, Pool, Queue, Pipe, Lock
 import time
 
 
@@ -32,10 +38,10 @@ def dance():
         time.sleep(0.5)
 
 
-if __name__ == '__main__':
+def run_process():
     start = time.time()
 
-    # 创建多任务                         函数名
+    # 创建多任务   函数名
     p1 = Process(target=sing)
     p2 = Process(target=dance)
 
@@ -63,3 +69,7 @@ if __name__ == '__main__':
     # 唱歌。。。
     # 跳舞。。。
     # Interval: 1.6125640869140625
+
+
+if __name__ == '__main__':
+    run_process()

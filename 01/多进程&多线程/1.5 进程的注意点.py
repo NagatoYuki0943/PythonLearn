@@ -4,8 +4,14 @@
 daemon=True
 '''
 
+dummy = False
+if dummy:
+    # 线程
+    from multiprocessing.dummy import Process, Pool, Queue, Pipe, Lock
+else:
+    # 进程
+    from multiprocessing import Process, Pool, Queue, Pipe, Lock
 import time
-from multiprocessing import Process
 
 
 def work():
@@ -14,7 +20,7 @@ def work():
         time.sleep(0.2)
 
 
-if __name__ == '__main__':
+def run_process():
     # 设置守护主进程  daemon=True
     # 主进程结束后不会再继续执行子进程中剩余的工作
     work_process = Process(target=work, daemon=True)
@@ -33,3 +39,7 @@ if __name__ == '__main__':
     # 工作中。。。。
     # 工作中。。。。
     # 主进程执行结束
+
+
+if __name__ == "__main__":
+    run_process()

@@ -14,7 +14,7 @@ def work():
         time.sleep(0.2)
 
 
-if __name__ == '__main__':
+def run_threads():
     # 设置守护进程,主线程结束后会停止所有子进程
     work_process = Thread(target=work, daemon=True)
     # 两种写法相同
@@ -32,3 +32,8 @@ if __name__ == '__main__':
     # 工作中。。。。
     # 工作中。。。。
     # 主进程执行结束
+
+
+if __name__ == '__main__':
+    run_threads()
+

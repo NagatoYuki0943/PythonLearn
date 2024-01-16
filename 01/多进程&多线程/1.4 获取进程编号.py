@@ -6,7 +6,13 @@
     os.getppid()
 '''
 
-from multiprocessing import Process
+dummy = False
+if dummy:
+    # 线程
+    from multiprocessing.dummy import Process, Pool, Queue, Pipe, Lock
+else:
+    # 进程
+    from multiprocessing import Process, Pool, Queue, Pipe, Lock
 import time
 import os
 
@@ -28,7 +34,7 @@ def dance(name: str, num: int):
         time.sleep(0.5)
 
 
-if __name__ == '__main__':
+def run_process():
     print("主进程的编号： ", os.getpid())   # 主进程的编号：  7620
 
     # 以元组形式传参                 (1,) 元组一个数据也要加逗号
@@ -49,3 +55,7 @@ if __name__ == '__main__':
     # Yuki在唱歌。。。
     # Nagato跳舞。。。
     # Nagato跳舞。。。
+
+
+if __name__ == '__main__':
+    run_process()

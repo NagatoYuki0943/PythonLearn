@@ -1,4 +1,10 @@
-from multiprocessing import Process, Lock
+dummy = False
+if dummy:
+    # 线程
+    from multiprocessing.dummy import Process, Pool, Queue, Pipe, Lock
+else:
+    # 进程
+    from multiprocessing import Process, Pool, Queue, Pipe, Lock
 
 
 A = 0
@@ -18,7 +24,7 @@ def job2():
         print('job2',A)
 
 
-if __name__== '__main__':
+def run_process():
     t1 = Process(target=job1)
     t2 = Process(target=job2)
     t1.start()
@@ -47,3 +53,7 @@ if __name__== '__main__':
     # job2 80
     # job2 90
     # job2 100
+
+
+if __name__== '__main__':
+    run_process()

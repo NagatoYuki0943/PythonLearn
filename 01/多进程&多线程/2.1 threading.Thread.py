@@ -25,10 +25,10 @@ def dance():
         time.sleep(0.5)
 
 
-if __name__ == '__main__':
+def run_threads():
     start = time.time()
 
-    # 创建多任务                  函数名
+    # 创建多任务 函数名
     t1 = Thread(target=sing)
     t2 = Thread(target=dance)
 
@@ -51,3 +51,8 @@ if __name__ == '__main__':
     # 唱歌。。。
     # 跳舞。。。
     # Interval: 1.5247292518615723
+
+
+if __name__ == '__main__':
+    run_threads()
+

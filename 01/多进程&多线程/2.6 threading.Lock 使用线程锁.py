@@ -1,16 +1,15 @@
 '''
-lock在不同进程使用同一共享内存时，能够确保进程之间互不影响，使用lock的方法是，
-在每个进程执行运算修改共享内存之前，执行lock.acquire()将共享内存上锁，
-确保当前进程执行时，内存不会被其他进程访问，执行运算完毕后，
-使用lock.release()将锁打开，保证其他的进程可以使用该共享内存。
+lock在不同线程使用同一共享内存时，能够确保线程之间互不影响，使用lock的方法是，
+在每个线程执行运算修改共享内存之前，执行lock.acquire()将共享内存上锁，
+确保当前线程执行时，内存不会被其他线程访问，执行运算完毕后，
+使用lock.release()将锁打开，保证其他的线程可以使用该共享内存。
 '''
 
-from multiprocessing import Process, Lock
+from threading import Thread, Lock
 
 
-A = 0
 lock = Lock()
-
+A = 0
 
 def job1():
     global A, lock
@@ -30,9 +29,9 @@ def job2():
     lock.release()
 
 
-if __name__== '__main__':
-    t1 = Process(target=job1)
-    t2 = Process(target=job2)
+def run_threads():
+    t1 = Thread(target=job1)
+    t2 = Thread(target=job2)
     t1.start()
     t2.start()
     t1.join()
@@ -49,7 +48,6 @@ if __name__== '__main__':
     # job1 8
     # job1 9
     # job1 10
-    # job2 10
     # job2 20
     # job2 30
     # job2 40
@@ -59,3 +57,8 @@ if __name__== '__main__':
     # job2 80
     # job2 90
     # job2 100
+    # job2 110
+
+
+if __name__ == '__main__':
+    run_threads()
