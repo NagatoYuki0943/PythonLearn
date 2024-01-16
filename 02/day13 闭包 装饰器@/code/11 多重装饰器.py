@@ -33,8 +33,8 @@ def makehItalic(func):
 # 从下到上依次装饰
 # 先执行 makeBold, 返回值再执行 makehItalic
 
-@ makehItalic
-@ makeBold
+@makehItalic
+@makeBold
 def hello():
     return "hello-1"
 

@@ -34,7 +34,7 @@ class Test(object):
         return self.func(args[0])
 
 
-@ Test
+@Test
 # 执行步骤
 # 1) test = Test(login)
 # 2) test(login的参数) --> 调用

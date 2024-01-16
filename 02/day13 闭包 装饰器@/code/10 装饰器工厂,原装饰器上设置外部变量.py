@@ -35,7 +35,7 @@ def test(choice):
     return func_out
 
 
-@ test(0)  # 这是传递给test函数的变量,没有参数也要有括号
+@test(0)  # 这是传递给test函数的变量,没有参数也要有括号
 # 过程解释
 # @test(0) 分解为2步
 # 第一步:
@@ -51,7 +51,7 @@ login()
 # ----开始登陆----
 
 
-@ test(1)
+@test(1)
 def register():
     print("----开始登陆----")
 register()

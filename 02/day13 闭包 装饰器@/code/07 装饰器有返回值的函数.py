@@ -20,7 +20,7 @@ def function_out(func):
 
 
 
-@ function_out
+@function_out
 def login(id):
     print('----开始登陆----')
     return id + 10

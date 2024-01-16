@@ -48,7 +48,7 @@ print('*' * 50)
 
 # 装饰器,不用手动调用闭包了
 # @外层函数名
-@ function_out
+@function_out
 def login():
     print('----开始登陆----')
 

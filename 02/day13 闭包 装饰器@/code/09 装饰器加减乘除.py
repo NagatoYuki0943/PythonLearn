@@ -7,7 +7,7 @@ def func_out(func):
 
 
 
-@ func_out
+@func_out
 def add(*args, **kwargs):
 	res = 0
 	for i in args:
@@ -16,7 +16,7 @@ def add(*args, **kwargs):
 	return res
 
 
-@ func_out
+@func_out
 def sub(*args, **kwargs):
 	res = 0
 	for i in args:
@@ -25,7 +25,7 @@ def sub(*args, **kwargs):
 	return res
 
 
-@ func_out
+@func_out
 def mul(*args, **kwargs):
 	res = 1
 	for i in args:
@@ -34,7 +34,7 @@ def mul(*args, **kwargs):
 	return res
 
 
-@ func_out
+@func_out
 def div(*args, **kwargs):
 	res = 1
 	for i in args:

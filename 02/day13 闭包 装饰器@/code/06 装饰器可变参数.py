@@ -21,7 +21,7 @@ def function_out(func):
 
 
 # 登录函数
-@ function_out
+@function_out
 def login(*args, **kwargs):
     print("开始登陆")
     print("args: ", args)

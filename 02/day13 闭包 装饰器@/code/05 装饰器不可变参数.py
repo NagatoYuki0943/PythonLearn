@@ -16,7 +16,7 @@ def function_out(func):
 
 
 # 登录函数
-@ function_out
+@function_out
 def login(id, password):
     print("开始登陆 id =", id, ',password =', password)
 
