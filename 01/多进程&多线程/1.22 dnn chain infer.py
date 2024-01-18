@@ -63,12 +63,15 @@ def infer(queue_in: Queue, queue_out: Queue):
         queue_out (Queue): 预测结果
     """
     print(f"infer id: {os.getpid()}")
-    model = models.resnet18(num_classes=1).eval()
+    # cuda result was zero. https://github.com/pytorch/pytorch/issues/109094
+    device = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
+    device = "cpu"
+    model = models.resnet18(num_classes=1).eval().to(device)
     try:
         with torch.inference_mode():
             while True:
                 image = queue_in.get(timeout=5)
-                y = model(image)
+                y = model(image.to(device))
                 queue_out.put(y)
     except Empty:
         print("infer exit")
