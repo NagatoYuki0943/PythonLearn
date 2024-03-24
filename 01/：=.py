@@ -2,6 +2,36 @@
 ":=" 运算符的主要用途是在条件语句、循环语句或其他表达式中为变量赋值，同时使用该变量的值。下面是一些示例：
 """
 
+
+users: dict[int, str] = {0: 'Bob', 1: 'Mario'}
+
+user: str | None = users.get(3)
+if user:
+    print(f"{user} exists!")
+else:
+    print("User not found!")
+# User not found!
+
+# 更简单的写法
+if user := users.get(3):
+    print(f"{user} exists!")
+else:
+    print("User not found!")
+# User not found!
+
+
+def get_info(text: str) -> dict:
+    # 直接生成变量
+    return {
+        'words': (words := text.split()),
+        'word_count': len(words),
+        'character_count': len(''.join(words)),
+    }
+
+print(get_info('hello'))
+# {'words': ['hello'], 'word_count': 1, 'character_count': 5}
+
+
 my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 
