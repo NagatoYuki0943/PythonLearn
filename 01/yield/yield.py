@@ -19,6 +19,7 @@ def fab(max):
         a, b = b, a + b
 
         n += 1
+    print("finished!")
 
 
 for n in fab(5):
@@ -28,6 +29,7 @@ for n in fab(5):
 # 2
 # 3
 # 5
+# finished!
 
 
 f = fab(5)
