@@ -12,7 +12,9 @@ print()
 
 # 生成器函数可以被返回
 def my_generator1():
-    return my_generator()
+    gen = my_generator()
+    print(gen)
+    return gen
 
 # 遍历生成器
 for item in my_generator1():
