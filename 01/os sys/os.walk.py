@@ -9,13 +9,13 @@ for filepath, dirnames, filenames in os.walk("./"):
     print()
 
 # ./
-# ['basename 读取当前文件']
+# ['basename']
 # ['os baisc.py', 'os.seq.py', 'os.walk.py', 'sys.path.py']
 
-# ./basename 读取当前文件
+# ./basename
 # ['temp']
 # ['basename.py']
 
-# ./basename 读取当前文件\temp
+# ./basename\temp
 # []
 # ['basename.py'
