@@ -12,10 +12,13 @@ Generator的特点:
 
 """
 对于生成器函数的类型注释,我们使用 Iterator 或 Generator 来表示它的返回类型。
-    - n: int 表示函数参数 n 的类型为 int。
-    - -> Iterator[int] 表示函数返回值的类型为一个生成整数的迭代器。
+
+Generator[int, None, None] 中的三个类型参数分别表示:
+    - int - 生成器生成的元素的类型。
+    - None - 在生成器中通过 yield 发送值到生成器的类型,对于普通生成器来说,它不会接收任何值,所以是 None。
+    - None - 生成器终止时返回的值的类型,对于普通生成器来说,它不返回任何特殊值,所以也是 None。
 """
-def count_up_to1(n: int) -> Iterator[int]:
+def count_up_to1(n: int) -> Generator[int, None, None]:
     i = 0
     while i < n:
         yield i
@@ -33,12 +36,11 @@ print(next(counter))  # 4
 
 
 """
-Generator[int, None, None] 中的三个类型参数分别表示:
-    - int - 生成器生成的元素的类型。
-    - None - 在生成器中通过 yield 发送值到生成器的类型,对于普通生成器来说,它不会接收任何值,所以是 None。
-    - None - 生成器终止时返回的值的类型,对于普通生成器来说,它不返回任何特殊值,所以也是 None。
+使用 Iterator 作为函数的返回类型来声明函数的 type hint (mypy不允许)
+    - n: int 表示函数参数 n 的类型为 int。
+    - -> Iterator[int] 表示函数返回值的类型为一个生成整数的迭代器。
 """
-def count_up_to2(n: int) -> Generator[int, None, None]:
+def count_up_to2(n: int) -> Iterator[int]:
     i = 0
     while i < n:
         yield i
@@ -47,7 +49,29 @@ def count_up_to2(n: int) -> Generator[int, None, None]:
 
 # 使用生成器
 counter = count_up_to2(5)
-print(isinstance(counter, Generator))  # True
+print(isinstance(counter, Iterator))  # True
+print(next(counter))  # 0
+print(next(counter))  # 1
+print(next(counter))  # 2
+print(next(counter))  # 3
+print(next(counter))  # 4
+
+
+"""
+使用 Iterator 作为函数的返回类型来声明函数的 type hint (mypy不允许)
+    - n: int 表示函数参数 n 的类型为 int。
+    - -> Iterator[int] 表示函数返回值的类型为一个生成整数的迭代器。
+"""
+def count_up_to3(n: int) -> Iterable[int]:
+    i = 0
+    while i < n:
+        yield i
+        i += 1
+
+
+# 使用生成器
+counter = count_up_to3(5)
+print(isinstance(counter, Iterable))  # True
 print(next(counter))  # 0
 print(next(counter))  # 1
 print(next(counter))  # 2
