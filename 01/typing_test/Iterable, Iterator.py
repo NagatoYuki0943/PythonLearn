@@ -26,4 +26,24 @@ print(isinstance(my_iter, Iterator))  # True
 print(next(my_iter))  # 1
 print(next(my_iter))  # 2
 print(next(my_iter))  # 3
-print(next(my_iter))  # 引发 StopIteration 异常
+
+
+# Iterable[tuple[str, int]] 代表每个元素都是一个 tuple
+def my_func1(dic: dict[str, int]) -> Iterable[tuple[str, int]]:
+    return [(key, value) for key, value in dic.items()]
+
+
+my_func_dic = my_func1({"a": 1, "b": 2, "c": 3})
+print(isinstance(my_func_dic, Iterable))  # True
+print(isinstance(my_func_dic, Iterator))  # False
+
+
+# Iterator[tuple[str, int]] 代表每个元素都是一个 tuple
+def my_func2(dic: dict[str, int]) -> Iterator[tuple[str, int]]:
+    for key, value in dic.items():
+        yield (key, value)
+
+
+my_func_dic = my_func2({"a": 1, "b": 2, "c": 3})
+print(isinstance(my_func_dic, Iterable))  # True
+print(isinstance(my_func_dic, Iterator))  # True
