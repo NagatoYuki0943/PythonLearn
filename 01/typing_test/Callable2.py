@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable, Any
 
 # Callable 可以调用
 
@@ -21,7 +21,7 @@ class Func4:
         self.num += 1
 
 # 调用函数
-def callbacks(funcs: list[Callable]):
+def callbacks(funcs: list[Callable]) -> None:
     for func in funcs:
         func()
 
