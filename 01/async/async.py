@@ -16,7 +16,7 @@ import asyncio
 from typing import AsyncGenerator
 
 
-async def async_function_a():
+async def async_function_a() -> str:
     return "this is async_function_a"
 
 
@@ -62,3 +62,28 @@ asyncio.run(main())
 # 0
 # 1
 # 2
+
+
+#############################################################
+
+
+async def get_final_value() -> int:
+    result = 0
+    async for value in async_generator_a():
+        result += value
+    return result  # 在这里返回最终的值
+
+# 使用 get_final_value 来获取最终的值
+result = asyncio.run(get_final_value())
+print(result)
+# 3
+
+
+# 如果你的协程需要被调用并获取其结果，你应该使用 await 来等待协程完成。
+async def get_final_value_with_await():
+    result = await get_final_value()
+    print(result)
+
+
+asyncio.run(get_final_value_with_await())
+# 3
