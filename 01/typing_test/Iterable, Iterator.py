@@ -18,10 +18,12 @@ Iterator:
 # Iterable
 my_list = [1, 2, 3]
 print(isinstance(my_list, Iterable))  # True
+print(isinstance(my_list, Iterator))  # False
 
 
 # Iterator
 my_iter = iter(my_list)
+print(isinstance(my_iter, Iterable))  # True
 print(isinstance(my_iter, Iterator))  # True
 print(next(my_iter))  # 1
 print(next(my_iter))  # 2
