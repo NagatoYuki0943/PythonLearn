@@ -65,10 +65,9 @@ def run_process():
 
         # 将多组参数传递给一个函数,生成多个进程,非阻塞
         # pool.map_async(func=sing, iterable=argss)
-
-    # join之前有close
-    # pool.close()
-    # pool.join()
+        # join之前有close
+        # pool.close()
+        # pool.join()
 
     print('Interval:', time.time() - start)
     # Yuki在唱歌。。。

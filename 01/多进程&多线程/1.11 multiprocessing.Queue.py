@@ -18,22 +18,23 @@ def process1(queue: Queue):
         # 阻塞等待,直到有空闲槽
         queue.put(i)
         time.sleep(0.5)
+    queue.put(None)
 
 
 def process2(queue: Queue):
-    try:
-        while True:
-            # 阻塞等待,超时时间为3秒
-            data = queue.get(timeout=3)
-            print(data)
-    except Empty:
-        print("Empty")
-        queue.close()
+    while True:
+        # 阻塞等待,超时时间单位为秒
+        data = queue.get(timeout=None)
+        print(data)
+        if data is None:
+            queue.close()
+            return
+
 
 def run_queue():
     queue = Queue(maxsize=3)
-    p1 = Process(target=process1, args=(queue, ))
-    p2 = Process(target=process2, args=(queue, ))
+    p1 = Process(target=process1, args=(queue,))
+    p2 = Process(target=process2, args=(queue,))
     p1.start()
     p2.start()
     p1.join()
