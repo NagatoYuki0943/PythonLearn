@@ -8,5 +8,5 @@ import sys
 
 
 print(0)
-sys.exit() 
+sys.exit()
 print(1)

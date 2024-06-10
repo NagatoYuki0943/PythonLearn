@@ -17,6 +17,8 @@ print(3)
 # 2
 # 3
 
+print()
+
 
 try:
     print(0)
@@ -30,6 +32,8 @@ print(3)
 # 2
 # 3
 
+print()
+
 
 try:
     print(0)
@@ -42,6 +46,8 @@ print(3)
 # 0
 # 2
 # 3
+
+print()
 
 
 try:
