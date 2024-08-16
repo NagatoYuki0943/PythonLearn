@@ -19,9 +19,11 @@ p1.close()
 dummy = False
 if dummy:
     # 线程
+    # 这里的 Queue 等同于 `from queue import Queue`, 是线程安全的, 有 task_done 和 join 方法
     from multiprocessing.dummy import Process, Pool, Queue, Pipe, Lock
 else:
     # 进程
+    # 这里的 Queue 是进程安全的
     from multiprocessing import Process, Pool, Queue, Pipe, Lock
 import time
 
