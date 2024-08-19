@@ -8,5 +8,5 @@ with open(file_name, 'r', encoding='utf-8') as f:
     txt = f.read()
 
 
-with open('temp/'+file_name, 'w', encoding='utf-8') as f:
+with open('temp/' + file_name, 'w', encoding='utf-8') as f:
     f.write(txt)
