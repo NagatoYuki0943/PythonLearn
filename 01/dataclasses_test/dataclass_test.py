@@ -1,6 +1,10 @@
 from dataclasses import dataclass, field
 
 
+def get_default_gpus():
+    return [0, 1]
+
+
 @dataclass
 class Config:
     det_model: str                              # Path of Detection model of PPOCR.
@@ -12,7 +16,8 @@ class Config:
     rec_bs: int                                 # Recognition model inference batch size
     # default 必须放在最后面
     device_id: int | None = None                # Define which GPU card used to run model.
-    backend: str  = field(default="default", metadata = {"description":"Type of inference backend, support ort/trt/paddle/openvino, default 'openvino' for cpu, 'tensorrt' for gpu"})
+    backend: str = field(default="default", metadata = {"description":"Type of inference backend, support ort/trt/paddle/openvino, default 'openvino' for cpu, 'tensorrt' for gpu"})
+    gpus: list[int] = field(default_factory=get_default_gpus) # Define which GPU card used to run model.
 
 
 def parse_arguments():
