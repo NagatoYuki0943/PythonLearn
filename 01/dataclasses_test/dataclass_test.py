@@ -12,7 +12,7 @@ class Config:
     rec_bs: int                                 # Recognition model inference batch size
     # default 必须放在最后面
     device_id: int | None = None                # Define which GPU card used to run model.
-    backend: str  = field(default="default")    # Type of inference backend, support ort/trt/paddle/openvino, default 'openvino' for cpu, 'tensorrt' for gpu
+    backend: str  = field(default="default", metadata = {"description":"Type of inference backend, support ort/trt/paddle/openvino, default 'openvino' for cpu, 'tensorrt' for gpu"})
 
 
 def parse_arguments():
