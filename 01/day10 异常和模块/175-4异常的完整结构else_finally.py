@@ -1,16 +1,12 @@
 '''
 try:
-    可能发生异常的代码
-excerpt Exception as e:
-    发生异常执行的代码
-    print(e)
-
+    # 尝试执行的代码
+except Exception as e:
+    # 发生异常执行这里的代码
 else:
-    代码没有发生异常才执行
-
+    # 如果没有异常发生，执行这里的代码
 finally:
-    不管有没有发生异常都会执行
-
+    # 无论是否发生异常，都会执行这里的代码
 '''
 
 def func() -> int:
