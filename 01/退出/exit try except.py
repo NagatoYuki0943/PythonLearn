@@ -22,7 +22,7 @@ print()
 
 try:
     print(0)
-    quit()()
+    quit()
     print(1)
 except SystemExit:
     print(2)
