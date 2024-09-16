@@ -16,12 +16,12 @@ import fire
 
 
 def train_from_folder(
-    data = './data',
-    new = False,
-    image_size = 256,
-    optimizer = 'adam',
-    generate_types = ['default', 'ema'],
-    log_dir = None,
+    data="./data",
+    new=False,
+    image_size=256,
+    optimizer="adam",
+    generate_types=["default", "ema"],
+    log_dir=None,
 ):
     print("data:", data)
     print("new:", new)

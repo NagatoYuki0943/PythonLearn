@@ -1,4 +1,4 @@
-'''
+"""
 列表数据查询
 没有 find() 方法
 
@@ -17,22 +17,22 @@ in/ont in   判断是否存在,存在True,不存在False  一般和if结合使�
 substr in my_str
 substr not in my_str
 
-'''
+"""
 
 # index(substr) 查询出现的下标
-list = [5, 3.14, True, 'Ok', 5]
-print(list.index(3.14))         # 1
-print(list.index(3.14, 1, 4))   # 1
-#print(list.index(3.13))        # 数据不存在,程序报错
+list = [5, 3.14, True, "Ok", 5]
+print(list.index(3.14))  # 1
+print(list.index(3.14, 1, 4))  # 1
+# print(list.index(3.13))        # 数据不存在,程序报错
 
 
 # count(substr) 统计出现次数
-list = [5, 3.14, True, 'Ok', 5]
-print(list.count(5))            # 2
+list = [5, 3.14, True, "Ok", 5]
+print(list.count(5))  # 2
 
 
 # in/ont in   判断是否存在,存在True,不存在False
-list = [5, 3.14, True, 'Ok', 5]
-print( 3.14 in list)            # True
-print( 3.13 in list)            # False
-print( 3.13 not in list)        # True
+list = [5, 3.14, True, "Ok", 5]
+print(3.14 in list)  # True
+print(3.13 in list)  # False
+print(3.13 not in list)  # True

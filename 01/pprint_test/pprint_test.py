@@ -2,8 +2,8 @@ import pprint
 
 
 printer = pprint.PrettyPrinter(
-    indent = 1,
-    width = 80,
+    indent=1,
+    width=80,
 )
 
 # 列表生成式生成三维列表

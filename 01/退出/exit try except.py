@@ -52,7 +52,7 @@ print()
 
 try:
     print(0)
-    raise SystemExit # 自己 raise SystemExit 效果是一样的
+    raise SystemExit  # 自己 raise SystemExit 效果是一样的
     print(1)
 except SystemExit:
     print(2)

@@ -10,4 +10,3 @@ def my_sum(dic: dict[str, int]) -> int:
 
 
 my_sum({"a": 1, "b": 2, "c": 3})
-

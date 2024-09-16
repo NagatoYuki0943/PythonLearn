@@ -10,7 +10,7 @@ def multiply(x, y):
     return x * y
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     fire.Fire()
     # python fire_test2.py add 10 20
     # 30

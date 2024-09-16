@@ -10,8 +10,7 @@ for i in tqdm(n, total=1000, desc="描述"):
     print(i)
 
 
-
 # 以一行显示
 bar = tqdm(n, total=1000, desc="描述")
 for i in bar:
-    bar.set_description('i:{}'.format(i))
+    bar.set_description("i:{}".format(i))

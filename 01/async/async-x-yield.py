@@ -12,6 +12,7 @@ return 语句在异步生成器中会抛出一个特殊的 StopAsyncIteration �
 如果你需要从同步代码中启动异步操作，你可以使用 asyncio.run() 来运行顶级的异步函数。
 这将创建一个新的事件循环，运行顶级的协程，然后关闭事件循环。请注意，asyncio.run() 只能被调用一次，通常用于启动整个程序。
 """
+
 import asyncio
 from typing import AsyncGenerator
 
@@ -52,6 +53,7 @@ asyncio.run(async_generator_b())
 # 1
 # 2
 
+
 # 异步主函数，用于运行异步函数 b
 async def main():
     # 如果你的协程需要被调用并获取其结果，你应该使用 await 来等待协程完成。
@@ -72,6 +74,7 @@ async def get_final_value() -> int:
     async for value in async_generator_a():
         result += value
     return result  # 在这里返回最终的值
+
 
 # 使用 get_final_value 来获取最终的值
 result = asyncio.run(get_final_value())

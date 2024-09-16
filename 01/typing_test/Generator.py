@@ -18,6 +18,8 @@ Generator[int, None, None] 中的三个类型参数分别表示:
     - None - 在生成器中通过 yield 发送值到生成器的类型,对于普通生成器来说,它不会接收任何值,所以是 None。
     - None - 生成器终止时返回的值的类型,对于普通生成器来说,它不返回任何特殊值,所以也是 None。
 """
+
+
 def count_up_to1(n: int) -> Generator[int, None, None]:
     i = 0
     while i < n:
@@ -40,6 +42,8 @@ print(next(counter))  # 4
     - n: int 表示函数参数 n 的类型为 int。
     - -> Iterator[int] 表示函数返回值的类型为一个生成整数的迭代器。
 """
+
+
 def count_up_to2(n: int) -> Iterator[int]:
     i = 0
     while i < n:
@@ -62,6 +66,8 @@ print(next(counter))  # 4
     - n: int 表示函数参数 n 的类型为 int。
     - -> Iterator[int] 表示函数返回值的类型为一个生成整数的迭代器。
 """
+
+
 def count_up_to3(n: int) -> Iterable[int]:
     i = 0
     while i < n:

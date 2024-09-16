@@ -1,4 +1,4 @@
-'''
+"""
 # 创建进程池                          进程数
 pool = multiprocessing.Pool(processes=2)
 
@@ -32,7 +32,7 @@ pool.join()
 
 # 结束工作进程，不再处理未处理的任务
 pool.terminate()
-'''
+"""
 
 dummy = False
 if dummy:
@@ -68,8 +68,8 @@ def run_process():
     # pool.apply(func=dance, kwds={'name': 'Nagato', 'num': 4})
 
     # 非阻塞的且支持结果返回后进行回调(异步)
-    pool.apply_async(func=sing, args=('Yuki', 3))
-    pool.apply_async(func=dance, kwds={'name': 'Nagato', 'num': 4})
+    pool.apply_async(func=sing, args=("Yuki", 3))
+    pool.apply_async(func=dance, kwds={"name": "Nagato", "num": 4})
 
     # join之前有close
     pool.close()
@@ -79,7 +79,7 @@ def run_process():
     # 结束工作进程，不再处理未处理的任务
     pool.terminate()
 
-    print('Interval:', time.time() - start)
+    print("Interval:", time.time() - start)
     # Yuki在唱歌。。。
     # Nagato跳舞。。。
     # Yuki在唱歌。。。
@@ -90,5 +90,5 @@ def run_process():
     # Interval: 2.116147518157959
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run_process()

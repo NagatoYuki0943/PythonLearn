@@ -1,4 +1,4 @@
-'''
+"""
 python中子类会继承父类的构造函数,字符串输出函数等,php也会继承构造函数
 重写之后子类要调用父类的构造方法,给对象添加从父类继承的属性,
 子类init方法中的形参,一般都写父类的形参,在写父类的形参
@@ -36,7 +36,7 @@ public:
         m_Name = name;
     }
 };
-'''
+"""
 
 
 class Dog(object):
@@ -51,8 +51,8 @@ class Dog(object):
 class XTQ(Dog):
     def __init__(self, name, color):
         # 子类要调用父类构造函数
-        #Dog.__init__(self, name)
-        #super(XTQ, self).__init__(name)
+        # Dog.__init__(self, name)
+        # super(XTQ, self).__init__(name)
         super().__init__(name)
         self.color = color
 
@@ -66,6 +66,6 @@ class XTQ(Dog):
 
 
 # 重写父类的构造函数
-xtq = XTQ('小黄', '白色')
+xtq = XTQ("小黄", "白色")
 print(xtq)
 # 名字为:小黄,年龄为:0,毛色为:白色

@@ -1,11 +1,11 @@
-'''
+"""
 system系统模块
-'''
+"""
 
 import sys
 
 # 当前文件
-print(sys.argv) # ['D:/Python/Pycharm/01/code/10/185sys_time.py']
+print(sys.argv)  # ['D:/Python/Pycharm/01/code/10/185sys_time.py']
 
 # 文件路径
 print(sys.path)

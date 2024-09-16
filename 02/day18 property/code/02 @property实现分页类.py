@@ -1,4 +1,4 @@
-'''
+"""
 @property 把方法直接当做属性使用
 
 类名: Page
@@ -8,7 +8,8 @@
     3.获取结束位置
 
 
-'''
+"""
+
 
 class Page(object):
     # 1.初始化方法
@@ -19,18 +20,16 @@ class Page(object):
         # 每页大小
         self.page_size = 10
 
-
     # 2.获取开始位置
-    @ property
+    @property
     def start(self):
         # limit (当前页 - 1) * 每页大小,
         # 1, 10
         # 11,20
-        return (self.current_page - 1) * 10 + 1 # 从1开始
-
+        return (self.current_page - 1) * 10 + 1  # 从1开始
 
     # 3.获取结束位置
-    @ property
+    @property
     def end(self):
         return self.current_page * self.page_size
 

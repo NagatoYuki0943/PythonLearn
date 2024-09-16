@@ -3,18 +3,19 @@ from threading import Thread, Lock
 
 A = 0
 
+
 def job1():
     global A
     for i in range(10):
         A += 1
-        print('job1',A)
+        print("job1", A)
 
 
 def job2():
     global A
     for i in range(10):
         A += 10
-        print('job2',A)
+        print("job2", A)
 
 
 def run_threads():
@@ -48,5 +49,5 @@ def run_threads():
     # job2 110
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run_threads()

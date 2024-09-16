@@ -8,17 +8,16 @@ Click 是一个利用很少的代码以可组合的方式创造优雅命令行�
 import click
 
 
-@click.command()                                                    # 这个装饰器来装饰一个函数使它成为一个可调用的脚本
-@click.option('--count', default=1, help='Number of greetings.')    # 参数
-@click.option('--name', prompt='Your name',
-              help='The person to greet.')
+@click.command()  # 这个装饰器来装饰一个函数使它成为一个可调用的脚本
+@click.option("--count", default=1, help="Number of greetings.")  # 参数
+@click.option("--name", prompt="Your name", help="The person to greet.")
 def hello(count: int, name: str):
     """Simple program that greets NAME for a total of COUNT times."""
     for x in range(count):
-        click.echo(f'Hello {name}!')
+        click.echo(f"Hello {name}!")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     hello()
 
 # > python click_test1.py --count=3

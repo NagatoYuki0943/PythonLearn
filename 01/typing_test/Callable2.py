@@ -6,11 +6,14 @@ from typing import Callable, Any
 def func1():
     print("func1")
 
+
 def func2():
     print("func2")
 
+
 def func3():
     print("func3")
+
 
 class Func4:
     def __init__(self, num: int = 0):
@@ -20,10 +23,12 @@ class Func4:
         print(f"Func4: {self.num}")
         self.num += 1
 
+
 # 调用函数
 def callbacks(funcs: list[Callable]) -> None:
     for func in funcs:
         func()
+
 
 func4 = Func4()
 fs = [func1, func2, func3, func4, func4, func4]

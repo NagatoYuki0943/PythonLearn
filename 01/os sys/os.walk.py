@@ -3,9 +3,9 @@ import os
 
 
 for filepath, dirnames, filenames in os.walk("./"):
-    print(filepath) # 遍历的路径
-    print(dirnames) # 路径内的目录
-    print(filenames)# 路径内的文件
+    print(filepath)  # 遍历的路径
+    print(dirnames)  # 路径内的目录
+    print(filenames)  # 路径内的文件
     print()
 
 # ./

@@ -1,5 +1,4 @@
 class Student(object):
-
     def __init__(self, id, name, age, gender):
         self.stu_id = id
         self.name = name
@@ -11,6 +10,6 @@ class Student(object):
 
 
 # 只有自己执行才会执行里面的内容
-if __name__ == '__main__':
-    stu = Student(1, 'a', 18, 'male')
+if __name__ == "__main__":
+    stu = Student(1, "a", 18, "male")
     print(stu)

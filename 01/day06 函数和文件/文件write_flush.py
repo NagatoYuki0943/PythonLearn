@@ -10,9 +10,9 @@ python在向文件中保存数据时，只有脚本结束之后才会保存
 
 
 # 打开文件用于写入
-with open('example.txt', 'w') as file:
+with open("example.txt", "w") as file:
     for i in range(10):
-        str1 = f'{i = }\n'
+        str1 = f"{i = }\n"
         print(str1, end="")
         file.write(str1)  # 写入数据
         file.flush()  # 可选：强制刷新缓冲区

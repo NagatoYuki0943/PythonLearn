@@ -10,7 +10,7 @@ def main():
     show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 
 
@@ -22,4 +22,3 @@ if __name__ == '__main__':
 # from girl import *  不直接赋值girl中的值,拷贝数据到当前文件,所以修改了没有作用
 # 发女朋友了,Milet是你的了
 # 单身贵族
-

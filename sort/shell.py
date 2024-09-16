@@ -1,13 +1,14 @@
-'''
+"""
 希尔排序，先将待排序列进行预排序，使待排序列接近有序，然后再对该序列进行一次插入排序，此时插入排序的时间复杂度为O(N)，
 时间复杂度平均:O(N^1.3)
 空间复杂度:O(1)
-'''
+"""
+
 
 def shellSort(arr: list):
     length = len(arr)
     gap = length
-    while(gap > 1):
+    while gap > 1:
         # 每次对gap折半操作
         gap = gap // 2
 

@@ -1,6 +1,5 @@
-'''
+""" """
 
-'''
 # 1.导入模块
 import socket
 
@@ -17,7 +16,7 @@ udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 
 # 3.发送数据
-udp_socket.sendto('test'.encode(), ('192.168.1.103', 8080))
+udp_socket.sendto("test".encode(), ("192.168.1.103", 8080))
 
 
 # 4.接收二进制数据
@@ -32,11 +31,11 @@ udp_socket.sendto('test'.encode(), ('192.168.1.103', 8080))
 
 recv_data = udp_socket.recvfrom(1024)
 # 数据的二进制格式
-print(recv_data[0])                     # b'\xc4\xe3\xba\xc3'
+print(recv_data[0])  # b'\xc4\xe3\xba\xc3'
 # 数据解码,gbk是为了中文不报错
-print(recv_data[0].decode('gbk'))       # 你好
+print(recv_data[0].decode("gbk"))  # 你好
 # 元组,对方ip和端口
-print(recv_data[1])                     # ('192.168.1.103', 8080)
+print(recv_data[1])  # ('192.168.1.103', 8080)
 
 
 # 5.关闭套接字

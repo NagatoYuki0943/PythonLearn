@@ -36,10 +36,15 @@ def infer(data: Tensor):
 
 
 def test_process():
-    data = [torch.randn(2, 1, 5), torch.randn(3, 2, 5), torch.randn(4, 3, 5), torch.randn(5, 4, 5)]
+    data = [
+        torch.randn(2, 1, 5),
+        torch.randn(3, 2, 5),
+        torch.randn(4, 3, 5),
+        torch.randn(5, 4, 5),
+    ]
     processes = []
     for d in data:
-        process = Process(target=infer, args=(d, ))
+        process = Process(target=infer, args=(d,))
         process.start()
         processes.append(process)
     for process in processes:
@@ -61,7 +66,12 @@ def test_process():
 
 
 def test_pool():
-    data = [torch.randn(2, 1, 5), torch.randn(3, 2, 5), torch.randn(4, 3, 5), torch.randn(5, 4, 5)]
+    data = [
+        torch.randn(2, 1, 5),
+        torch.randn(3, 2, 5),
+        torch.randn(4, 3, 5),
+        torch.randn(5, 4, 5),
+    ]
     with Pool(processes=4) as pool:
         results = pool.map(infer, data)
     # [1, 1]

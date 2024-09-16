@@ -1,11 +1,10 @@
-
 # 打印7的倍数,含有7的值
 for i in range(1, 101):
-    if (i % 7 == 0) or (i % 10 == 7) or (i //10 ==7):
+    if (i % 7 == 0) or (i % 10 == 7) or (i // 10 == 7):
         print(i, end=" ")
     else:
         pass
-print('---------------------')
+print("---------------------")
 
 # name = 'Python'
 # password = '123456'
@@ -18,15 +17,13 @@ print('---------------------')
 #         break
 #     else:
 #         print('Sorry')
-print('---------------------')
+print("---------------------")
 
 
-
-
-print('---------------------')
+print("---------------------")
 # 判断一个数是否是素数
 i = 2
-num = int(input('请输入一个数字:'))
+num = int(input("请输入一个数字:"))
 while i <= num:
     if num % i == 0:
         print(f"{num}不是素数")
@@ -34,8 +31,7 @@ while i <= num:
     i += i
 else:
     print(f"{num}是素数")
-print('---------------------')
-
+print("---------------------")
 
 
 num = 2
@@ -49,8 +45,7 @@ while num <= 200:
         print(num, end=" ")
     num += 1
 print()
-print('---------------------')
-
+print("---------------------")
 
 
 for i in range(2, 201):
@@ -60,4 +55,3 @@ for i in range(2, 201):
     # 循环完,都不能被整除,for里面的执行,就说明它是素数,就输出
     else:
         print(i, end=" ")
-

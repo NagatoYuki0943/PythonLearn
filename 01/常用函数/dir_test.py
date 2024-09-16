@@ -10,7 +10,19 @@ func: str
 funcs = [func for func in funcs if not func.startswith("__")]
 print(funcs)
 print()
-['append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+[
+    "append",
+    "clear",
+    "copy",
+    "count",
+    "extend",
+    "index",
+    "insert",
+    "pop",
+    "remove",
+    "reverse",
+    "sort",
+]
 
 
 # 查看元组
@@ -19,7 +31,7 @@ func: str
 funcs = [func for func in funcs if not func.startswith("__")]
 print(funcs)
 print()
-['count', 'index']
+["count", "index"]
 
 
 # 查看字典
@@ -28,7 +40,19 @@ func: str
 funcs = [func for func in funcs if not func.startswith("__")]
 print(funcs)
 print()
-['clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values']
+[
+    "clear",
+    "copy",
+    "fromkeys",
+    "get",
+    "items",
+    "keys",
+    "pop",
+    "popitem",
+    "setdefault",
+    "update",
+    "values",
+]
 
 
 # 查看set
@@ -36,5 +60,22 @@ funcs = dir(set())
 func: str
 funcs = [func for func in funcs if not func.startswith("__")]
 print(funcs)
-['add', 'clear', 'copy', 'difference', 'difference_update', 'discard', 'intersection', 'intersection_update', 'isdisjoint',
-'issubset', 'issuperset', 'pop', 'remove', 'symmetric_difference', 'symmetric_difference_update', 'union', 'update']
+[
+    "add",
+    "clear",
+    "copy",
+    "difference",
+    "difference_update",
+    "discard",
+    "intersection",
+    "intersection_update",
+    "isdisjoint",
+    "issubset",
+    "issuperset",
+    "pop",
+    "remove",
+    "symmetric_difference",
+    "symmetric_difference_update",
+    "union",
+    "update",
+]

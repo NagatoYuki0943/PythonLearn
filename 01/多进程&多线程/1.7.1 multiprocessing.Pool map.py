@@ -1,4 +1,4 @@
-'''
+"""
 # 创建进程池                          进程数
 pool = multiprocessing.Pool(processes=2)
 
@@ -32,7 +32,7 @@ pool.join()
 
 # 结束工作进程，不再处理未处理的任务
 pool.terminate()
-'''
+"""
 
 dummy = False
 if dummy:
@@ -58,7 +58,7 @@ def sing(args):
 def run_process():
     start = time.time()
 
-    argss = [('Yuki', 3), ('Nagato', 4)]
+    argss = [("Yuki", 3), ("Nagato", 4)]
 
     pool = Pool(processes=2)
 
@@ -72,7 +72,7 @@ def run_process():
     pool.close()
     pool.join()
 
-    print('Interval:', time.time() - start)
+    print("Interval:", time.time() - start)
     # Yuki在唱歌。。。
     # Nagato在唱歌。。。
     # Yuki在唱歌。。。
@@ -83,5 +83,5 @@ def run_process():
     # Interval: 2.116753578186035
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run_process()

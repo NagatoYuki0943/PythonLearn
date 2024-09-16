@@ -16,14 +16,14 @@ def job1():
     global A
     for i in range(10):
         A += 1
-        print('job1',A)
+        print("job1", A)
 
 
 def job2():
     global A
     for i in range(10):
         A += 10
-        print('job2',A)
+        print("job2", A)
 
 
 def run_process():
@@ -57,5 +57,5 @@ def run_process():
     # job2 100
 
 
-if __name__== '__main__':
+if __name__ == "__main__":
     run_process()

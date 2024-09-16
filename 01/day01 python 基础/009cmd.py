@@ -1,9 +1,8 @@
 a = 2
 
 if a == 1:
-    print('ok')
+    print("ok")
 elif a == 2:
-    print('fine')
+    print("fine")
 else:
     print("not ok")
-

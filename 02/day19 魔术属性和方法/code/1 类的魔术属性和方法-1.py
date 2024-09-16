@@ -1,4 +1,4 @@
-'''
+"""
 魔术属性
 
     __doc__    获取描述信息
@@ -21,7 +21,8 @@
         类() 自动调用
     __del__  删除对象的时候，会调用  del 对象
 
-'''
+"""
+
 
 class Goods(object):
     """这是一个商品类"""
@@ -49,7 +50,7 @@ print(goods.set_price.__doc__)
 # 这是价格的方法
 # val: number 设置的价格
 
-print('-' * 50)
+print("-" * 50)
 
 
 # 获取所属的模块
@@ -58,7 +59,7 @@ print(goods.__module__)
 # __main__
 # __main__
 
-print('-' * 50)
+print("-" * 50)
 
 
 # 获取对象所属的类

@@ -1,4 +1,3 @@
-
 x = [1, 2, 3]
 
 x.extend(x[-1] * 2 for _ in range(3))

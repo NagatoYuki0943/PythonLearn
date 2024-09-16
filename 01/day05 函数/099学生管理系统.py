@@ -1,111 +1,110 @@
-'''
+"""
 1.添加
 2.删除
 3.修改
 4.查询单个信息
 5.查询所有信息
 6.退出
-'''
-
+"""
 
 # 学生列表,下面直接使用即可,不用global引入,因为没有重新赋值,只是添加修改值
 stu_list = []
 
 
 def show_menu():
-    '''
+    """
     展示菜单
-    '''
-    print('1.添加学生')
-    print('2.删除学生')
-    print('3.修改学生')
-    print('4.查询单个信息')
-    print('5.查询所有信息')
-    print('6.退出')
+    """
+    print("1.添加学生")
+    print("2.删除学生")
+    print("3.修改学生")
+    print("4.查询单个信息")
+    print("5.查询所有信息")
+    print("6.退出")
 
 
 def insert_student():
-    '''
+    """
     添加学生信息
-    '''
+    """
     # 1.获取学生信息
-    name = input('请输入姓名:')
+    name = input("请输入姓名:")
 
     for stu in stu_list:
-        if stu['name'] == name:
-            print('*****学生信息存在*****')
+        if stu["name"] == name:
+            print("*****学生信息存在*****")
             return
 
-    age = input('请输入年龄:')
-    gender = input('请输入性别:')
+    age = input("请输入年龄:")
+    gender = input("请输入性别:")
     # 2.将学生信息添加到字典
-    stu_dict = {'name': name, 'age': int(age), 'gender': gender}
+    stu_dict = {"name": name, "age": int(age), "gender": gender}
     # 3.将字典添加到列表,不需要global,因为是添加,不是完整赋值
     stu_list.append(stu_dict)
-    print('学生信息添加成功')
+    print("学生信息添加成功")
 
 
 def show_all_info():
-    '''
+    """
     显示所有学生信息
-    '''
+    """
     if len(stu_list):
-        print('姓名\t年龄\t性别')
+        print("姓名\t年龄\t性别")
         for stu in stu_list:
-            print(stu['name'], '\t', stu['age'], '\t', stu['gender'])
+            print(stu["name"], "\t", stu["age"], "\t", stu["gender"])
     else:
-        print('没学生')
+        print("没学生")
 
 
 def remove_student():
     # 1.获取学生姓名
-    name = input('请输入要删除的学生的名字:')
+    name = input("请输入要删除的学生的名字:")
     # 2.判断学生信息是否存在
     for stu in stu_list:
         # 3.学生信息存在,直接删除
-        if stu['name'] == name:
+        if stu["name"] == name:
             # 直接删除字典即可
             stu_list.remove(stu)
             print("*****删除成功*****")
             return
     # 4.学生信息不存在,直接结束
     else:
-        print('*****该学生信息不存在*****')
+        print("*****该学生信息不存在*****")
 
 
 def modify_student():
     # 1.获取学生姓名
-    name = input('请输入要修改的学生的名字:')
+    name = input("请输入要修改的学生的名字:")
     # 2.判断学生信息是否存在
     for stu in stu_list:
         # 3.学生信息存在,修改
-        if stu['name'] == name:
-            stu['age'] = input('请输入新的年龄:')
-            stu['gender'] = input('请输入新的性别:')
+        if stu["name"] == name:
+            stu["age"] = input("请输入新的年龄:")
+            stu["gender"] = input("请输入新的性别:")
             return
     # 4.学生信息不存在,直接结束
     else:
-        print('*****该学生信息不存在*****')
+        print("*****该学生信息不存在*****")
 
 
 def search_student():
     # 1.获取学生姓名
-    name = input('请输入要显示的学生的名字:')
+    name = input("请输入要显示的学生的名字:")
     # 2.判断学生信息是否存在
     for stu in stu_list:
         # 3.学生信息存在,修改
-        if stu['name'] == name:
-            print(stu['name'], '\t', stu['age'], '\t', stu['gender'])
+        if stu["name"] == name:
+            print(stu["name"], "\t", stu["age"], "\t", stu["gender"])
             return
     # 4.学生信息不存在,直接结束
     else:
-        print('*****该学生信息不存在*****')
+        print("*****该学生信息不存在*****")
 
 
 def main():
     while True:
         show_menu()
-        opt = input('请输入编号:')
+        opt = input("请输入编号:")
 
         if opt == "1":
             insert_student()
@@ -118,13 +117,13 @@ def main():
         elif opt == "5":
             show_all_info()
         elif opt == "6":
-            print('欢迎下次使用')
+            print("欢迎下次使用")
             break
         else:
-            print('输入有误,请再次输入')
+            print("输入有误,请再次输入")
             continue  # 不用再按回车
 
-        input('*****请按回车键继续*****')
+        input("*****请按回车键继续*****")
 
 
 main()

@@ -1,8 +1,8 @@
-'''
+"""
 默认情况下 主线程会等待所有的子线程执行结束在结束,下面会继续执行子线程(就继续打印)
 不想这样的话就设置守护线程,主线程结束后会停止所有子线程
 daemon=True
-'''
+"""
 
 import time
 from threading import Thread
@@ -34,6 +34,5 @@ def run_threads():
     # 主线程执行结束
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run_threads()
-

@@ -1,4 +1,4 @@
-'''
+"""
 通过对象调用方法,不需要传递实参值,python解释器会自动将对象作为实参值传递给self形参,
 如果是通过类名.方法() 调用则python解释器就不会自动传递实参值,需要手动self
 
@@ -41,12 +41,12 @@
 /**
   * php使用 parent::父类方法() 调用父类方法,无论静态,动态都使用parent::
   *
-'''
+"""
 
 
 class Dog(object):
     def __init__(self):
-        self.name = 'Dog'
+        self.name = "Dog"
 
     def bark(self):
         print("汪汪汪")
@@ -70,17 +70,17 @@ class Xiao_tian_quan(Dog):
         Dog.bark(self)
 
         # 方法2:  父类名(参数).方法名() 不推荐使用
-        #Dog().bark()
+        # Dog().bark()
 
         # 方法3: super(当前类, self).方法名(参数)   调用当前类的父类中的方法
-        super(Xiao_tian_quan,self).bark()
+        super(Xiao_tian_quan, self).bark()
 
         # 方法4: super().方法名(参数)  方法3的简写
         super().bark()
 
 
 xiao_tian_quan = Xiao_tian_quan()
-xiao_tian_quan.see_host()   # 吼吼吼
+xiao_tian_quan.see_host()  # 吼吼吼
 
 # 子类调用父类方法
 xiao_tian_quan.see_hosts()

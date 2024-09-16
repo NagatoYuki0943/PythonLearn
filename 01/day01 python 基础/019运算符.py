@@ -1,4 +1,4 @@
-'''
+"""
 算术运算符
     + - * /
     // 整除(求商)
@@ -31,12 +31,13 @@
     or   逻辑或, 连接的两个条件都为 False,结果为 False,    一真为真
         如果第一个条件为 True,第二个条件就不会再判断了
     not  逻辑非, 取反,原来是 True,变为 False,原来是 False,变为 True
-'''
+"""
+
 num1 = 15
 num2 = 7
 print(num1 / num2)  # 2.142857142857143
 print(num1 // num2)  # 2
-print(2 ** 3)  # 8
+print(2**3)  # 8
 
 # and or not
 # &&  || !
@@ -47,5 +48,3 @@ print(flag1 or flag2)  # True
 
 # not 取反 !
 print(not flag1)  # False
-
-

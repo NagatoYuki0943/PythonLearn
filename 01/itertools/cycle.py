@@ -2,7 +2,6 @@
 cycle, 无限重复数据
 """
 
-
 from itertools import cycle
 from time import sleep
 
@@ -25,6 +24,7 @@ def cycle1(dl):
     while True:
         for data in dl:
             yield data
+
 
 # for i in cycle1(dataloader):
 #     print(i)

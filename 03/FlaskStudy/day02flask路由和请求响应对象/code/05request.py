@@ -2,7 +2,6 @@
 request直接导入即可
 """
 
-
 from flask import Flask, request
 
 import settings
@@ -11,7 +10,7 @@ app = Flask(__name__)
 app.config.from_object(settings)
 
 
-@app.route('/')
+@app.route("/")
 def index():
     # make_response()
     print("headers:\n", request.headers)  # request对象 对象访问属性，也可以调用方法
@@ -38,8 +37,8 @@ def index():
     # http://127.0.0.1:5000/
     print("host_url:\n", request.host_url)
     # http://127.0.0.1:5000/
-    return 'welcome everyone！'
+    return "welcome everyone！"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()

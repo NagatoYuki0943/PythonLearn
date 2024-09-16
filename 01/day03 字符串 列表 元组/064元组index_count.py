@@ -1,4 +1,4 @@
-'''
+"""
 元组和列表类似,都可以存放多个不同数据类型的数据,
 列表使用 [],元组使用()
 元组中的元素不能修改,没有增删改,只有查
@@ -28,36 +28,36 @@ count(查找值,start,end)
 查找值: 要找的内容
 start:  开始查找位置,默认是0                 也是正数
 end:    结束查找位置之后的位置,默认是 len()    也是正数
-'''
+"""
 
 tulip1 = (1, 2, 3, 4, True, "GeForce")
 # 元组支持下标和切片
 print(tulip1[0])
-print(tulip1[1:4])   # (2, 3, 4)
+print(tulip1[1:4])  # (2, 3, 4)
 tulip1 = 5, 6, 8
-print(tulip1)        # (5, 6, 8)
+print(tulip1)  # (5, 6, 8)
 
 
 # 定义空元组,没有意义,因为没法修改
 tuple2 = ()
-print(type(tuple2))             # <class 'tuple'>
+print(type(tuple2))  # <class 'tuple'>
 tuple2 = tuple()
-print(type(tuple2))             # <class 'tuple'>
+print(type(tuple2))  # <class 'tuple'>
 
 
 # 定义一个数据的元组
-tuple3 = (3)
-print(tuple3, type(tuple3))     # 3 <class 'int'>   不是元组,是int
+tuple3 = 3
+print(tuple3, type(tuple3))  # 3 <class 'int'>   不是元组,是int
 # 加上逗号才是元组
 tuple3 = (3,)
-print(tuple3, type(tuple3))     # (3,) <class 'tuple'>
+print(tuple3, type(tuple3))  # (3,) <class 'tuple'>
 
 
 tulip4 = (1, 2, 3, 4, True, "GeForce")
 # 查询数据,没有find
-print(tulip4.index(4))          # 3
-print(tulip4.index(4, 1, 5))    # 3
-#print(tulip1.index(4, 1, 3))   # 找不到会报错
+print(tulip4.index(4))  # 3
+print(tulip4.index(4, 1, 5))  # 3
+# print(tulip1.index(4, 1, 3))   # 找不到会报错
 
 
 # count 查询出现次数

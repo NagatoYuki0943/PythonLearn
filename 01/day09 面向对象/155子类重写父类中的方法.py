@@ -1,4 +1,4 @@
-'''
+"""
 重写: 子类定义和父类名字相同的方法.
 为什么重写: 父类中的方法,不能满足子类对象的需求,所以要重写.
 重写之后的特点: 子类对象调用子类自己的方法,不再调用的方法,父类对象调用父类自己的方法.
@@ -18,12 +18,12 @@
  *      C#使用覆盖不是重写,(父类无参数,子类有参数)不给参数调用父类方法,给参数调用子类方法
  */
 
-'''
+"""
 
 
 class Dog(object):
     def __init__(self):
-        self.name = 'Dog'
+        self.name = "Dog"
 
     def bark(self):
         print("汪汪汪")
@@ -40,7 +40,7 @@ class Xiao_tian_quan(Dog):
 
 # 重写后父类调用自己的方法,子类调用子类自己的方法
 dog = Dog()
-dog.bark()                          # 汪汪汪
+dog.bark()  # 汪汪汪
 
 xiao_tian_quan = Xiao_tian_quan()
-xiao_tian_quan.bark()               # 吼吼吼
+xiao_tian_quan.bark()  # 吼吼吼

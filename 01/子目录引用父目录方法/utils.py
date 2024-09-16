@@ -1,4 +1,2 @@
-
-
 def forward():
     print("forward")

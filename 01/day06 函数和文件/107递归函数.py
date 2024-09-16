@@ -1,8 +1,8 @@
-'''
+"""
 调用自己
 终止条件
 递归会大量调用内存
-'''
+"""
 
 
 def calc(a):
@@ -13,17 +13,14 @@ def calc(a):
 
 
 res = calc(1)
-print(res)      # 5050
+print(res)  # 5050
 
 
 def age(num):
-    if(num <= 1):
+    if num <= 1:
         return 18
     return 2 + age(num - 1)
 
 
 res = age(3)
-print(res)      # 22
-
-
-
+print(res)  # 22

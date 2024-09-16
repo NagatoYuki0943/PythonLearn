@@ -1,10 +1,11 @@
 from importlib.metadata import version
 
-pkgs = ["matplotlib",
-        "pandas",
-        "numpy",
-        "torch",
-       ]
+pkgs = [
+    "matplotlib",
+    "pandas",
+    "numpy",
+    "torch",
+]
 for p in pkgs:
     print(f"{p} version: {version(p)}")
 # matplotlib version: 3.8.4

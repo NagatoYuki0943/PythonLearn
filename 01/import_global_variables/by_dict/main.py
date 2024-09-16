@@ -7,7 +7,6 @@ from config import CAMERA_CONFIG
 
 
 def main():
-
     t = Thread(target=capture, daemon=True)
     t.start()
 
@@ -31,11 +30,13 @@ def main():
         with CAMERA_CONFIG["lock"]:
             EXPOSURE_TIME = CAMERA_CONFIG["EXPOSURE_TIME"]
             ANALOGUE_GAIN = CAMERA_CONFIG["ANALOGUE_GAIN"]
-        logger.success(f"main\t{EXPOSURE_TIME = }, {ANALOGUE_GAIN = }, {id(EXPOSURE_TIME) = }, {id(ANALOGUE_GAIN) = }")
+        logger.success(
+            f"main\t{EXPOSURE_TIME = }, {ANALOGUE_GAIN = }, {id(EXPOSURE_TIME) = }, {id(ANALOGUE_GAIN) = }"
+        )
 
         time.sleep(1)
         i += 1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,5 +1,3 @@
-
-
 # 类型作为别名
 ReturnType = tuple[int, str | None]
 

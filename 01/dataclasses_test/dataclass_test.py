@@ -7,28 +7,35 @@ def get_default_gpus():
 
 @dataclass
 class Config:
-    det_model: str                              # Path of Detection model of PPOCR.
-    cls_model: str                              # Path of Classification model of PPOCR.
-    rec_model: str                              # Path of Recognization model of PPOCR.
-    rec_label_file: str                         # Path of Recognization label of PPOCR.
-    device: str                                 # Type of inference device, support 'cpu' or 'gpu'.
-    cls_bs: int                                 # Classification model inference batch size.
-    rec_bs: int                                 # Recognition model inference batch size
+    det_model: str  # Path of Detection model of PPOCR.
+    cls_model: str  # Path of Classification model of PPOCR.
+    rec_model: str  # Path of Recognization model of PPOCR.
+    rec_label_file: str  # Path of Recognization label of PPOCR.
+    device: str  # Type of inference device, support 'cpu' or 'gpu'.
+    cls_bs: int  # Classification model inference batch size.
+    rec_bs: int  # Recognition model inference batch size
     # default 必须放在最后面
-    device_id: int | None = None                # Define which GPU card used to run model.
-    backend: str = field(default="default", metadata = {"description":"Type of inference backend, support ort/trt/paddle/openvino, default 'openvino' for cpu, 'tensorrt' for gpu"})
-    gpus: list[int] = field(default_factory=get_default_gpus) # Define which GPU card used to run model.
+    device_id: int | None = None  # Define which GPU card used to run model.
+    backend: str = field(
+        default="default",
+        metadata={
+            "description": "Type of inference backend, support ort/trt/paddle/openvino, default 'openvino' for cpu, 'tensorrt' for gpu"
+        },
+    )
+    gpus: list[int] = field(
+        default_factory=get_default_gpus
+    )  # Define which GPU card used to run model.
 
 
 def parse_arguments():
     config = Config(
-        det_model = r"ch_PP-OCRv3_det_infer",
-        cls_model = r"ch_ppocr_mobile_v2.0_cls_infer",
-        rec_model = r"ch_PP-OCRv3_rec_infer",
-        rec_label_file = r"ppocr_keys_v1.txt",
-        device = "cpu",
-        cls_bs = 1,
-        rec_bs = 6,
+        det_model=r"ch_PP-OCRv3_det_infer",
+        cls_model=r"ch_ppocr_mobile_v2.0_cls_infer",
+        rec_model=r"ch_PP-OCRv3_rec_infer",
+        rec_label_file=r"ppocr_keys_v1.txt",
+        device="cpu",
+        cls_bs=1,
+        rec_bs=6,
         # device_id = 0,
         # backend = "default",
     )
@@ -42,7 +49,7 @@ def parse_arguments():
 class C:
     a: float
     b: float
-    c: float = field(init=False)    # 不需要初始化
+    c: float = field(init=False)  # 不需要初始化
 
     def __post_init__(self):
         self.c = self.a + self.b
@@ -62,8 +69,8 @@ class Data:
 
 
 def test_frozen():
-    data = Data('my_name', 99)
-    data.name = 'other'  # 报错：cannot assign to field 'name'
+    data = Data("my_name", 99)
+    data.name = "other"  # 报错：cannot assign to field 'name'
 
 
 if __name__ == "__main__":

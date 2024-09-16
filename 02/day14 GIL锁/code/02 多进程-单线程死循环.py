@@ -1,6 +1,6 @@
-'''
+"""
 多核心占满
-'''
+"""
 
 import multiprocessing
 

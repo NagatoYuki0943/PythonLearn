@@ -1,4 +1,4 @@
-'''
+"""
 1.打开文件,将文件从硬盘存到内存中
 open(file, mode='r', ..., encoding=None)
     file:       文件名
@@ -46,13 +46,13 @@ f = open('/文件/1.txt', 'w', encoding='utf-8')
 3.关闭文件,将内存中的文件同步到硬盘中
     文件.close()
 
-'''
+"""
 
 # 'w' 删除文件内容(truncate)再写入,文件不存在会创建文件
-f = open('文件/1.txt', 'w', encoding='utf-8')
+f = open("文件/1.txt", "w", encoding="utf-8")
 
 # 写入内容,返回值：写入的字节数
-f.write('你好啊\n')
-res = f.write('不好\n')
-print(res)              # 3
+f.write("你好啊\n")
+res = f.write("不好\n")
+print(res)  # 3
 f.close()

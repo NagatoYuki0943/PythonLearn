@@ -1,4 +1,4 @@
-'''
+"""
 拆包补充 使用 *args和 **kwargs 获取list和dict
 
 拆包使用 * , 类似于ES6中的 [...array]
@@ -12,17 +12,17 @@ list = [1, 2, 3, 4, 5, 6]
 两个 * 传递的是键值对
 +**dict     通过 **kwargs获取
 
-'''
+"""
 
 
 def func(*args, **kwargs):
     print(args)
     print(kwargs)
-    print('*' * 50)
+    print("*" * 50)
 
 
 list = [1, 2, 3, 4, 5, 6]
-dict = {'a': 7, 'c': 8, 'b': 9, 'd': 10}
+dict = {"a": 7, "c": 8, "b": 9, "d": 10}
 
 
 # 列表拆包使用 * , 类似于ES6中的 [...array]

@@ -15,24 +15,24 @@ from termcolor import colored, cprint
 """
 
 # 红色背景字符不发光
-text = colored('Hello, World!', color='red')
+text = colored("Hello, World!", color="red")
 print(text)
 
-text = colored('Hello, World!', color='red', attrs=['reverse', 'blink'])
+text = colored("Hello, World!", color="red", attrs=["reverse", "blink"])
 print(text)
 
 # 红色背景上显示绿色字符
-cprint('Hello, World!', 'green', 'on_red')
+cprint("Hello, World!", "green", "on_red")
 
 # 青蓝色背景上显示绿色字符
-print_red_on_cyan = lambda x: cprint(x, color='red', on_color='on_cyan')
-print_red_on_cyan('Hello, World!')
-print_red_on_green = lambda x: cprint(x, color='red', on_color='on_green')
-print_red_on_green('Hello, Universe!')
+print_red_on_cyan = lambda x: cprint(x, color="red", on_color="on_cyan")
+print_red_on_cyan("Hello, World!")
+print_red_on_green = lambda x: cprint(x, color="red", on_color="on_green")
+print_red_on_green("Hello, Universe!")
 
 # 洋红色
 for i in range(10):
-    cprint(i, 'magenta', end=' ')
+    cprint(i, "magenta", end=" ")
 
 # 红色字符加粗
-cprint("Attention!", 'red', attrs=['bold'], file=sys.stderr)
+cprint("Attention!", "red", attrs=["bold"], file=sys.stderr)

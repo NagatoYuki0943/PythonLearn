@@ -1,4 +1,4 @@
-'''
+"""
 从下到上依次装饰
 先执行 makeBold, 返回值再执行 makehItalic
 
@@ -7,11 +7,12 @@
 def hello():
     pass
 
-'''
+"""
 
 
 def makeBold(func):
     """文字加粗"""
+
     def func_in():
         print("文字加粗")
         # 在hello前后加标签
@@ -22,6 +23,7 @@ def makeBold(func):
 
 def makehItalic(func):
     """文字倾斜"""
+
     def func_in():
         print("文字倾斜")
         # 在hello前后加标签
@@ -33,11 +35,11 @@ def makehItalic(func):
 # 从下到上依次装饰
 # 先执行 makeBold, 返回值再执行 makehItalic
 
+
 @makehItalic
 @makeBold
 def hello():
     return "hello-1"
-
 
 
 print(hello())

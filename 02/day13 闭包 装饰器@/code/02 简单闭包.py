@@ -1,16 +1,17 @@
-'''
+"""
 闭包构成的条件：
 * 存在函数的嵌套关系
 * 内层函数引用了外层函数的临时变量
 * 外层函数返回内层函数的引用（地址）
-'''
+"""
+
 
 def function_out(number):
-    print('1 ---- function_out ----num:', number)
+    print("1 ---- function_out ----num:", number)
 
     def function_in(number_in):
-        print('2 ---- function_in -----num:', number)
-        print('3 ---- function_in -----num_in:', number_in)
+        print("2 ---- function_in -----num:", number)
+        print("3 ---- function_in -----num_in:", number_in)
 
     return function_in
 

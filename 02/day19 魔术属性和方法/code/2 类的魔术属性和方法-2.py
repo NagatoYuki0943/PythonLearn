@@ -1,4 +1,4 @@
-'''
+"""
 魔法属性:
     __dict__ 获取对象或者类的信息
         获取对象信息 `对象名.__dict__`  对象的实例属性信息
@@ -17,9 +17,9 @@
         `__delitem__ `   del 对象['属性名']
 
 
-'''
-from typing import Any
+"""
 
+from typing import Any
 
 
 class Goods(object):
@@ -28,8 +28,7 @@ class Goods(object):
     goods_color = "transparent"
 
     def __init__(self) -> None:
-        self.name ="牛仔裤"
-
+        self.name = "牛仔裤"
 
     def set_price(self, val):
         """
@@ -39,42 +38,39 @@ class Goods(object):
         pass
 
         # 对象当做函数使用时会调用它
+
     def __call__(self, *args: Any, **kwds: Any) -> Any:
         print("__call__")
-
 
     # __str__   打印对象时输出的数据, 一定要返回数据
     def __str__(self) -> str:
         return "我是goods对象"
 
-
     # 用字典的书写格式操作对象的方法
     def __getitem__(self, item):
-        print('item: ', item)
-
+        print("item: ", item)
 
     # 用字典的书写格式操作对象的方法
     def __setitem__(self, key, value):
-        print('key: ', key, ',value: ', value)
-
+        print("key: ", key, ",value: ", value)
 
     # 用字典的书写格式操作对象的方法
     def __delitem__(self, key):
-        print('key: ', key)
+        print("key: ", key)
 
 
 # __call__ 对象当做函数使用时会调用它
-Goods()()           # __call__
+Goods()()  # __call__
 
 goods = Goods()
-goods()             # __call__
+goods()  # __call__
 
 
 # __str__ 打印对象时输出的数据
-print(Goods)        # <class '__main__.Goods'>
+print(Goods)  # <class '__main__.Goods'>
 
-print(goods)        # 打印类默认打印: <__main__.Goods object at 0x000002C24CE4A400>
-                    # 我是goods对象
+print(goods)  # 打印类默认打印: <__main__.Goods object at 0x000002C24CE4A400>
+# 我是goods对象
 
 
 # __dict__ 打印类或对象的属性,返回字典
@@ -84,13 +80,12 @@ print(Goods.__dict__)
 print(goods.__dict__)
 # {'name': '牛仔裤'}
 
-print('-' * 50)
+print("-" * 50)
 
 
 # 用字典的书写格式操作对象的方法,访问  __getitem__  __setitem__  __delitem__
-goods['a']          # item:  a
+goods["a"]  # item:  a
 
-goods['b'] = 10     # key:  b ,value:  10
+goods["b"] = 10  # key:  b ,value:  10
 
-del goods['c']      # key:  c
-
+del goods["c"]  # key:  c

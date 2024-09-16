@@ -7,6 +7,5 @@ def f1(x: Any) -> Any:
     return x
 
 
-print(f1(4))    # 2.0
+print(f1(4))  # 2.0
 print(f1("a"))  # 2.0
-

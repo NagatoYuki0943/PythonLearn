@@ -1,4 +1,4 @@
-'''
+"""
 @property 装饰的方法，只能有一个参数self
 
 @ property
@@ -7,16 +7,16 @@ def property(self):
 
 装饰完之后,可以像使用属性一样使用方法,不用加括号
 print(foo.property) # 100
-'''
+"""
+
 
 class Foo(object):
-
     # 初始化方法
     def __init__(self, number) -> None:
         self.number = number
 
     # 获取对象
-    @ property
+    @property
     def property(self):
         return self.number
 
@@ -24,5 +24,5 @@ class Foo(object):
 foo = Foo(100)
 
 # 装饰完之后,可以像使用属性一样使用方法,不用加括号
-print(foo.property) # 100
+print(foo.property)  # 100
 print("----------------------------------")

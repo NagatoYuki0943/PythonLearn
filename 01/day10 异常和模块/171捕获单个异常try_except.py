@@ -1,9 +1,9 @@
-'''
+"""
 try:
     可能发生异常的代码
 excerpt 异常的类型:
     发生异常执行的代码
-'''
+"""
 
 print("其他的代码")
 num = input("请输入一个数字:")
@@ -16,4 +16,3 @@ except ZeroDivisionError:
     print("傻逼啊你,除0???")
 
 print("其他的代码")
-

@@ -34,8 +34,8 @@ def process2(conn: PipeConnection):
 
 def run_queue():
     conn1, conn2 = Pipe(duplex=True)
-    p1 = Process(target=process1, args=(conn1, ))
-    p2 = Process(target=process2, args=(conn2, ))
+    p1 = Process(target=process1, args=(conn1,))
+    p2 = Process(target=process2, args=(conn2,))
     p1.start()
     p2.start()
     p1.join()
@@ -54,5 +54,6 @@ def run_queue():
     # 19
     # 20
 
-if __name__ =='__main__':
+
+if __name__ == "__main__":
     run_queue()

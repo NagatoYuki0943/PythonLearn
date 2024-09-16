@@ -15,9 +15,9 @@ from torch import nn
 model = nn.Conv2d(3, 16, 1)
 
 # 是否是同一个类
-print(isinstance(model, nn.Conv2d))     # True
-print(type(model) == nn.Conv2d)         # True
+print(isinstance(model, nn.Conv2d))  # True
+print(type(model) == nn.Conv2d)  # True
 
 # 是否是父类
-print(isinstance(model, nn.Module))     # True
-print(type(model) == nn.Module)         # False
+print(isinstance(model, nn.Module))  # True
+print(type(model) == nn.Module)  # False

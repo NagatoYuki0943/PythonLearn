@@ -1,4 +1,3 @@
-
 # 导入邮件包
 import yagmail
 
@@ -7,9 +6,10 @@ import yagmail
 # password: 授权码
 # host: 发送主机
 # port: 端口号
-mail = yagmail.SMTP(user='2487575080@qq.com', password='qgrikapxfkeldjbb', host='smtp.qq.com', port=465)
+mail = yagmail.SMTP(
+    user="2487575080@qq.com", password="qgrikapxfkeldjbb", host="smtp.qq.com", port=465
+)
 
-content = '你好'
+content = "你好"
 # 使用yagmail对象发送邮件(指定收件人,邮件主题,发送的内容)
-mail.send('1179913801@qq.com','测试一下' , content)
-
+mail.send("1179913801@qq.com", "测试一下", content)

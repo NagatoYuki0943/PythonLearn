@@ -12,11 +12,10 @@ from loguru import logger
 
 @dataclass
 class BaseConfig:
-
     @classmethod
     def getattr(cls, attr_name: str) -> Any:
         assert hasattr(cls, attr_name), f"{attr_name} not in {cls.__name__}"
-        if hasattr(cls, 'lock'):
+        if hasattr(cls, "lock"):
             with cls.lock:
                 return getattr(cls, attr_name)
         else:
@@ -24,7 +23,7 @@ class BaseConfig:
 
     @classmethod
     def setattr(cls, attr_name: str, value: Any) -> None:
-        if hasattr(cls, 'lock'):
+        if hasattr(cls, "lock"):
             with cls.lock:
                 setattr(cls, attr_name, value)
         else:

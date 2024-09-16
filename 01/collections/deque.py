@@ -1,4 +1,4 @@
-'''
+"""
 `collections.deque`返回一个新的双向队列对象，从左到右初始化(用方法 append()) ，
 从 iterable （迭代对象) 数据创建。如果 iterable 没有指定，新队列为空。
 `collections.deque`队列支持线程安全，对于从两端添加(append)或者弹出(pop)，复杂度O(1)。
@@ -30,7 +30,7 @@
 
 属性:
     - maxlen：队列的最大长度，没有限定则为None。
-'''
+"""
 
 from collections import deque
 
@@ -38,27 +38,27 @@ d = deque(maxlen=10)
 
 
 # append(x),appendleft(x)：添加到左右两端
-d.append('a')
-d.append('b')
-d.appendleft('e')
-d.appendleft('f')
-d.appendleft('e')
-print(d)    # deque(['e', 'f', 'e', 'a', 'b'], maxlen=10)
-print('~' * 50)
+d.append("a")
+d.append("b")
+d.appendleft("e")
+d.appendleft("f")
+d.appendleft("e")
+print(d)  # deque(['e', 'f', 'e', 'a', 'b'], maxlen=10)
+print("~" * 50)
 
 
 # insert(i,x)：在位置 i 插入 x 。注：如果插入会导致一个限长deque超出长度 maxlen 的话，就升起一个 IndexError 。
-d.insert(0, 'x')
-print(d)    # deque(['x', 'e', 'f', 'e', 'a', 'b'], maxlen=10)
-print('~' * 50)
+d.insert(0, "x")
+print(d)  # deque(['x', 'e', 'f', 'e', 'a', 'b'], maxlen=10)
+print("~" * 50)
 
 
 # extend(iterable),extendleft(iterable)：扩展新的列表
-d.extend('mn')
-print(d)    # deque(['x', 'e', 'f', 'e', 'a', 'b', 'm', 'n'], maxlen=10)
-d.extendleft('oi')
-print(d)    # deque(['i', 'o', 'x', 'e', 'f', 'e', 'a', 'b', 'm', 'n'], maxlen=10)
-print('~' * 50)
+d.extend("mn")
+print(d)  # deque(['x', 'e', 'f', 'e', 'a', 'b', 'm', 'n'], maxlen=10)
+d.extendleft("oi")
+print(d)  # deque(['i', 'o', 'x', 'e', 'f', 'e', 'a', 'b', 'm', 'n'], maxlen=10)
+print("~" * 50)
 
 
 # pop,popleft：左右出栈
@@ -66,42 +66,42 @@ res = d.pop()
 print(res)  # n
 res = d.popleft()
 print(res)  # i
-print(d)    # deque(['o', 'x', 'e', 'f', 'e', 'a', 'b', 'm'], maxlen=10)
-print('~' * 50)
+print(d)  # deque(['o', 'x', 'e', 'f', 'e', 'a', 'b', 'm'], maxlen=10)
+print("~" * 50)
 
 
 # remove(value)：移去找到的第一个value(左->右)。没有抛出ValueError
-d.remove('e')                     # 从左
-print(d)    # deque(['o', 'x', 'f', 'e', 'a', 'b', 'm'], maxlen=10)
-print('~' * 50)
+d.remove("e")  # 从左
+print(d)  # deque(['o', 'x', 'f', 'e', 'a', 'b', 'm'], maxlen=10)
+print("~" * 50)
 
 
 # clear()：清除全部
 d.clear()
-print(d)    # deque([], maxlen=10)
-print('~' * 50)
+print(d)  # deque([], maxlen=10)
+print("~" * 50)
 
 
 # copy()：浅拷贝
-d.extend('aidkmadad')
+d.extend("aidkmadad")
 dd = d.copy()
-d.append('m')
+d.append("m")
 print(d)
 print(dd)
 # 虽然是浅拷贝,但是一个添加值,另一个不会变
 # deque(['a', 'i', 'd', 'k', 'm', 'a', 'd', 'a', 'd', 'm'], maxlen=10)
 # deque(['a', 'i', 'd', 'k', 'm', 'a', 'd', 'a', 'd'], maxlen=10)
-print('~' * 50)
+print("~" * 50)
 
 
 # count(x)：计算队列中个数等于x的元素
-print(d.count('a')) # 3
-print('~' * 50)
+print(d.count("a"))  # 3
+print("~" * 50)
 
 
 # index(x[,start[,stop]])：返回第 x 个元素下标（从 start 开始计算，在 stop 之前）。返回第一个匹配，如果没找到的话，升起 ValueError 。
-print(d.index('a')) # 0
-print('~' * 50)
+print(d.index("a"))  # 0
+print("~" * 50)
 
 
 # reverse()：将deque逆序排列。返回 None 。
@@ -110,8 +110,8 @@ d.reverse()
 print(d)
 # deque(['a', 'i', 'd', 'k', 'm', 'a', 'd', 'a', 'd', 'm'], maxlen=10)
 # deque(['m', 'd', 'a', 'd', 'a', 'm', 'k', 'd', 'i', 'a'], maxlen=10)
-print('~' * 50)
+print("~" * 50)
 
 
 # maxlen：属性 队列的最大长度，没有限定则为None。
-print(d.maxlen) # 10
+print(d.maxlen)  # 10

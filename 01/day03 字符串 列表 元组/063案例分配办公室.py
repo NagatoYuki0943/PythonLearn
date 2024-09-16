@@ -1,7 +1,7 @@
-'''
+""" """
 
-'''
 import random
+
 # 1.定义学校和办公室
 school = [
     [],
@@ -10,7 +10,7 @@ school = [
 ]
 
 # 2.定义老师
-teachers = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+teachers = ["A", "B", "C", "D", "E", "F", "G", "H"]
 # 遍历老师列表
 for teacher in teachers:
     # 3.抓阄
@@ -21,7 +21,7 @@ for teacher in teachers:
 
 
 for office in school:
-    print(f'该办公室老师个数为:{len(office)}')
+    print(f"该办公室老师个数为:{len(office)}")
     for teacher in office:
         print(teacher, end="\t")
     print()

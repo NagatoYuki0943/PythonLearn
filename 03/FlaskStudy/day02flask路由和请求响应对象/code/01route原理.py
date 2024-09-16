@@ -9,18 +9,18 @@ app = Flask(__name__)
 app.config.from_object(settings)
 
 
-@app.route('/')
+@app.route("/")
 def hello_world():
-    return 'Hello World!'
+    return "Hello World!"
 
 
 # add_url_rule就是上面装饰器的作用
 def index():
-    return 'welcome everyone！'
+    return "welcome everyone！"
 
 
 #                                  函数
-app.add_url_rule('/index', view_func=index)
+app.add_url_rule("/index", view_func=index)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()

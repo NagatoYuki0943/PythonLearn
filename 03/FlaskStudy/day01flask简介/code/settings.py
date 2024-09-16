@@ -1,3 +1,3 @@
 # 配置文件
-ENV = 'development'
+ENV = "development"
 DEBUG = True

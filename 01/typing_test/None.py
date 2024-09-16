@@ -6,6 +6,7 @@ def f1(x: Union[int, None]) -> int:
         return 0
     return x
 
+
 f1(None)
 f1(1)
 
@@ -16,6 +17,7 @@ def f2(x: int | None) -> int:
         return 0
     return x
 
+
 f2(None)
 f2(1)
 
@@ -25,6 +27,7 @@ def f3(x: Optional[int]) -> int:
     if x is None:
         return 0
     return x
+
 
 f3(None)
 f3(1)

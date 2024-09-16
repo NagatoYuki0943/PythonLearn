@@ -7,33 +7,33 @@ app.config.from_object(settings)
 
 
 # 父模板 extend
-@app.route('/base')
+@app.route("/base")
 def load_base():
-    return render_template('base.html')
+    return render_template("base.html")
 
 
 # 子模板 extend
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('son.html')
+    return render_template("son.html")
 
 
 # 子模板 include
-@app.route('/welcome')
+@app.route("/welcome")
 def welcome():
-    return render_template('welcome.html')
+    return render_template("welcome.html")
 
 
-@app.route('/macro')
+@app.route("/macro")
 def use_macro():
-    return render_template('macro/macro1.html')
+    return render_template("macro/macro1.html")
 
 
-@app.route('/macro1')
+@app.route("/macro1")
 def use_macro1():
-    return render_template('macro/macro2.html')
+    return render_template("macro/macro2.html")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(app.url_map)
     app.run()

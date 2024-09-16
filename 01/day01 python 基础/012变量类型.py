@@ -1,4 +1,4 @@
-'''
+"""
 bool
     true
     false
@@ -18,7 +18,7 @@ String 字符串
 
 使用 type() 得到数据类型
 type.print 回车 直接补全代码
-'''
+"""
 
 flag = True
 print(type(flag))  # <class 'bool'>

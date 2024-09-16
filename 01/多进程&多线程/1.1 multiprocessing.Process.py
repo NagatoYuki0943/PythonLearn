@@ -1,4 +1,4 @@
-'''
+"""
 # 创建多任务                  函数名
 p1 = multiprocessing.Process(target=sing)
 
@@ -14,7 +14,7 @@ p1.kill()        # Terminate process; sends SIGKILL signal or uses TerminateProc
 
 # 关闭进程
 p1.close()
-'''
+"""
 
 dummy = False
 if dummy:
@@ -59,11 +59,11 @@ def run_process():
     p2.join()
 
     # 要在 join / terminate / kill 之后再调用 close
-    p1.terminate()   # Terminate process; sends SIGTERM signal or uses TerminateProcess()
-    p1.kill()        # Terminate process; sends SIGKILL signal or uses TerminateProcess()
-    p1.close()       # This method releases resources held by the Process object. It is an error to call this method if the child process is still running.
+    p1.terminate()  # Terminate process; sends SIGTERM signal or uses TerminateProcess()
+    p1.kill()  # Terminate process; sends SIGKILL signal or uses TerminateProcess()
+    p1.close()  # This method releases resources held by the Process object. It is an error to call this method if the child process is still running.
 
-    print('Interval:', time.time() - start)
+    print("Interval:", time.time() - start)
     # 唱歌。。。
     # 跳舞。。。
     # 唱歌。。。
@@ -73,5 +73,5 @@ def run_process():
     # Interval: 1.6125640869140625
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run_process()

@@ -16,9 +16,9 @@ Python divmod() 函数接收两个数字类型（非复数）参数，返回一�
 
 """
 
-print(divmod(7, 2))     # (3, 1)
-print(divmod(8, 2))     # (4, 0)
-print(divmod(8, -2))    # (-4, 0)
-print(divmod(-8, 2))    # (-4, 0)
-print(divmod(-8, -2))   # (4, 0)
-print(divmod(3, 1.3))   # (2.0, 0.3999999999999999)
+print(divmod(7, 2))  # (3, 1)
+print(divmod(8, 2))  # (4, 0)
+print(divmod(8, -2))  # (-4, 0)
+print(divmod(-8, 2))  # (-4, 0)
+print(divmod(-8, -2))  # (4, 0)
+print(divmod(3, 1.3))  # (2.0, 0.3999999999999999)

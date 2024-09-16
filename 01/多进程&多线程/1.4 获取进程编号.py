@@ -1,10 +1,10 @@
-'''
+"""
 1. 获取当前进程编号
     os.getpid()
 
 2. 获取当前父进程编号
     os.getppid()
-'''
+"""
 
 dummy = False
 if dummy:
@@ -20,8 +20,8 @@ import os
 
 
 def sing(name: str, num: int):
-    print("唱歌进程的编号： ", os.getpid())             # 唱歌进程的编号：  22448
-    print("唱歌进程的父进程的编号： ", os.getppid())     # 唱歌进程的父进程的编号：  7620
+    print("唱歌进程的编号： ", os.getpid())  # 唱歌进程的编号：  22448
+    print("唱歌进程的父进程的编号： ", os.getppid())  # 唱歌进程的父进程的编号：  7620
 
     for i in range(num):
         print(f"{name}在唱歌。。。")
@@ -29,21 +29,21 @@ def sing(name: str, num: int):
 
 
 def dance(name: str, num: int):
-    print("跳舞进程的编号： ", os.getpid())             # 跳舞进程的编号：  19072
-    print("跳舞进程的父进程的编号： ", os.getppid())     # 跳舞进程的父进程的编号：  7620
+    print("跳舞进程的编号： ", os.getpid())  # 跳舞进程的编号：  19072
+    print("跳舞进程的父进程的编号： ", os.getppid())  # 跳舞进程的父进程的编号：  7620
     for i in range(num):
         print(f"{name}跳舞。。。")
         time.sleep(0.5)
 
 
 def run_process():
-    print("主进程的编号： ", os.getpid())   # 主进程的编号：  7620
+    print("主进程的编号： ", os.getpid())  # 主进程的编号：  7620
 
     # 以元组形式传参                 (1,) 元组一个数据也要加逗号
-    s1 = Process(target=sing, args=('Yuki', 3))
+    s1 = Process(target=sing, args=("Yuki", 3))
 
     # 以字典形式传参
-    d1 = Process(target=dance, kwargs={'name': 'Nagato', 'num': 4})
+    d1 = Process(target=dance, kwargs={"name": "Nagato", "num": 4})
     s1.start()
     d1.start()
 
@@ -59,5 +59,5 @@ def run_process():
     # Nagato跳舞。。。
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run_process()

@@ -3,7 +3,6 @@ import fire
 
 
 class Calculator(object):
-
     def add(self, x, y):
         return x + y
 
@@ -11,7 +10,7 @@ class Calculator(object):
         return x * y
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     calculator = Calculator()
     # 将类实例化，并把实例化的对象多为 fire.Fire 的入参
     fire.Fire(calculator)

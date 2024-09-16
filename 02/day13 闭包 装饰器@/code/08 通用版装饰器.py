@@ -1,15 +1,14 @@
-'''
+"""
 主函数有返回值的情况下
 要在内层函数返回
 
 def function_in(参数):
     return func(参数)
 
-'''
+"""
 
 
 def function_out(func):
-
     def function_in(*args, **kwargs):
         print("----开始验证----")
 
@@ -21,7 +20,7 @@ def function_out(func):
 
 @function_out
 def login(*args, **kwargs):
-    print('----开始登陆----')
+    print("----开始登陆----")
     print("args: ", args)
     print("kwargs: ", kwargs)
     return args[0] + 10
@@ -34,4 +33,3 @@ print(res)
 # args:  (4, 5)
 # kwargs:  {'id': 10}
 # 14
-

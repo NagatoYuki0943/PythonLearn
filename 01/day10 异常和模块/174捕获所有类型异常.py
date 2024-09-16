@@ -1,4 +1,4 @@
-'''
+"""
 写法1:
 try:
     可能发生异常的代码
@@ -15,7 +15,7 @@ excerpt Exception as e:
     print(e)
 
 Exception是常见异常类的父类
-'''
+"""
 
 print("其他的代码")
 num = input("请输入一个数字:")

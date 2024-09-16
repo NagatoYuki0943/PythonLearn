@@ -1,4 +1,4 @@
-'''
+"""
 组包: 将多个数据值给一个变量
 拆包: 将容器中的数据分别给到多个变量,变量数量和数据数量一致
 list拆包获取的值
@@ -37,39 +37,38 @@ let obj12 = {
 };
 //只要age不要姓名
 let { age12 } = obj12;
-'''
+"""
 
 # 组包: 将多个数据值给一个变量
 a = 1, 2, 3
-print(a)            # (1, 2, 3)
+print(a)  # (1, 2, 3)
 
 
 def func():
-    return 1, 2     # 组包
+    return 1, 2  # 组包
 
 
 # 拆包
-x, y, z  =a
-print(x, y, z)      # 1 2 3
+x, y, z = a
+print(x, y, z)  # 1 2 3
 x, y = func()
-print(x, y)         # 1 2
+print(x, y)  # 1 2
 
 
 # list拆包
 [a, b] = [10, 20]
-print(a, b)         # 10 20
+print(a, b)  # 10 20
 a, b = [30, 40]
-print(a, b)         # 30 40
+print(a, b)  # 30 40
 
 
 # dict拆包获取key值
-name, age = {'name':'Tom', 'age':5}
-print(name, age)    # name age
+name, age = {"name": "Tom", "age": 5}
+print(name, age)  # name age
 
 
 # 交换两个变量的值
 a = 11
 b = 22
 a, b = b, a
-print(a, b)         # 22 11
-
+print(a, b)  # 22 11

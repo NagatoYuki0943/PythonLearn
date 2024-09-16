@@ -38,9 +38,11 @@ print(re.split(f"{split3}|{split4}", string3))
 # 使用re.escape转义split3和split4中的所有正则表达式特殊字符
 escaped_split3 = re.escape(split3)
 escaped_split4 = re.escape(split4)
-print(escaped_split3)                   # <\|im_end\|> 增加了转义符号
-print(escaped_split4)                   # </s>
-print([escaped_split3, escaped_split4]) # ['<\\|im_end\\|>', '</s>']  打印数组时会多出一个转义符号
-print([split3, split4])                 # ['<|im_end|>', '</s>']
+print(escaped_split3)  # <\|im_end\|> 增加了转义符号
+print(escaped_split4)  # </s>
+print(
+    [escaped_split3, escaped_split4]
+)  # ['<\\|im_end\\|>', '</s>']  打印数组时会多出一个转义符号
+print([split3, split4])  # ['<|im_end|>', '</s>']
 print(re.split(f"{escaped_split3}|{escaped_split4}", string3))
 # ['abc', 'def', 'g']

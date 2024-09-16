@@ -1,4 +1,4 @@
-'''
+"""
 对象(实例对象): 通过class类实例化来的,这个对象称为实例对象
     实例对象定义的属性称为 实例属性,
         通过实例对象或者通过self 定义的属性都称为实例属性
@@ -25,7 +25,7 @@
 
 实例对象自己用: 实例属性
 实例对象一起用: 类属性
-'''
+"""
 
 
 class Dog(object):
@@ -39,28 +39,28 @@ class Dog(object):
         self.class_name = class_name
 
 
-dog = Dog("阿黄", 18, 'miao')
+dog = Dog("阿黄", 18, "miao")
 
 # 打印dog对象的属性
-print(dog.class_name)   # 狗类
-print(dog.__dict__)     # {'name': '阿黄', 'age': 18}     没有类属性
+print(dog.class_name)  # 狗类
+print(dog.__dict__)  # {'name': '阿黄', 'age': 18}     没有类属性
 
 
 # 查看类的属性
-print(Dog.__dict__)     # ... 'class_name': '狗类', ...
+print(Dog.__dict__)  # ... 'class_name': '狗类', ...
 
 
 # 访问类属性
-print(Dog.class_name)   # 狗类
+print(Dog.class_name)  # 狗类
 Dog.class_name = "Dog"
-print(Dog.class_name)   # Dog
+print(Dog.class_name)  # Dog
 
 
 # 重新赋值之后有对象属性和类属性
-dog.class_name = 'Miao'
-print(dog.class_name)   # Miao
-print(dog.__dict__)     # {'name': '阿黄', 'age': 18, 'class_name': 'Miao'}
-print(Dog.__dict__)     # # ... 'class_name': 'Dog', ...
+dog.class_name = "Miao"
+print(dog.class_name)  # Miao
+print(dog.__dict__)  # {'name': '阿黄', 'age': 18, 'class_name': 'Miao'}
+print(Dog.__dict__)  # # ... 'class_name': 'Dog', ...
 
 
 # 如果不存在和实例属性同名的类属性,则可以使用实例对象访问类属性的值(只能访问,不能修改);

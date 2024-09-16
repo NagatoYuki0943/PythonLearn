@@ -1,5 +1,4 @@
-"""https://kimi.moonshot.cn/chat/cp7j4i6bi7sbkj5c306g
-"""
+"""https://kimi.moonshot.cn/chat/cp7j4i6bi7sbkj5c306g"""
 
 import os
 

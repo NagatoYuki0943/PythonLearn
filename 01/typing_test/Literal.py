@@ -10,18 +10,14 @@ GenderType = Literal["male", "female"]
 
 
 class Person:
-    def __init__(
-        self,
-        name: str,
-        gender: GenderType
-    ) -> None:
+    def __init__(self, name: str, gender: GenderType) -> None:
         self.name = name
         self.gender = gender
 
 
 a = Person("Tom", "male")
 b = Person("Jerry", "female")
-c = Person("Duck", "woman") # 无法通过检查
+c = Person("Duck", "woman")  # 无法通过检查
 
 # 但是将字符串类型当做 Literal 类型传入会无法通过检查
 # 因为 gender 类型是 string,不符合 Literal["male", "female"]

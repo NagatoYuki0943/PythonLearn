@@ -4,12 +4,9 @@ from typing import NewType
 UserId1 = int
 AttachPoint1 = int
 
+
 class Player1:
-    def __init__(
-        self,
-        user_id: UserId1,
-        attach_point: AttachPoint1
-    ) -> None:
+    def __init__(self, user_id: UserId1, attach_point: AttachPoint1) -> None:
         self.user_id = user_id
         self.attach_point = attach_point
 
@@ -22,17 +19,15 @@ class Player1:
 UserId2 = NewType("UserId2", int)
 AttachPoint2 = NewType("AttachPoint2", int)
 
+
 class Player2:
-    def __init__(
-        self,
-        user_id: UserId2,
-        attach_point: AttachPoint2
-    ) -> None:
+    def __init__(self, user_id: UserId2, attach_point: AttachPoint2) -> None:
         self.user_id = user_id
         self.attach_point = attach_point
 
     def update_attack_point(self, point: AttachPoint2) -> None:
         self.attach_point = point
+
 
 # 这样会被检查出来,因为 user_id 和 attach_point 不是 int 类型
 player1 = Player2(1, 2)

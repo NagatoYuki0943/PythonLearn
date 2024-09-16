@@ -1,4 +1,4 @@
-'''
+"""
 # 创建多任务               函数名
 t1 = threading.Thread(target=sing)
 
@@ -7,7 +7,7 @@ t1.start()
 
 # 等待子线程执行完毕
 t1.join()
-'''
+"""
 
 from threading import Thread
 import time
@@ -43,7 +43,7 @@ def run_threads():
     t1.join()
     t2.join()
 
-    print('Interval:', time.time() - start)
+    print("Interval:", time.time() - start)
     # 唱歌。。。
     # 跳舞。。。
     # 唱歌。。。
@@ -53,6 +53,5 @@ def run_threads():
     # Interval: 1.5247292518615723
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run_threads()
-

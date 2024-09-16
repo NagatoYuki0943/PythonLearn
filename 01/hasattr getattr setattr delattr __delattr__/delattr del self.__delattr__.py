@@ -24,24 +24,24 @@ class Coordinate:
 
 point1 = Coordinate()
 
-print(point1.x)     # 10
-print(point1.y)     # -5
-print(point1.z)     # 0
+print(point1.x)  # 10
+print(point1.y)  # -5
+print(point1.z)  # 0
 
-delattr(Coordinate, 'z')
+delattr(Coordinate, "z")
 
-print('--删除 z 属性后--')
-print(point1.x)     # 10
-print(point1.y)     # -5
+print("--删除 z 属性后--")
+print(point1.x)  # 10
+print(point1.y)  # -5
 
 try:
     # 触发错误
     print(point1.z)
 except:
-    print('删除z失败，没有z') # 删除z失败，没有z
+    print("删除z失败，没有z")  # 删除z失败，没有z
 
 
-class Letter():
+class Letter:
     def __init__(self) -> None:
         self.a = 1
         self.b = 2
@@ -50,22 +50,23 @@ class Letter():
 
     def delete(self):
         # 三行效果相同
-        delattr(self, 'a')
+        delattr(self, "a")
         del self.b
-        self.__delattr__('c')
+        self.__delattr__("c")
+
 
 letter = Letter()
-print(hasattr(letter, 'a'))     # True
-print(hasattr(letter, 'b'))     # True
-print(hasattr(letter, 'c'))     # True
-print(hasattr(letter, 'd'))     # True
+print(hasattr(letter, "a"))  # True
+print(hasattr(letter, "b"))  # True
+print(hasattr(letter, "c"))  # True
+print(hasattr(letter, "d"))  # True
 
 letter.delete()
-print(hasattr(letter, 'a'))     # False
-print(hasattr(letter, 'b'))     # False
-print(hasattr(letter, 'c'))     # False
-print(hasattr(letter, 'd'))     # True
+print(hasattr(letter, "a"))  # False
+print(hasattr(letter, "b"))  # False
+print(hasattr(letter, "c"))  # False
+print(hasattr(letter, "d"))  # True
 
 
 # 删除不存在的值会报错
-delattr(letter, 'x')            # AttributeError: x
+delattr(letter, "x")  # AttributeError: x

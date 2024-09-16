@@ -7,12 +7,10 @@ import os
 
 try:
     print(0)
-    os._exit(1) # status=0代表正常,其余代表异常
+    os._exit(1)  # status=0代表正常,其余代表异常
     print(1)
 except SystemExit:
     print(2)
 
 print(3)
 # 0
-
-

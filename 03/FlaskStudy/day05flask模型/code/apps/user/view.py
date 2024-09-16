@@ -3,16 +3,16 @@ from flask.templating import render_template
 from apps.user.models import User
 from exts import db
 
-user_bp = Blueprint(name='user', import_name=__name__)
+user_bp = Blueprint(name="user", import_name=__name__)
 
 
-@user_bp.route('/register', methods=['GET', 'POST'])
+@user_bp.route("/register", methods=["GET", "POST"])
 def register():
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
-        repassword = request.form.get('repassword')
-        phone = request.form.get('phone')
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+        repassword = request.form.get("repassword")
+        phone = request.form.get("phone")
         if password == repassword:
             # 与模型结合
             # 1. 找到模型类并创建对象
@@ -26,8 +26,8 @@ def register():
             db.session.add(user)
             # 4.提交数据
             db.session.commit()
-            return '用户注册成功！'
+            return "用户注册成功！"
         else:
-            return render_template('user/register.html', msg='两次密码不同')
+            return render_template("user/register.html", msg="两次密码不同")
 
-    return render_template('user/register.html')
+    return render_template("user/register.html")

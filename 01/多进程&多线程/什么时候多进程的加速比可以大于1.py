@@ -1,12 +1,4 @@
-
-
-
-def parallel_apply(func,
-                   iterable,
-                   workers,
-                   max_queue_size,
-                   callback=None,
-                   dummy=False):
+def parallel_apply(func, iterable, workers, max_queue_size, callback=None, dummy=False):
     """多进程或多线程地将func应用到iterable的每个元素中。
     注意这个apply是异步且无序的，也就是说依次输入a,b,c，但是
     输出可能是func(c), func(a), func(b)。
@@ -71,6 +63,7 @@ def parallel_apply(func,
 
 # 调用这个函数来多进程统计词频，大致代码如下：
 
+
 def _batch_texts():
     texts = []
     for text in read_texts():
@@ -81,6 +74,7 @@ def _batch_texts():
     if texts:
         yield texts
 
+
 def _tokenize_and_count(texts):
     tokens = {}
     for text in texts:
@@ -88,10 +82,14 @@ def _tokenize_and_count(texts):
             tokens[token] = tokens.get(token, 0) + 1
     return tokens
 
+
 tokens = {}
+
+
 def _total_count(result):
     for k, v in result.items():
         tokens[k] = tokens.get(k, 0) + v
+
 
 # 10进程来完成词频统计
 parallel_apply(
@@ -109,4 +107,3 @@ parallel_apply(
     _total_count对每一批样本的结果进行汇总；
     最后parallel_apply用10进程实现这个过程。
 """
-

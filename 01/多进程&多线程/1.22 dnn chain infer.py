@@ -41,12 +41,11 @@ def data_preprocess(queue_in: Queue, queue_out: Queue):
         queue_out (Queue): 返回预处理后的图片
     """
     print(f"data_preprocess id: {os.getpid()}")
-    transform = transforms.Compose([
-        transforms.Normalize(
-            [0.485, 0.456, 0.406],
-            [0.229, 0.224, 0.225]
-        ),
-    ])
+    transform = transforms.Compose(
+        [
+            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
+        ]
+    )
     try:
         while True:
             image = queue_in.get(timeout=5)
@@ -66,7 +65,11 @@ def infer(queue_in: Queue, queue_out: Queue):
     """
     print(f"infer id: {os.getpid()}")
     # cuda result was zero. https://github.com/pytorch/pytorch/issues/109094
-    device = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
+    device = (
+        "cuda"
+        if torch.cuda.is_available()
+        else ("mps" if torch.backends.mps.is_available() else "cpu")
+    )
     device = "cpu"
     model = models.resnet18(num_classes=1).eval().to(device)
     try:
@@ -104,8 +107,20 @@ def chain_infer():
 
     processes = [
         Process(target=load_data, args=(queue1,)),
-        Process(target=data_preprocess, args=(queue1, queue2,)),
-        Process(target=infer, args=(queue2, queue3,)),
+        Process(
+            target=data_preprocess,
+            args=(
+                queue1,
+                queue2,
+            ),
+        ),
+        Process(
+            target=infer,
+            args=(
+                queue2,
+                queue3,
+            ),
+        ),
         Process(target=show_result, args=(queue3,)),
     ]
 

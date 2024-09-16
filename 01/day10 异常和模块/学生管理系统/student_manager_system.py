@@ -10,26 +10,25 @@ class StudentManagerSystem(object):
     # 显示菜单
     @staticmethod
     def __show_menu():
-        '''
+        """
         展示菜单
-        '''
-        print('1.添加学生')
-        print('2.删除学生')
-        print('3.修改学生')
-        print('4.查询单个信息')
-        print('5.查询所有信息')
-        print('6.删除全部信息')
-        print('7.退出')
+        """
+        print("1.添加学生")
+        print("2.删除学生")
+        print("3.修改学生")
+        print("4.查询单个信息")
+        print("5.查询所有信息")
+        print("6.删除全部信息")
+        print("7.退出")
 
     # 开始界面
     def start(self):
-
         # 读取文件信息
         self.__open_file()
 
         while True:
             self.__show_menu()
-            opt = input('请输入编号:')
+            opt = input("请输入编号:")
 
             if opt == "1":
                 self.__insert_student()
@@ -44,14 +43,14 @@ class StudentManagerSystem(object):
             elif opt == "6":
                 self.__del_all()
             elif opt == "7":
-                print('欢迎下次使用')
+                print("欢迎下次使用")
                 self.__save()
                 break
             else:
-                print('输入有误,请再次输入')
+                print("输入有误,请再次输入")
                 continue  # 不用再按回车
 
-            input('*****请按回车键继续*****')
+            input("*****请按回车键继续*****")
 
     # 添加学生信息
     def __insert_student(self):
@@ -59,7 +58,7 @@ class StudentManagerSystem(object):
         id = input("请输入学生学号:")
         # 代码优化,判断学号是否存在  in 判断key值是否在字典中
         if id in self.__stu_dicts:
-            #key 存在
+            # key 存在
             print("学生信息已经存在,不能再次添加,可以修改")
             return
 
@@ -78,7 +77,7 @@ class StudentManagerSystem(object):
         # 删除学生信息
         id = input("请输入要删除的学生学号:")
         if id in self.__stu_dicts:
-            #del self.__stu_dicts[id]
+            # del self.__stu_dicts[id]
             self.__stu_dicts.pop(id)
             print("学生已经删除")
         else:
@@ -129,7 +128,7 @@ class StudentManagerSystem(object):
 
         # 保存学生的信息,要写上 values()
         for stu in self.__stu_dicts.values():
-            f.write(str(stu) + "\n")   # str(stu)会调用 student类中的 __str()__ 方法
+            f.write(str(stu) + "\n")  # str(stu)会调用 student类中的 __str()__ 方法
 
     # 读取学生信息
     def __open_file(self):
@@ -146,7 +145,7 @@ class StudentManagerSystem(object):
                 # 3.split取出所有的信息,放进对象
                 for i in buffer_list:
                     id, name, age, gender = i.split(",")
-                    #print(id, name, age, gender)    # 2 a 34 male
+                    # print(id, name, age, gender)    # 2 a 34 male
 
                     # 4.创建学生对象
                     stu = student.Student(id, name, age, gender)

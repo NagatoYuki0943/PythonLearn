@@ -3,7 +3,6 @@ import fire
 
 
 class BrokenCalculator(object):
-
     def __init__(self, offset=0):
         self._offset = offset
 
@@ -14,7 +13,7 @@ class BrokenCalculator(object):
         return x * y + self._offset
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # 传递类和实例对象的基本作用是一样的，但传递类还有一个额外的特性：
     # 如果构造函数中定义了参数，那么这些参数都会作为整个命令行程序的选项参数
     fire.Fire(BrokenCalculator)

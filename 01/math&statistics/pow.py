@@ -10,8 +10,7 @@ pow(x, y[, z])
     - z: 数值表达式
 """
 
-
-print(pow(2, 3))    # 8
-print(pow(2, 3, 3)) # 2 = 2 ^ 3 % 3
+print(pow(2, 3))  # 8
+print(pow(2, 3, 3))  # 2 = 2 ^ 3 % 3
 print(pow(4, 0.5))  # 2.0
-print(pow(4, -0.5)) # 0.5
+print(pow(4, -0.5))  # 0.5

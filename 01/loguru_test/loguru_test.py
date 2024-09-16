@@ -77,11 +77,11 @@ from loguru import logger
 
 # 将日志输出到文件
 # 每天 0 点新创建一个 log 文件
-log_file = logger.add('runtime_{time}.log', rotation='00:00')
+log_file = logger.add("runtime_{time}.log", rotation="00:00")
 
 
 # Loguru 提供七个独特的日志级别
-logger.trace("A trace message.")    # trace 不会输出
+logger.trace("A trace message.")  # trace 不会输出
 logger.debug("A debug message.")
 logger.info("An info message.")
 logger.success("A success message.")

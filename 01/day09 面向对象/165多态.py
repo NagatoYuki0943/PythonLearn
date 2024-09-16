@@ -1,11 +1,11 @@
-'''
+"""
 传入父类对象,但是也能传入子类对象,得到不同的结果
 1.子类继承父类
 2.子类重写父类方法
 3.通过对象调用这个方法
 
 python中多态可以没有继承,叫鸭子类型,
-'''
+"""
 
 
 class Dog(object):
@@ -17,7 +17,6 @@ class Dog(object):
 
 
 class XTQ(Dog):
-
     # 重写父类方法
     def play(self):
         print(f"{self.name}在天上追云彩")

@@ -1,6 +1,7 @@
 import asyncio
 import time
 
+
 async def say_after(delay, what):
     # asyncio.sleep() 会阻塞当前协程, 直到 delay 秒后才继续执行
     await asyncio.sleep(delay)
@@ -11,8 +12,8 @@ async def main():
     # create_task() 会把 coroutine 转换为一个 task 对象, 并将其注册到 event loop
     # 但是 event loop 并不会立即执行该 task, 以为当前控制权仍在 main() 函数中
     # main() 函数会继续创建另一个 task 对象, 并注册到 event loop
-    task1 = asyncio.create_task(say_after(1, 'hello'))
-    task2 = asyncio.create_task(say_after(2, 'world'))
+    task1 = asyncio.create_task(say_after(1, "hello"))
+    task2 = asyncio.create_task(say_after(2, "world"))
 
     print(f"started at {time.strftime('%X')}")
 
@@ -29,5 +30,6 @@ async def main():
     # ['hello - 1 seconds', 'world - 2 seconds']
     # finished at 13:16:57
     # 相差2秒, 实现并行
+
 
 asyncio.run(main())

@@ -4,29 +4,26 @@ callable() 函数用于检查一个对象是否是可调用的。如果返回 Tr
 对于函数、方法、lambda 函式、 类以及实现了 __call__ 方法的类实例, 它都返回 True。
 """
 
-print(callable(0))          # False
-print(callable("Hello"))    # False
-print(callable(print))      # True
+print(callable(0))  # False
+print(callable("Hello"))  # False
+print(callable(print))  # True
 
 
-def foo():
-    ...
+def foo(): ...
 
 
-print(callable(foo))        # True
+print(callable(foo))  # True
 
 
 class NotEexc:
-    def __init__(self) -> None:
-        ...
+    def __init__(self) -> None: ...
 
 
 print(callable(NotEexc()))  # False
 
 
 class Exec:
-    def __call__(self):
-        ...
+    def __call__(self): ...
 
 
-print(callable(Exec()))     # True
+print(callable(Exec()))  # True

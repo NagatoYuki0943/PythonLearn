@@ -1,4 +1,4 @@
-'''
+"""
 文本文件:   能够使用记事本打开的文件
 二进制文件: 具有特殊格式的文件 mp4,mp3
 
@@ -23,20 +23,18 @@
 
 字符串.encode() 将字符串转化为二进制格式字符串
 字符串.decode() 将二进制字符串转化为字符串
-'''
+"""
 
-
-f = open('文件/3.m', 'wb')
+f = open("文件/3.m", "wb")
 
 # 字符串.encode() 将字符串转化为二进制格式字符串
-f.write('你好'.encode())
+f.write("你好".encode())
 f.close()
 
-f1 = open('文件/3.m', 'rb')
+f1 = open("文件/3.m", "rb")
 res = f1.read()
-print(res)                          # b'\xe4\xbd\xa0\xe5\xa5\xbd'   b代表二进制  x代表16进制
+print(res)  # b'\xe4\xbd\xa0\xe5\xa5\xbd'   b代表二进制  x代表16进制
 
 # 字符串.decode() 将二进制字符串转化为字符串
-print(res.decode())                 # 你好
+print(res.decode())  # 你好
 f1.close()
-

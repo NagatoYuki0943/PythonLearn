@@ -1,9 +1,9 @@
-'''
+"""
 lock在不同进程使用同一共享内存时，能够确保进程之间互不影响，使用lock的方法是，
 在每个进程执行运算修改共享内存之前，执行lock.acquire()将共享内存上锁，
 确保当前进程执行时，内存不会被其他进程访问，执行运算完毕后，
 使用lock.release()将锁打开，保证其他的进程可以使用该共享内存。
-'''
+"""
 
 dummy = False
 dummy = False
@@ -26,7 +26,7 @@ def job1():
     lock.acquire()
     for i in range(10):
         A += 1
-        print('job1',A)
+        print("job1", A)
     lock.release()
 
 
@@ -35,7 +35,7 @@ def job2():
     lock.acquire()
     for i in range(10):
         A += 10
-        print('job2',A)
+        print("job2", A)
     lock.release()
 
 
@@ -70,6 +70,5 @@ def run_process():
     # job2 100
 
 
-if __name__== '__main__':
+if __name__ == "__main__":
     run_process()
-

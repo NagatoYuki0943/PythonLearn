@@ -1,5 +1,4 @@
-"""locals() 函数会以字典类型返回当前位置的全部局部变量。
-"""
+"""locals() 函数会以字典类型返回当前位置的全部局部变量。"""
 
 x = 10
 
@@ -11,9 +10,9 @@ print(locals())
 
 
 def func(x, y):
-    print(locals()) # {'x': 1, 'y': 2}
+    print(locals())  # {'x': 1, 'y': 2}
     z = x + y
-    print(locals()) # {'x': 1, 'y': 2, 'z': 3}
+    print(locals())  # {'x': 1, 'y': 2, 'z': 3}
     return z
 
 

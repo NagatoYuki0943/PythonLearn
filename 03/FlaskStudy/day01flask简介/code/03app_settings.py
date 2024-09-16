@@ -11,16 +11,15 @@ app.config.from_object(settings)
 print(app.config)
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    return 'index'
+    return "index"
 
 
-@app.route('/hell0')
+@app.route("/hell0")
 def hell0():
-    return 'hell0'
+    return "hell0"
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
-
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000)

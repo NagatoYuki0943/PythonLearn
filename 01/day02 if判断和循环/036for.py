@@ -1,12 +1,12 @@
-'''
+"""
 for循环/遍历
 for 变量 in 字符串:
     代码
 for 循环也称为 for 遍历,会将字符串中的字符全部取到
-'''
+"""
 
 # 一次打印一个字符
-for i in 'hello':
+for i in "hello":
     print(i, end=" ")  # h e l l o
 print()
 

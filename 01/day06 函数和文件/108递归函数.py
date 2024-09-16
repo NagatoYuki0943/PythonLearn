@@ -5,6 +5,7 @@ def factorial1(n):
         res *= i
     print(res)
 
+
 factorial1(5)
 
 
@@ -13,6 +14,7 @@ def factorial2(n):
         return 1
 
     return n * factorial2(n - 1)
+
 
 res = factorial2(5)
 print(res)

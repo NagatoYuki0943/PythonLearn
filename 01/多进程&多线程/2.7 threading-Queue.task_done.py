@@ -1,5 +1,7 @@
 from threading import Thread
-from queue import Queue # 线程安全的Queue, from multiprocessing import Queue 的Queue是进程安全的,更复杂
+from queue import (
+    Queue,
+)  # 线程安全的Queue, from multiprocessing import Queue 的Queue是进程安全的,更复杂
 # from multiprocessing.dummy import Queue # 这个也是线程 Queue
 
 """

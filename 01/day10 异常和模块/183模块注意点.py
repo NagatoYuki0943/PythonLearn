@@ -1,4 +1,4 @@
-'''
+"""
 模块注意点:
     自己定义的模块名字,不要和系统中你要使用的模块名字相同
 
@@ -7,7 +7,7 @@
 查看模块查找顺序
 import sys
 print(sys.path)
-'''
+"""
 
 import random
 
@@ -18,4 +18,5 @@ print(a)
 
 # 查看模块查找顺序
 import sys
+
 print(sys.path)

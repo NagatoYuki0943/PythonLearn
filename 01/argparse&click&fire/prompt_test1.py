@@ -14,7 +14,6 @@ prompt_toolkit 具有以下特点：
     - 支持 Emacs 与 Vi 风格的快捷键
 """
 
-
 from prompt_toolkit import prompt
 from prompt_toolkit.history import FileHistory
 from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
@@ -23,11 +22,11 @@ from prompt_toolkit.contrib.completers import SystemCompleter
 
 while True:
     user_input = prompt(
-        message='>>>',
-        history=FileHistory('history.txt'),     # 历史记录
+        message=">>>",
+        history=FileHistory("history.txt"),  # 历史记录
         auto_suggest=AutoSuggestFromHistory(),  # 根据历史记录自动建议
-        completer=SystemCompleter()             # 系统命令自动补全
+        completer=SystemCompleter(),  # 系统命令自动补全
     )
-    if user_input.strip().lower() == 'exit':
+    if user_input.strip().lower() == "exit":
         break
     print(user_input)

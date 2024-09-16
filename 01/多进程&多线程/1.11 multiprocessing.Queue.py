@@ -47,5 +47,5 @@ def run_queue():
     # Empty
 
 
-if __name__ =='__main__':
+if __name__ == "__main__":
     run_queue()

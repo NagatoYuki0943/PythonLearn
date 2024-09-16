@@ -1,4 +1,4 @@
-'''
+"""
 1. 用只读的方式,打开文件
 2. 读取文件内容
 3. 关闭文件
@@ -11,13 +11,13 @@
     2. 复制备份的文件可能是 txt 文件,可能是 二进制文件,  ---> 使用二进制方式打开文件比较好
     r   w   a
     rb  wb  ab
-'''
+"""
 
-f = open('文件/forward.txt', 'rb')
+f = open("文件/forward.txt", "rb")
 buf = f.read()
 f.close()
 
 
-f = open('文件/back.txt', 'wb')
+f = open("文件/back.txt", "wb")
 f.write(buf)
 f.close()

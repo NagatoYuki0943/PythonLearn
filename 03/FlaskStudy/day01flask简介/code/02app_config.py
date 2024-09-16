@@ -14,15 +14,15 @@ app = Flask(__name__)
 #  'JSONIFY_MIMETYPE': 'application/json', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093}
 
 # 配置
-app.config['ENV'] = 'development'  # development testing production
-app.config['DEBUG'] = True
+app.config["ENV"] = "development"  # development testing production
+app.config["DEBUG"] = True
 print(app.config)
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    return '欢迎大家！～～～～hhahhaha'
+    return "欢迎大家！～～～～hhahhaha"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(port=8080)

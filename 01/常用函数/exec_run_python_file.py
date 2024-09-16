@@ -16,6 +16,6 @@ print(data)
 exec(data)
 # My name is Tom and 12 years old.
 
-person = Person('Jerry', 11)
+person = Person("Jerry", 11)
 print(person)
 # My name is Jerry and 11 years old.

@@ -1,11 +1,12 @@
-'''
+"""
 iter() 函数用来生成迭代器。
 
 next() 返回迭代器的下一个项目。
 next() 函数要和生成迭代器的 iter() 函数一起使用。
 第一次获取的就是第一条数据
 next(iter(data))
-'''
+"""
+
 import torch
 
 
@@ -16,7 +17,7 @@ for i in lst:
     # [1, 2]
     # [3, 4]
     # [5, 6]
-print('*' * 50)
+print("*" * 50)
 
 
 for i in iter(lst):
@@ -24,7 +25,7 @@ for i in iter(lst):
     # [1, 2]
     # [3, 4]
     # [5, 6]
-print('-' * 50)
+print("-" * 50)
 
 
 tensor = torch.randn(4, 2)
@@ -34,7 +35,7 @@ for i in tensor:
     # tensor([0.7214, 1.4999])
     # tensor([ 0.3664, -0.0461])
     # tensor([1.5123, 0.3924])
-print('*' * 50)
+print("*" * 50)
 
 
 for i in iter(tensor):
@@ -43,8 +44,7 @@ for i in iter(tensor):
     # tensor([0.7214, 1.4999])
     # tensor([ 0.3664, -0.0461])
     # tensor([1.5123, 0.3924])
-print('-' * 50)
-
+print("-" * 50)
 
 
 it = iter(tensor)

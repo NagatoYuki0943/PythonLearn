@@ -8,7 +8,6 @@ from functools import partial
 
 
 def multply_setup(a: float) -> Callable:
-
     def multply(b: float) -> float:
         return a * b
 
@@ -18,5 +17,5 @@ def multply_setup(a: float) -> Callable:
 multply_2 = multply_setup(2)
 multply_3 = multply_setup(3)
 
-print(multply_2(5)) # 10
-print(multply_3(5)) # 15
+print(multply_2(5))  # 10
+print(multply_3(5))  # 15

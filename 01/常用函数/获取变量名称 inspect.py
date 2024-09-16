@@ -1,5 +1,6 @@
 import inspect
 
+
 def var_dict(*args):
     """
     将变量转化为字典形式, key是变量的字符串名称, value是变量的值
@@ -40,4 +41,3 @@ if __name__ == "__main__":
     b = 4
     c = 5
     var_dict(a, b, c)
-

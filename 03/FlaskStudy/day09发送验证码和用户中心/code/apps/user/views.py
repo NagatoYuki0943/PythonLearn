@@ -1,14 +1,22 @@
-'''
+"""
 用户控制器
 使用模板继承
 
 ajax手机号
 cookie session
-'''
+"""
 
 from operator import or_
 import re
-from flask import Blueprint, url_for, request, session, jsonify, Response, g  # g 本次请求的一个对象
+from flask import (
+    Blueprint,
+    url_for,
+    request,
+    session,
+    jsonify,
+    Response,
+    g,
+)  # g 本次请求的一个对象
 from flask.templating import render_template
 import requests
 from werkzeug.utils import redirect
@@ -16,25 +24,28 @@ from apps.user.models import User
 from apps.user.smssend import SmsSendAPIDemo
 
 from exts import db
-from werkzeug.security import generate_password_hash, check_password_hash    # 加密,解密密码
+from werkzeug.security import (
+    generate_password_hash,
+    check_password_hash,
+)  # 加密,解密密码
 from sqlalchemy import or_, and_, not_
 from datetime import datetime, timedelta
 
 
 # url_prefix 是url前缀,必须有 '/'
 # 作用是 127.0.0.2:5000/user 加上自己的路由
-user_bp = Blueprint(name='user', import_name=__name__, url_prefix='/user')
+user_bp = Blueprint(name="user", import_name=__name__, url_prefix="/user")
 
 
 # 需要登录的path列表,注意有 /user
-required_login_list = ['/user/center', '/user/update', '/user/publish']
+required_login_list = ["/user/center", "/user/update", "/user/publish"]
 
 
 # 钩子函数
 # 第一次被请求调用
-@user_bp.before_app_first_request   # 蓝图的方法中有app, app自身的不用再加上app
+@user_bp.before_app_first_request  # 蓝图的方法中有app, app自身的不用再加上app
 def first_request():
-    #print('before_app_first_request')
+    # print('before_app_first_request')
     pass
 
 
@@ -45,10 +56,10 @@ def before_request():
     path = request.path
     # print(path) # /user/
     if path in required_login_list:
-        id = session.get('uid')
+        id = session.get("uid")
         # 没有登录
         if not id:
-            return redirect(url_for('user.login'))
+            return redirect(url_for("user.login"))
         else:
             user = User.query.get(id)
             # 放在本次请求的对象中
@@ -57,56 +68,56 @@ def before_request():
 
 # 每次请求之后调用,对response做处理
 @user_bp.after_app_request
-def after_request(response: Response): # 参数必须有response,因为前面的函数会传递过来
+def after_request(response: Response):  # 参数必须有response,因为前面的函数会传递过来
     # 处理response
-    response.set_cookie('a', 'test', 60)
+    response.set_cookie("a", "test", 60)
     return response
 
 
 # 在after之后,也有参数
 @user_bp.teardown_app_request
 def teardown_app_request(response: Response):
-    print('teardown_app_request')
+    print("teardown_app_request")
     return response
 
 
 # 首页,获取cookie
-@user_bp.route('/')
+@user_bp.route("/")
 def index():
     # 1.获取cookie,也是字典格式,可以设置默认值
     # uid = request.cookies.get('uid', None)
     # 2.session方式 字典格式
-    uid = session.get('uid', None)
+    uid = session.get("uid", None)
     if uid:
         user = User.query.get(uid)
-        return render_template('user/index.html', user=user)
+        return render_template("user/index.html", user=user)
     else:
-        return render_template('user/index.html')
+        return render_template("user/index.html")
 
 
 # ajax手机号唯一
-@user_bp.route('/checkphone', methods=['GET','POST'])
+@user_bp.route("/checkphone", methods=["GET", "POST"])
 def checkphone():
-    phone = request.args.get('phone')
+    phone = request.args.get("phone")
     # 是否存在
-    user = User.query.filter(User.isdelete==False, User.phone==phone).all()
+    user = User.query.filter(User.isdelete == False, User.phone == phone).all()
     if user:
-        return {'code':1, 'msg':'号码已经被注册'}
+        return {"code": 1, "msg": "号码已经被注册"}
     else:
-        return {'code':0, 'msg':'号码可以使用'}
+        return {"code": 0, "msg": "号码可以使用"}
 
 
 # 注册
-@user_bp.route('/register', methods=['GET','POST'])
+@user_bp.route("/register", methods=["GET", "POST"])
 def register():
-    if request.method == 'GET':
-        return render_template('user/register.html', user=None) # 必需传递用户,不然报错
+    if request.method == "GET":
+        return render_template("user/register.html", user=None)  # 必需传递用户,不然报错
     else:
-        username = request.form.get('username')
-        password = request.form.get('password')
-        repassword = request.form.get('repassword')
-        phone = request.form.get('phone')
-        email = request.form.get('email')
+        username = request.form.get("username")
+        password = request.form.get("password")
+        repassword = request.form.get("repassword")
+        phone = request.form.get("phone")
+        email = request.form.get("email")
         # 与模型结合
         # 1. 找到模型类并创建对象
         user = User()
@@ -118,29 +129,33 @@ def register():
             # user.password = hashlib.sha256(password.encode('utf-8')).hexdigest()    # hexdigest() 转换为字符串
 
             # 密码格式 pbkdf2:sha256$salt$hash
-            user.password = generate_password_hash(password=password, method="pbkdf2:sha256", salt_length=8)    # 这个方法也能加密
+            user.password = generate_password_hash(
+                password=password, method="pbkdf2:sha256", salt_length=8
+            )  # 这个方法也能加密
             # return user.password # pbkdf2:sha256:260000$0mNOkiQR$f4d7d4bfcd2059faec0a0b4274470b73981b471e40f94adba841dcf6203fd7dd
             # 添加
             # 3.将user对象添加到session中（类似缓存）
             db.session.add(user)
             # 4.提交数据
             db.session.commit()
-            return redirect(url_for('user.index')) # url_for()里面填写的是 Blueprint + func名字
+            return redirect(
+                url_for("user.index")
+            )  # url_for()里面填写的是 Blueprint + func名字
         else:
-            return render_template('user/register.html', msg='两次密码不同', user=user)
+            return render_template("user/register.html", msg="两次密码不同", user=user)
 
 
 # 登录,添加cookie
-@user_bp.route('/login', methods=['GET','POST'])
+@user_bp.route("/login", methods=["GET", "POST"])
 def login():
-    if request.method == 'GET':
-        return render_template('user/login.html')
+    if request.method == "GET":
+        return render_template("user/login.html")
     else:
-        username = request.form.get('username')
-        password = request.form.get('password')
+        username = request.form.get("username")
+        password = request.form.get("password")
 
         # 查询
-        user_list = User.query.filter(username==username).all()
+        user_list = User.query.filter(username == username).all()
         # print(user_list) # 用户对象列表
         for user in user_list:
             # user就是每一个用户对象
@@ -159,38 +174,40 @@ def login():
                 # return response
 
                 # 2.session 字典的使用方式
-                session['uid'] = user.id
-                return redirect(url_for('user.index'))
+                session["uid"] = user.id
+                return redirect(url_for("user.index"))
         else:
-            return render_template('user/login.html', msg="账户或密码错误", username=username)
+            return render_template(
+                "user/login.html", msg="账户或密码错误", username=username
+            )
 
 
 # ajax发送短信息
-@user_bp.route('/sendmsg')
+@user_bp.route("/sendmsg")
 def sendmsg():
-    SECRET_ID = "ef8a1e23fc76790c80c97bf6134a75a2"      # 产品密钥ID，产品标识
-    SECRET_KEY = "f951ca65d2437d4432a8e0a4c9183e91"     # 产品私有密钥，服务端生成签名信息使用，请严格保管，避免泄露
-    BUSINESS_ID = "98d06d9b06ba49d68f38cbb5c453299f"    # 业务ID，易盾根据产品业务特点分配
+    SECRET_ID = "ef8a1e23fc76790c80c97bf6134a75a2"  # 产品密钥ID，产品标识
+    SECRET_KEY = "f951ca65d2437d4432a8e0a4c9183e91"  # 产品私有密钥，服务端生成签名信息使用，请严格保管，避免泄露
+    BUSINESS_ID = "98d06d9b06ba49d68f38cbb5c453299f"  # 业务ID，易盾根据产品业务特点分配
     api = SmsSendAPIDemo(SECRET_ID, SECRET_KEY, BUSINESS_ID)
 
-    phone = request.args.get('phone')
+    phone = request.args.get("phone")
 
     # 验证用户是否注册
-    user = User.query.filter(User.phone==phone ).first()
+    user = User.query.filter(User.phone == phone).first()
     if not user:
-        return jsonify(code=401, msg='手机号未注册')
+        return jsonify(code=401, msg="手机号未注册")
 
     params = {
         "mobile": phone,
         "templateId": "10084",
         "paramType": "json",
-        "params": "json格式字符串.要自己替换掉 "
+        "params": "json格式字符串.要自己替换掉 ",
     }
     # 发送短息验证码
     res = api.send(params)
 
     session[phone] = 123456
-    return jsonify(code=200, msg='短信发送成功')
+    return jsonify(code=200, msg="短信发送成功")
 
     # 下面没法使用,所以使用上面的代替
     if res is not None:
@@ -201,62 +218,62 @@ def sendmsg():
             # 保存在session
             session[phone] = 241036
             # 返回json对象
-            return jsonify(code=200, msg='短信发送成功')
+            return jsonify(code=200, msg="短信发送成功")
         else:
-            print("ERROR: ret.code=%s,msg=%s" % (res['code'], res['msg']))
-            return jsonify(code=400, msg='短信发送失败')
+            print("ERROR: ret.code=%s,msg=%s" % (res["code"], res["msg"]))
+            return jsonify(code=400, msg="短信发送失败")
 
 
 # 接收验证码登录
-@user_bp.route('/phonelogin', methods=['GET','POST'])
+@user_bp.route("/phonelogin", methods=["GET", "POST"])
 def phonelogin():
-    phone = request.form.get('phone')
-    code = request.form.get('code')
-    print(type(code))               # str
-    print(type(session.get(phone))) # int
+    phone = request.form.get("phone")
+    code = request.form.get("code")
+    print(type(code))  # str
+    print(type(session.get(phone)))  # int
 
     if eval(code) == session.get(phone):
-        user = User.query.filter(User.phone==phone ).first()
+        user = User.query.filter(User.phone == phone).first()
         if user:
             # 登录成功
             del session[phone]
-            session['uid'] = user.id
-            return redirect(url_for('user.index'))
+            session["uid"] = user.id
+            return redirect(url_for("user.index"))
         else:
             # 登录失败
-            return render_template('user/login.html', msg="号码未注册", phone=phone)
+            return render_template("user/login.html", msg="号码未注册", phone=phone)
     else:
-        return render_template('user/login.html', msg="验证码错误", phone=phone)
+        return render_template("user/login.html", msg="验证码错误", phone=phone)
 
 
 # 退出登录,删除cookie
-@user_bp.route('/logout')
+@user_bp.route("/logout")
 def logout():
-    response =  redirect(url_for('user.index'))
+    response = redirect(url_for("user.index"))
     # 1.删除cookie
     # response.delete_cookie(key='uid')
     # 2.删除session
-    del session['uid']
+    del session["uid"]
     # session.clear()   # 清除全部session
     return response
 
 
 # 用户中心
-@user_bp.route('/center')
+@user_bp.route("/center")
 def center():
     #                                               g是本次请求的对象,在before_app_request中获取了用户,这里不用在获取了
-    return render_template('user/center.html', user=g.user)
+    return render_template("user/center.html", user=g.user)
 
 
 # 更新数据
-@user_bp.route('/update', methods=['GET','POST'])
+@user_bp.route("/update", methods=["GET", "POST"])
 def update():
-    if request.method == 'POST':
-        username = request.form.get('username')
-        phone = request.form.get('phone')
-        email = request.form.get('email')
+    if request.method == "POST":
+        username = request.form.get("username")
+        phone = request.form.get("phone")
+        email = request.form.get("email")
         # files,要特殊处理
-        icon = request.files.get('icon')
+        icon = request.files.get("icon")
 
         user = g.user
         user.username = username
@@ -265,5 +282,4 @@ def update():
         user.icon = icon
         db.session.commit()
 
-
-    return render_template('user/center.html', user=g.user)
+    return render_template("user/center.html", user=g.user)

@@ -1,4 +1,4 @@
-'''
+"""
 1.打开文件,将文件从硬盘存到内存中
 open(file, mode='r', ..., encoding=None)
     file:       文件名
@@ -48,17 +48,15 @@ f = open('/文件/1.txt', 'w', encoding='utf-8')
 3.关闭文件,将内存中的文件同步到硬盘中
     文件.close()
 
-'''
+"""
 
 # 以只读的方式打开当前目录中文件
-f = open('文件/1.txt', 'r', encoding='utf-8')
+f = open("文件/1.txt", "r", encoding="utf-8")
 buff = f.read()
-print(buff)     # 1111
+print(buff)  # 1111
 
 
-
-
-'''
+"""
 C++
 /**
  *
@@ -90,4 +88,4 @@ C++
  * 例如:用二进制方式写文件 ios::binary | ios::out
  */
 
-'''
+"""

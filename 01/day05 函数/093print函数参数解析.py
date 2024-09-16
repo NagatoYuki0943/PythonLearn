@@ -18,9 +18,8 @@ def print(self, *args, sep=' ', end='\n', file=None): # known special case of pr
     pass
 '''
 
-
-print(1)                        # 1
-print(1, 2, sep="*")            # 1*2
-print(1, 2, 3, sep="_*_")       # 1_*_2_*_3
+print(1)  # 1
+print(1, 2, sep="*")  # 1*2
+print(1, 2, 3, sep="_*_")  # 1_*_2_*_3
 print(1, 2, 3, 4, sep="hello")  # 1hello2hello3hello4
-print(1, 2, 3, 4, 5, " ")       # 1 2 3 4 5
+print(1, 2, 3, 4, 5, " ")  # 1 2 3 4 5

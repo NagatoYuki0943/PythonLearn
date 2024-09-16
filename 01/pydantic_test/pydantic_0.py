@@ -10,7 +10,9 @@ class UserResponse(BaseModel):
     id: int
     user: User
 
+
 global_id = 1  # 全局ID
+
 
 def create_user(user: User) -> UserResponse:
     global global_id

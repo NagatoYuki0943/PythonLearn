@@ -12,33 +12,36 @@ hasattr可以在类内部使用，参数1为self，可以查看对象自身的�
 """
 
 
-class Coordinate():
+class Coordinate:
     x = 10
     y = -5
+
     def __init__(self):
         self.z = 0
 
+
 point1 = Coordinate()
-print(hasattr(point1, 'x'))     # True
-print(hasattr(point1, 'y'))     # True
-print(hasattr(point1, 'z'))     # True
-print(hasattr(point1, 'no'))    # False
+print(hasattr(point1, "x"))  # True
+print(hasattr(point1, "y"))  # True
+print(hasattr(point1, "z"))  # True
+print(hasattr(point1, "no"))  # False
 
 
 # hasattr可以在类内部使用，参数1为self，可以查看对象自身的属性
-class RepVGGBlock():
+class RepVGGBlock:
     def __init__(self, deploy=False):
         if deploy:
             self.rbr_reparam = 1
 
     def forward(self):
-        if hasattr(self, 'rbr_reparam'):
+        if hasattr(self, "rbr_reparam"):
             print(1)
         else:
             print(0)
 
+
 block1 = RepVGGBlock()
-block1.forward()         # 0
+block1.forward()  # 0
 
 block2 = RepVGGBlock(deploy=True)
-block2.forward()         # 1
+block2.forward()  # 1

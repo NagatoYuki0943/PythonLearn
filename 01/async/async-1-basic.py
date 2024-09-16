@@ -10,6 +10,7 @@ async def main():
     await asyncio.sleep(1)
     print("world")
 
+
 coro = main()
 print(coro)
 # <coroutine object main at 0x000001FE7EFCD3C0>

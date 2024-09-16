@@ -1,6 +1,6 @@
-'''
+"""
 Counter是一个dict子类，主要是用来对你访问的对象的频率进行计数
-'''
+"""
 
 from collections import Counter
 
@@ -14,7 +14,7 @@ print(res)
 # Counter({4: 4, 0: 3, 2: 2, 3: 2, 1: 2, 5: 1, 9: 1, 15: 1})
 
 # 获取4的次数
-print(res[4])   # 4
+print(res[4])  # 4
 
 # 全部元素
 print(res.elements())

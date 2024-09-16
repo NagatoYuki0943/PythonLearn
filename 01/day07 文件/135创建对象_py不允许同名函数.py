@@ -1,4 +1,4 @@
-'''
+"""
 创建对象 不用new
 变量 = 类名()
 
@@ -10,26 +10,26 @@
 
 
 python不允许同名函数,参数不同也不行
-'''
+"""
 
 
 class Dog(object):
     def play(self):
-        print('小狗快乐的拆家中')
+        print("小狗快乐的拆家中")
 
     # python不允许同名函数,参数不同也不行
     # def play(self, name):
     #     pass
 
     def eat(self, food):
-        print(f'吃{food}')
+        print(f"吃{food}")
 
 
 dog = Dog()
-print(id(dog))      # 2547036228288
-dog.play()          # 小狗快乐的拆家中
-dog.eat('狗肉')      # 吃狗肉
+print(id(dog))  # 2547036228288
+dog.play()  # 小狗快乐的拆家中
+dog.eat("狗肉")  # 吃狗肉
 
 
 dog1 = Dog()
-print(id(dog1))     # 2547036228240
+print(id(dog1))  # 2547036228240
