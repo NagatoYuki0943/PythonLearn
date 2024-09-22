@@ -22,7 +22,11 @@ def parse_opt():
         help="evolve hyperparameters for x generations",
     )
     parser.add_argument(
-        "--half", action="store_true", help="FP16 half-precision export"
+        "--half",
+        action="store_true",
+        required=False,
+        default=False,
+        help="FP16 half-precision export",
     )
     parser.add_argument(
         "--include",
