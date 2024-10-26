@@ -23,4 +23,5 @@ if __name__ == "__main__":
         future = executor.submit(sing, "Yuki", 3)
         print(future.result())
         future = executor.submit(dance, name="Nagato", num=4)
-        print(future.result())
+        # 超时设置 1 秒，如果超过 1 秒还没有结果，则抛出 TimeoutError 异常
+        print(future.result(timeout=1))
