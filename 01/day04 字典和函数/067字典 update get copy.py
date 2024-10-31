@@ -13,6 +13,8 @@ my_dict.get(key) 使用get获取值,没有key值返回None
 get(value,default)
 
 len()获取键值对数量
+
+dict.copy() 浅拷贝
 """
 
 # 1.定义空字典
@@ -24,21 +26,20 @@ print("*" * 50)
 
 
 # 2.定义带数据的字典
-dict3 = {"name": "Tom", "age": 18, "hobby": ["pantyhose", "sticks", "stocking"]}
-print(dict3)  # {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'sticks', 'stocking']}
+dict3 = {"name": "Tom", "age": 18, "hobby": ["pantyhose", "stocking"]}
+print(dict3)  # {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'stocking']}
 
 
 # 3.添加新数据,数据要写成字典格式
 dict3.update({"length": 100})
-print(
-    dict3
-)  # {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'sticks', 'stocking'], 'length': 100}
+print(dict3)
+# {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'stocking'], 'length': 100}
 
 
 # 访问value值,字典中没有下标概念,使用key值访问value值
 print(dict3["name"])  # Tom
 print(dict3["hobby"][0])  # pantyhose
-# print(dict3['a'])         # key值不存在,会报错
+# print(dict3['a'])  # key值不存在,会报错
 
 # get方式获取不会报错,没有返回None
 # get(key)
@@ -52,3 +53,18 @@ print("*" * 50)
 
 # 4.使用len获取长度,获取键值对的数量
 print(len(dict3))  # 4
+print("*" * 50)
+
+
+# 5. copy() 浅拷贝
+dict3 = {"name": "Tom", "age": 18, "hobby": ["pantyhose", "stocking"]}
+dict4 = dict3.copy()
+print(dict3)
+print(dict4)
+# {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'stocking'], 'length': 100}
+# {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'stocking'], 'length': 100}
+dict4["hobby"].append("ballet")
+print(dict3)
+print(dict4)
+# {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'stocking', 'ballet'], 'length': 100}
+# {'name': 'Tom', 'age': 18, 'hobby': ['pantyhose', 'stocking', 'ballet'], 'length': 100}
