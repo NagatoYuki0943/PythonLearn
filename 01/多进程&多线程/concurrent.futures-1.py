@@ -25,3 +25,5 @@ if __name__ == "__main__":
         future = executor.submit(dance, name="Nagato", num=4)
         # 超时设置 1 秒，如果超过 1 秒还没有结果，则抛出 TimeoutError 异常
         print(future.result(timeout=1))
+        # 尽可能地取消未完成的任务
+        future.cancel()
