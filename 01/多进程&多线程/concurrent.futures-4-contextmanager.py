@@ -35,8 +35,6 @@ def executor_context(max_workers: int = 1):
         # 2. 使用wait=True确保所有线程都已完成
         executor.shutdown(wait=True)
 
-        # 3. 给线程一些时间来清理
-        time.sleep(0.1)
 
 if __name__ == "__main__":
     # 多进程要在 `if __name__ == "__main__"` 中进行,在ipynb中运行失败
