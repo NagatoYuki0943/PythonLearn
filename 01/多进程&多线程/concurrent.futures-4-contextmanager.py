@@ -19,6 +19,7 @@ def dance(name: str, num: int) -> str:
 
 # 使用 contextmanager 装饰器来创建线程池/进程池, 管理线程池/进程池的生命周期
 # https://www.perplexity.ai/search/shang-mian-shi-yi-ge-shu-mei-p-zY6puYdZTcO8euQ1uVK0kg
+# https://claude.ai/chat/2683b22b-c547-47fe-9b1c-65a9290926c8
 @contextmanager
 def executor_context(max_workers: int = 1):
     executor = ProcessPoolExecutor(max_workers=max_workers)
