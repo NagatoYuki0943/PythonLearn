@@ -6,6 +6,7 @@ else:
     # 进程
     from multiprocessing import Lock
 from dataclasses import dataclass
+from copy import deepcopy
 from typing import Any
 from loguru import logger
 
@@ -17,9 +18,17 @@ class BaseConfig:
         assert hasattr(cls, attr_name), f"{attr_name} not in {cls.__name__}"
         if hasattr(cls, "lock"):
             with cls.lock:
-                return getattr(cls, attr_name)
+                try:
+                    return deepcopy(getattr(cls, attr_name))
+                except Exception:
+                    logger.exception(f"Error in deepcopy {attr_name}")
+                    return getattr(cls, attr_name)
         else:
-            return getattr(cls, attr_name)
+            try:
+                return deepcopy(getattr(cls, attr_name))
+            except Exception:
+                logger.exception(f"Error in deepcopy {attr_name}")
+                return getattr(cls, attr_name)
 
     @classmethod
     def setattr(cls, attr_name: str, value: Any) -> None:
