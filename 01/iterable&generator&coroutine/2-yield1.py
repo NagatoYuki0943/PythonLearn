@@ -35,6 +35,20 @@ for n in fab(5):
 
 f = fab(5)
 # 迭代器的形式
+print(next(f))
+print(next(f))
+print(next(f))
+print(next(f))
+print(next(f))
+# 1
+# 1
+# 2
+# 3
+# 5
+
+
+f = fab(5)
+# 迭代器的形式
 print(f.__next__())
 print(f.__next__())
 print(f.__next__())
