@@ -34,11 +34,16 @@ class BaseConfig:
 
     @classmethod
     def setattr(cls, attr_name: str, value: Any) -> None:
-        if hasattr(cls, "lock"):
-            with cls.lock:
+        try:
+            value = deepcopy(value)
+        except Exception:
+            logger.exception(f"Error in deepcopy {attr_name}")
+        finally:
+            if hasattr(cls, "lock"):
+                with cls.lock:
+                    setattr(cls, attr_name, value)
+            else:
                 setattr(cls, attr_name, value)
-        else:
-            setattr(cls, attr_name, value)
 
 
 class CameraConfig(BaseConfig):
