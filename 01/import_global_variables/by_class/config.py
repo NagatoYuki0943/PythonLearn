@@ -34,6 +34,7 @@ class BaseConfig:
 
     @classmethod
     def setattr(cls, attr_name: str, value: Any) -> None:
+        assert hasattr(cls, attr_name), f"{attr_name} not in {cls.__name__}"
         try:
             value = deepcopy(value)
         except Exception:
