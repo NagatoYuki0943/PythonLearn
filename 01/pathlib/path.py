@@ -26,6 +26,7 @@ print()
 
 print(path.is_absolute())  # True
 print(path.absolute())  # d:\ml\code\test\path\path.py
+# resolve() 相比 absolute() 更加智能，会自动处理路径中的.. 和 . 符号
 print(path.resolve())  # D:\ml\code\test\path\path.py
 print(path.is_file())  # True
 print(path.is_dir())  # False
