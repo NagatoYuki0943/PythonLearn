@@ -20,7 +20,7 @@ print(dic["b"])  # 2
 # 如果dict中没有对应的key则会抛出KeyError异常。
 try:
     print(dic["c"])
-except:
+except KeyError:
     print("no c")  # no c
 print("-" * 10)
 
@@ -34,6 +34,11 @@ print(dic["b"])  # 2
 print(dic["c"])  # 0  打印默认值
 print("-" * 10)
 
+# 第二个参数可以指定默认值
+dic_0 = defaultdict(int, {0: "a", 1: "b", 2: "c"})
+print(dic_0)  # defaultdict(<class 'int'>, {0: 'a', 1: 'b', 2: 'c'})
+print(dic_0[0])  # a
+print("-" * 10)
 
 ## 常规用法
 # defaultdict接受一个类型对象或函数对象，在取值时，如果不存在对应的key则返回对应的函数返回值或默认构造函数的实例对象：
