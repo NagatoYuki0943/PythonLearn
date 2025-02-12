@@ -16,7 +16,7 @@ class BaseConfig:
     @classmethod
     def getattr(cls, attr_name: str) -> Any:
         assert hasattr(cls, attr_name), f"{attr_name} not in {cls.__name__}"
-        if hasattr(cls, "lock"):
+        if hasattr(cls, "lock") and isinstance(cls.lock, Lock):
             with cls.lock:
                 attr = getattr(cls, attr_name)
                 try:
@@ -40,7 +40,7 @@ class BaseConfig:
         except Exception:
             logger.exception(f"Error in deepcopy {attr_name}")
         finally:
-            if hasattr(cls, "lock"):
+            if hasattr(cls, "lock") and isinstance(cls.lock, Lock):
                 with cls.lock:
                     setattr(cls, attr_name, value)
             else:
