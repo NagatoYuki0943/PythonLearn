@@ -1,16 +1,18 @@
-# 类型作为别名
-ReturnType = tuple[int, str | None]
+# 最简单的写法
+Url1 = str
+
+def retry1(url: Url1, retry_count: int) -> None: ...
 
 
-def f(x: int) -> ReturnType:
-    if x > 0:
-        print(x)
-        return (0, None)
-    else:
-        return (0, "Negative")
+# 使用 TypeAlias 定义类型别名
+from typing import TypeAlias
+
+Url2: TypeAlias = str
+
+def retry2(url: Url2, retry_count: int) -> None: ...
 
 
-retcode, errmsg = f(1)
-print(retcode, errmsg)
-retcode, errmsg = f(-1)
-print(retcode, errmsg)
+# 3.12 and later, 使用 type 定义类型别名
+type Url3 = str
+
+def retry3(url: Url3, retry_count: int) -> None: ...
