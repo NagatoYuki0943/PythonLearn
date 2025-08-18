@@ -10,6 +10,7 @@ except FileExistsError:
     pass
 
 # 不同的压缩级别
+# 默认情况下是不压缩的，不建议使用
 with zipfile.ZipFile(
     "zip_level.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9
 ) as zipf:
