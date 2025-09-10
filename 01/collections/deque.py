@@ -10,7 +10,7 @@
     - append(x)：添加x到右端
     - appendleft(x)：添加x到左端
 
-    - insert(i, x)：在位置 i 插入 x 。注：如果插入会导致一个限长deque超出长度 maxlen 的话，就升起一个 IndexError 。
+    - insert(i, x)：在位置 i 插入 x 。注：如果插入会导致一个限长deque超出长度 maxlen 的话，就raise一个 IndexError 。
 
     - extend(iterable)：在队列右侧添加iterable中的元素
     - extendleft(iterable)：在队列左侧添加iterable中的元素，注：在左侧添加时，iterable参数的顺序将会反过来添加(右->左)
@@ -24,7 +24,7 @@
     - copy()：创建一份浅拷贝,虽然是浅拷贝,但是一个添加值,另一个不会变
     - count(x)：计算队列中个数等于x的元素
 
-    - index(x[,start[,stop]])：返回第 x 个元素（从 start 开始计算，在 stop 之前）。返回第一个匹配，如果没找到的话，升起 ValueError 。
+    - index(x[,start[,stop]])：返回第 x 个元素（从 start 开始计算，在 stop 之前）。返回第一个匹配，如果没找到的话，raise ValueError 。
 
     - reverse()：将deque逆序排列。返回 None 。
 
@@ -47,7 +47,7 @@ print(d)  # deque(['e', 'f', 'e', 'a', 'b'], maxlen=10)
 print("~" * 50)
 
 
-# insert(i,x)：在位置 i 插入 x 。注：如果插入会导致一个限长deque超出长度 maxlen 的话，就升起一个 IndexError 。
+# insert(i,x)：在位置 i 插入 x 。注：如果插入会导致一个限长deque超出长度 maxlen 的话，就raise一个 IndexError 。
 d.insert(0, "x")
 print(d)  # deque(['x', 'e', 'f', 'e', 'a', 'b'], maxlen=10)
 print("~" * 50)
@@ -61,7 +61,7 @@ print(d)  # deque(['i', 'o', 'x', 'e', 'f', 'e', 'a', 'b', 'm', 'n'], maxlen=10)
 print("~" * 50)
 
 
-# pop,popleft：左右出栈
+# pop,popleft：左右删除元素
 res = d.pop()
 print(res)  # n
 res = d.popleft()
@@ -99,7 +99,7 @@ print(d.count("a"))  # 3
 print("~" * 50)
 
 
-# index(x[,start[,stop]])：返回第 x 个元素下标（从 start 开始计算，在 stop 之前）。返回第一个匹配，如果没找到的话，升起 ValueError 。
+# index(x[,start[,stop]])：返回第 x 个元素下标（从 start 开始计算，在 stop 之前）。返回第一个匹配，如果没找到的话，raise ValueError 。
 print(d.index("a"))  # 0
 print("~" * 50)
 
