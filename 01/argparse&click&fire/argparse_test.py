@@ -54,7 +54,29 @@ def parse_opt():
 if __name__ == "__main__":
     opt = parse_opt()
     print(opt)
-    # > python argparse_test.py v8 --weights yolov5x.pt --device cuda --evolve --include onnx   # 不指定--evolve
+    print(opt.version)
+    print(opt.weights)
+    print(opt.device)
+    print(opt.evolve)
+    print(opt.half)
+    print(opt.include)
+
+    # 不指定 --evolve
+    # > python argparse_test.py v8 --weights yolov5x.pt --device cuda --evolve --include onnx
     # Namespace(version='v8', weights='yolov5x.pt', device='cuda', evolve=300, half=False, include=['onnx'])
-    # > python argparse_test.py v8 --weights yolov5x.pt --evolve --include onnx                 # 不写--device
-    # Namespace(version='v8', weights='yolov5x.pt', device='cpu', evolve=300, half=False, include=['onnx'])
+    # v8
+    # yolov5x.pt
+    # cuda
+    # 300
+    # False
+    # ['onnx']
+
+    # 不写 --device
+    # > python argparse_test.py v8 --weights yolov5x.pt --evolve --include openvino
+    # Namespace(version='v8', weights='yolov5x.pt', device='cpu', evolve=300, half=False, include=['openvino'])
+    # v8
+    # yolov5x.pt
+    # cpu
+    # 300
+    # False
+    # ['openvino']
