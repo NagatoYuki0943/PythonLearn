@@ -13,12 +13,19 @@ print()
 
 
 b, *_, h = shape
-print(b, h)  # 1 224
-print(_)  # [3, 224, 224]
+print(b)  # 1
+print(_)  # [3, 224]
+print(h)  # 224
 print()
 
 
 *_, h, w = shape
 print(_)  # [1, 3]
 print(h, w)  # 224 224
+print()
+
+
+*_, w = shape
+print(_)  # [1, 3, 224]
+print(w)  # 224
 print()
