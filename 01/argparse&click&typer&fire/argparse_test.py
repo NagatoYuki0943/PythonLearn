@@ -11,7 +11,7 @@ def parse_opt():
     )
     # default 代表不写 --device 参数时的默认值
     parser.add_argument(
-        "--device", default="cpu", choices=["cpu", "cuda"], help="cuda or cpu"
+        "--device", type=str, default="cpu", choices=["cpu", "cuda"], help="cuda or cpu"
     )
     # const 代表写 --evolve 但不写参数时的默认值
     parser.add_argument(
@@ -30,6 +30,7 @@ def parse_opt():
     )
     parser.add_argument(
         "--include",
+        type=str,
         nargs="+",  # n : 参数的绝对个数;  ? : 0或1个参数;  * : 0或所有参数;  + : 至少一个参数;
         default=["torchscript"],
         choices=[
@@ -47,6 +48,15 @@ def parse_opt():
         ],
         help="torchscript, onnx, openvino, engine, coreml, saved_model, pb, tflite, edgetpu, tfjs, paddle",
     )
+    parser.add_argument(
+        "--imgsz",
+        "--img",
+        "--img-size",
+        nargs="+",
+        type=int,
+        default=[640, 640],
+        help="image (h, w)",
+    )
     opt = parser.parse_args()
     return opt
 
@@ -60,23 +70,35 @@ if __name__ == "__main__":
     print(opt.evolve)
     print(opt.half)
     print(opt.include)
+    print(opt.imgsz)
 
     # 不指定 --evolve
     # > python argparse_test.py v8 --weights yolov5x.pt --device cuda --evolve --include onnx
-    # Namespace(version='v8', weights='yolov5x.pt', device='cuda', evolve=300, half=False, include=['onnx'])
+    # Namespace(version='v8', weights='yolov5x.pt', device='cuda', evolve=300, half=False, include=['onnx', 'openvino'], imgsz=[640, 640])
     # v8
     # yolov5x.pt
     # cuda
     # 300
     # False
-    # ['onnx']
+    # ['onnx', 'openvino']
+    # [640, 640]
 
-    # 不写 --device
-    # > python argparse_test.py v8 --weights yolov5x.pt --evolve --include openvino
-    # Namespace(version='v8', weights='yolov5x.pt', device='cpu', evolve=300, half=False, include=['openvino'])
+    # > python argparse_test.py v8 --weights yolov5x.pt --device cuda --evolve --include onnx openvino --imgsz 640
+    # Namespace(version='v8', weights='yolov5x.pt', device='cuda', evolve=300, half=False, include=['onnx', 'openvino'], imgsz=[640])
     # v8
     # yolov5x.pt
-    # cpu
+    # cuda
     # 300
     # False
-    # ['openvino']
+    # ['onnx', 'openvino']
+    # [640
+
+    # > python argparse_test.py v8 --weights yolov5x.pt --device cuda --evolve --include onnx openvino --imgsz 800 800
+    # Namespace(version='v8', weights='yolov5x.pt', device='cuda', evolve=300, half=False, include=['onnx', 'openvino'], imgsz=[800, 800])
+    # v8
+    # yolov5x.pt
+    # cuda
+    # 300
+    # False
+    # ['onnx', 'openvino']
+    # [800, 800]
