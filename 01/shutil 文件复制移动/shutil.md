@@ -122,7 +122,7 @@ dest = './2/'   # 放进文件夹里
 shutil.copy(origin, dest)
 ```
 
-## 5 复制文件 copy2(src, dst) copyfile + copystat
+## 5 复制文件和属性 copy2(src, dst) copyfile + copystat
 
 将文件src复制至dst。dst可以是个目录，会在该目录下创建与src同名的文件，**若该目录下存在同名文件，将会报错提示已经存在同名文件**。权限、上次访问时间、上次修改时间和src的标志会一并复制至dst。本质是先后调用了copyfile与copystat方法
 
