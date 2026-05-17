@@ -1,9 +1,11 @@
-import asyncio
 import time
+from typing import Any
+import asyncio
 
 
-async def say_after(delay, what):
-    # asyncio.sleep() 会阻塞当前协程, 直到 delay 秒后才继续执行
+async def say_after(delay: float, what: Any):
+    # asyncio.sleep() 会挂起当前协程，把控制权交还给事件循环；
+    # 当前任务会在 delay 秒后恢复执行。
     await asyncio.sleep(delay)
     print(what)
 
@@ -24,7 +26,8 @@ async def main():
     # hello
     # world
     # finished at 12:54:44
-    # 相差3秒, 没有实现并行
+    # 相差3秒, 没有实现并发
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())

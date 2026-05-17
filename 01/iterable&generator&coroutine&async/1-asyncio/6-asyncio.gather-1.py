@@ -1,10 +1,18 @@
-import asyncio
+# gather() 适合“并发跑一组任务并收集返回值”的简单场景；
+# 但如果你希望某个任务炸了以后整个任务组一起取消，优先用 TaskGroup。
+# gather(return_exceptions=True) 会把异常当作结果返回，这在批处理里有用，但也很容易让错误被安详地埋葬。
+
+
 import time
+from typing import Any
+import asyncio
 
 
-async def say_after(delay, what):
-    # asyncio.sleep() 会阻塞当前协程, 直到 delay 秒后才继续执行
+async def say_after(delay: float, what: Any):
+    # asyncio.sleep() 会挂起当前协程，把控制权交还给事件循环；
+    # 当前任务会在 delay 秒后恢复执行。
     await asyncio.sleep(delay)
+    print(f"{what} - {delay} seconds")
     return f"{what} - {delay} seconds"
 
 
@@ -12,8 +20,8 @@ async def main():
     # create_task() 会把 coroutine 转换为一个 task 对象, 并将其注册到 event loop
     # 但是 event loop 并不会立即执行该 task, 以为当前控制权仍在 main() 函数中
     # main() 函数会继续创建另一个 task 对象, 并注册到 event loop
-    task1 = asyncio.create_task(say_after(1, "hello"))
-    task2 = asyncio.create_task(say_after(2, "world"))
+    task1 = asyncio.create_task(say_after(2, "hello"))
+    task2 = asyncio.create_task(say_after(1, "world"))
 
     print(f"started at {time.strftime('%X')}")
 
@@ -27,9 +35,10 @@ async def main():
     print(f"finished at {time.strftime('%X')}")
 
     # started at 13:16:55
-    # ['hello - 1 seconds', 'world - 2 seconds']
+    # ['hello - 2 seconds', 'world - 1 seconds']
     # finished at 13:16:57
-    # 相差2秒, 实现并行
+    # 相差2秒, 实现并发
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
