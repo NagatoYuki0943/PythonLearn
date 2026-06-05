@@ -1,45 +1,22 @@
-"""
-yeild 迭代器可以被返回
-yield from 后面加上可迭代对象，他可以把可迭代对象里的每个元素一个一个的yield出来，
-对比yield来说代码更加简洁，结构更加清晰。
-"""
+# yield 不只是输出，还能接收值
 
 
-def number():
-    # 从一个可迭代对象中生成一个迭代器
-    yield from [f"<< {i}" for i in range(4)]
+def gen():
+    x = yield "第一次暂停"
+    print("收到:", x)
+    return "结束返回值"
 
 
-for i in number():
-    print(i, end=" ")
-print()
-# << 0 << 1 << 2 << 3
+g = gen()
 
+print(next(g))
+# 第一次暂停
 
-def reader():
-    for i in range(4):
-        yield f"<< {i}"
+try:
+    g.send("hello")
+except StopIteration as e:
+    # 生成器的 return 值会藏在 StopIteration.value 里
+    print("StopIteration.value =", e.value)
 
-
-def reader_wrapper1():
-    # Instead of manually iterating over reader(), we can just yield from it.
-    yield from reader()
-
-
-wrap = reader_wrapper1()
-for i in wrap:
-    print(i, end=" ")
-print()
-# << 0 << 1 << 2 << 3
-
-
-def reader_wrapper2():
-    # 直接返回 reader() 的迭代器,效果和 yield from 一样
-    return reader()
-
-
-wrap = reader_wrapper2()
-for i in wrap:
-    print(i, end=" ")
-print()
-# << 0 << 1 << 2 << 3
+# 收到: hello
+# StopIteration.value = 结束返回值
