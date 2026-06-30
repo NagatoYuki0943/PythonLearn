@@ -13,12 +13,20 @@ _GENERATOR_END = object()
 def blocking_io():
     for i in range(5):
         yield i
-        time.sleep(1)  # 模拟 I/O 阻塞
+        time.sleep(1)
+
+    return "blocking_io finished"
+
+
+def next_with_return(iterator):
+    try:
+        item = next(iterator)
+        return False, item
+    except StopIteration as exc:
+        return True, exc.value
 
 
 async def say_after(delay: float, what: Any):
-    # asyncio.sleep() 会挂起当前协程，把控制权交还给事件循环；
-    # 当前任务会在 delay 秒后恢复执行。
     await asyncio.sleep(delay)
     print(f"{what} - {delay} seconds")
 
@@ -30,9 +38,8 @@ async def main() -> None:
         task_group.create_task(say_after(2, "hello"))
         task_group.create_task(say_after(1, "world"))
 
-        # 通过 to_thread 实现迭代返回, 避免阻塞事件循环
-        generator = await asyncio.to_thread(blocking_io)
-        iterator = iter(generator)
+        iterator = iter(blocking_io())
+
         while True:
             item = await asyncio.to_thread(next, iterator, _GENERATOR_END)
             if item is _GENERATOR_END:
@@ -41,15 +48,15 @@ async def main() -> None:
 
     print(f"finished at {time.strftime('%X')}")
 
-    # started at 09:14:28
+    # started at 09:36:46
     # 0
     # 1
     # world - 1 seconds
-    # 2
     # hello - 2 seconds
+    # 2
     # 3
     # 4
-    # finished at 09:14:33
+    # finished at 09:36:51
 
 
 if __name__ == "__main__":
